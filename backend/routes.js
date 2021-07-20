@@ -24,4 +24,16 @@ router.get("/getplantsfromserver", (req, res) => {
   });
 });
 
+router.post("/authenticate", async (req, res) => {
+  let user = await User.findOne({ email: req.body.email });
+
+  if (!user) {
+    user = await User.create(req.body);
+  }
+
+  jwt.sign({ user }, "secret key", { expiresIn: "30min" }, (err, token) => {
+    res.json({ user, token });
+  });
+});
+
 module.exports = router;

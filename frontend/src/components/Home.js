@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import AllPlants from "./AllPlants";
+import { GoogleLogin } from "react-google-login";
 
 function Home(props) {
   return (
