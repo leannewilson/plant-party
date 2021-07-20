@@ -1,23 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import { Switch, Link, Route } from "react-router-dom";
+import AddPlant from "./components/AddPlant";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Plant Partyyyy!</h1>
+      <Link to="/add-plant">Add a plant to our collection</Link>
+      <Switch>
+        <Route
+          exact
+          path="/add-plant"
+          render={(props) => <AddPlant {...props} />}
+        />
+      </Switch>
     </div>
   );
 }
