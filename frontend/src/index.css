@@ -17,13 +17,33 @@ code {
   flex-direction: row;
   flex-wrap: wrap;
   max-width: 400px;
-  float: left;
-  width: 33.33%;
+  float: right;
+  width: 100%;
   padding: 5px;
-  margin: auto;
 }
-.row::after {
-  content: "";
-  clear: both;
-  display: table;
+
+.gallery-grid:hover {
+  opacity: 50%;
 }
+
+.img-wrapper {
+  position: relative;
+}
+
+.img-description {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  color: black;
+  /* visibility: hidden; */
+}
+.img-description:hover {
+  visibility: visible;
+}
+
+/* .img-wrapper:hover .img-description {
+  visibility: visible;
+  opacity: 1;
+} */

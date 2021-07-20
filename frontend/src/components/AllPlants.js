@@ -14,8 +14,15 @@ function AllPlants(props) {
   const ShowAllPlants = () => {
     return allPlants.map((eachPlant) => {
       return (
-        <div>
-          <img className="gallery-grid" src={eachPlant.image} />
+        <div key={eachPlant._id} className="img-wrapper">
+          <img
+            className="gallery-grid"
+            src={eachPlant.image}
+            alt="green and growing"
+          />
+          {/* <span>
+            <p className="img-description">{eachPlant.commonName}</p>
+          </span> */}
         </div>
       );
     });
