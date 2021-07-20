@@ -46,70 +46,70 @@ function AddPlant(props) {
           Care level:
           <br></br>
           <select name="careLevel" multiple={true} onChange={handleChange}>
-            <option value="novice">Novice</option>
-            <option value="green-thumb">Green Thumb</option>
-            <option value="expert">Expert</option>
+            <option value="Novice">Novice</option>
+            <option value="Green thumb">Green Thumb</option>
+            <option value="Expert">Expert</option>
           </select>
         </label>
         <label>
           Light:
           <br></br>
           <select name="light" multiple={true} onChange={handleChange}>
-            <option value="low-moderate">Low-Moderate</option>
-            <option value="bright-indirect">Bright, indirect</option>
-            <option value="full-sun">Full sun</option>
+            <option value="Low-moderate">Low-Moderate</option>
+            <option value="Bright-indirect">Bright, indirect</option>
+            <option value="Full sun">Full sun</option>
           </select>
         </label>
         <label>
           Water:
           <br></br>
           <select name="water" multiple={true} onChange={handleChange}>
-            <option value="low">Low</option>
-            <option value="low-moderate">Low-Moderate</option>
-            <option value="moderate">Moderate</option>
-            <option value="moderate-high">Moderate-High</option>
-            <option value="high">High</option>
+            <option value="Low">Low</option>
+            <option value="Low-moderate">Low-Moderate</option>
+            <option value="Moderate">Moderate</option>
+            <option value="Moderate-high">Moderate-High</option>
+            <option value="High">High</option>
           </select>
         </label>
         <label>
           Soil:
           <br></br>
           <select name="soil" multiple={true} onChange={handleChange}>
-            <option value="well-draining">Well-draining</option>
-            <option value="moisture-retaining">Moisture-retaining </option>
-            <option value="coarse-sandy">Coarse + sandy </option>
+            <option value="Well-draining">Well-draining</option>
+            <option value="Moisture-retaining">Moisture-retaining </option>
+            <option value="Coarse-sandy">Coarse + sandy </option>
           </select>
         </label>
         <label>
           Humidity:
           <br></br>
           <select name="humidity" multiple={true} onChange={handleChange}>
-            <option value="none">None</option>
-            <option value="low">Low</option>
-            <option value="low-medium">Low-Medium</option>
-            <option value="medium">Medium</option>
-            <option value="high">High</option>
+            <option value="None">None</option>
+            <option value="Low">Low</option>
+            <option value="Low-medium">Low-Medium</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
           </select>
         </label>
         <label>
           Propagation:
           <br></br>
           <select name="propagation" multiple={true} onChange={handleChange}>
-            <option value="stem-cuttings">Stem cuttings </option>
-            <option value="plantlets-offsets">Plantlets + Offsets </option>
-            <option value="leaf-cuttings">Leaf cuttings</option>
-            <option value="division">Division</option>
+            <option value="Stem-cuttings">Stem cuttings </option>
+            <option value="Plantlets-offsets">Plantlets + Offsets </option>
+            <option value="Leaf-cuttings">Leaf cuttings</option>
+            <option value="Division">Division</option>
           </select>
         </label>
         <label>
           Growth Habit:
           <br></br>
           <select name="growthHabit" multiple={true} onChange={handleChange}>
-            <option value="trailing">Trailing </option>
-            <option value="climbing">Climbing</option>
-            <option value="upright">Upright</option>
-            <option value="clumping">Clumping</option>
-            <option value="rosette">Rosette</option>
+            <option value="Trailing">Trailing </option>
+            <option value="Climbing">Climbing</option>
+            <option value="Upright">Upright</option>
+            <option value="Clumping">Clumping</option>
+            <option value="Rosette">Rosette</option>
           </select>
         </label>
         <label>
@@ -117,21 +117,26 @@ function AddPlant(props) {
           <br></br>
           <select name="position" multiple={true} onChange={handleChange}>
             <option value="floor">Floor</option>
-            <option value="tabletop">Tabletop</option>
-            <option value="bookshelf-or-stand">Bookshelf or stand</option>
-            <option value="covered-balcony">Covered balcony </option>
+            <option value="Tabletop">Tabletop</option>
+            <option value="Bookshelf-or-stand">Bookshelf or stand</option>
+            <option value="Covered-balcony">Covered balcony </option>
           </select>
         </label>
         <label>
           Toxicity:
           <br></br>
           <select name="toxicity" multiple={true} onChange={handleChange}>
-            <option value="pet-friendly">Pet friendly </option>
-            <option value="mildly-toxic">Mildly toxic</option>
-            <option value="toxic">Toxic</option>
+            <option value="Pet-friendly">Pet friendly </option>
+            <option value="Mildly-toxic">Mildly toxic</option>
+            <option value="Toxic">Toxic</option>
           </select>
         </label>
-        <input onChange={handleChange} type="text" placeholder="images" />
+        <input
+          onChange={handleChange}
+          type="text"
+          placeholder="images"
+          name="image"
+        />
         <button>Add Plant</button>
       </form>
     </div>

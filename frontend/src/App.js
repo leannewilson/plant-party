@@ -13,7 +13,7 @@ function App() {
         <Route exact path="/" render={(props) => <Home {...props} />} />
         <Route
           exact
-          path="/add-plant"
+          path="/new-plant"
           render={(props) => <AddPlant {...props} />}
         />
       </Switch>
