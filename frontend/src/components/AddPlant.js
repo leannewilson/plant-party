@@ -88,6 +88,7 @@ function AddPlant(props) {
             <option value="Low">Low</option>
             <option value="Low-medium">Low-Medium</option>
             <option value="Medium">Medium</option>
+            <option value="Medium-high">Medium-High</option>
             <option value="High">High</option>
           </select>
         </label>

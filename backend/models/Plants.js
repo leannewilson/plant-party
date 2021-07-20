@@ -1,7 +1,7 @@
 const { Schema, model } = require("mongoose");
 
 const plantSchema = new Schema({
-  commonName: { type: String, required: true, unique: true },
+  commonName: { type: String, required: true },
   scientificName: String,
   careLevel: String,
   light: String,

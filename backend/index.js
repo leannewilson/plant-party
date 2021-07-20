@@ -23,7 +23,7 @@ app.use(cors());
 //   })
 // );
 
-app.use("/", require("./routes.js"));
+app.use("/api", require("./routes.js"));
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
