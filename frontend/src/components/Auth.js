@@ -7,12 +7,18 @@ import TheContext from '../TheContext'
 function Auth(props) {
 
     let { getTheUser } = useContext(TheContext)
-
-
     const responseGoogle = async (response) => {
         console.log(response)
         await actions.authenticate(response.profileObj)
         await getTheUser()
+    }
+
+    // for log out
+    let { user, setUser } = useContext(TheContext)
+
+    const logOut = () => {
+        localStorage.removeItem('token')
+        setUser(null)
     }
 
     return (
@@ -26,6 +32,10 @@ function Auth(props) {
                 cookiePolicy={'single_host_origin'}
             />
 
+<div>
+    
+    <button onClick={logOut}>Log out</button>
+</div>
 
         </div>
     );
