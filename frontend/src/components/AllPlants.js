@@ -15,12 +15,7 @@ function AllPlants(props) {
     return allPlants.map((eachPlant) => {
       return (
         <div>
-          <span>
-            <img className="gallery-grid" src={eachPlant.image} />
-          </span>
-          {/* <span>
-            {eachPlant.commonName}({eachPlant.scientificName})
-          </span> */}
+          <img className="gallery-grid" src={eachPlant.image} />
         </div>
       );
     });

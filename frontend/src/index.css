@@ -13,13 +13,14 @@ code {
 }
 
 .gallery-grid {
-  /* display: flex;
+  display: flex;
   flex-direction: row;
-  flex-wrap: wrap; */
+  flex-wrap: wrap;
   max-width: 400px;
   float: left;
   width: 33.33%;
   padding: 5px;
+  margin: auto;
 }
 .row::after {
   content: "";
