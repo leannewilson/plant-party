@@ -17,4 +17,11 @@ router.post("/add-plant", (req, res) => {
   });
 });
 
+router.get("/getplantsfromserver", (req, res) => {
+  Plant.find().then((plants) => {
+    res.json(plants);
+    console.log(plants);
+  });
+});
+
 module.exports = router;
