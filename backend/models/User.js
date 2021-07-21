@@ -5,7 +5,6 @@ const userSchema = new Schema({
     email: String,
     imageUrl: String,
     googleId: String,
-    savedPlants: [Object]
 })
 
 module.exports = model('User', userSchema);

@@ -29,6 +29,23 @@ main {
   margin: 2px;
 }
 
+.Auth{
+  border: 1px solid black;
+  width: 200px;
+  padding: 60px;
+  color: white;
+  border-radius: 10px;
+  background:#7A8B2C;
+  margin: auto;
+}
+
+.Footer{
+  position: relative;
+  bottom: 0;
+  height: 75px;
+  background: #eee;
+}
+
 /* MEDIA QUERIES */
 
 @media screen and (max-width: 700px){
