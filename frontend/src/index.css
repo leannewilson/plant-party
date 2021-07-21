@@ -12,6 +12,8 @@ code {
     monospace;
 }
 
+
+
 .gallery-grid {
   display: flex;
   flex-direction: row;
