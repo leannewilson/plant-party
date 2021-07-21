@@ -13,6 +13,7 @@ const plantSchema = new Schema({
   position: String,
   toxicity: String,
   image: String,
+  userIds: [{ type: Schema.Types.ObjectId, ref: "User" }],
 });
 
 module.exports = model("plant", plantSchema);

@@ -1,5 +1,5 @@
 const express = require("express");
-// const jwt = require("jsonwebtoken");
+const jwt = require("jsonwebtoken");
 const router = express.Router();
 const Plant = require("./models/Plants");
 const User = require("./models/User");
@@ -24,10 +24,26 @@ router.get("/getplantsfromserver", (req, res) => {
   });
 });
 
-// router.post("/savedplants", async (req, res) => {
-//   let savedPlant = await Plant.findById();
-//   savedPlant.userId = res.locals.user._id;
-// });
+router.post("/savedplants", authorize, (req, res) => {
+  console.log(req.body, res.locals.user);
+  User.findByIdAndUpdate(
+    res.locals.user._id,
+    {
+      $addToSet: { favPlants: req.body._id },
+    },
+    { new: true }
+  ).then((user) => {
+    Plant.findByIdAndUpdate(
+      req.body._id,
+      {
+        $addToSet: { userIds: res.locals.user._id },
+      },
+      { new: true }
+    ).then((plant) => {
+      res.json({ plant, user });
+    });
+  });
+});
 
 router.get("/get-the-user", authorize, async (req, res) => {
   let user = await User.findById(res.locals.user._id);
@@ -48,7 +64,7 @@ router.post("/authenticate", async (req, res) => {
 
 //Middle ware >>> Put this in the middle of any route where you want to authorize
 function authorize(req, res, next) {
-  let token = req.headers.authorization.split(" ")[1]; //Token from front end
+  let token = req.headers.authorization?.split(" ")[1]; //Token from front end
   if (token) {
     jwt.verify(token, "secret key", (err, data) => {
       if (!err) {

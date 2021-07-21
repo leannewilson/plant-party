@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import heartOutline from "../assests/heartOutline.png";
+import actions from "../api";
 
 function AllPlants(props) {
   let [allPlants, setAllPlants] = useState([]);
@@ -13,36 +14,39 @@ function AllPlants(props) {
     });
   }, []);
 
-  const savePlant = () => {
-    // let res = axios
-    //   .post(`http://localhost:5000/api/savedplants`)
-    //   .then(() => console.log("save plant"));
-    // setSavedPlants(res);
-    console.log("saved plant");
-  };
-
-  const ShowAllPlants = () => {
-    return allPlants.map((eachPlant) => {
-      return (
-        <div key={eachPlant._id}>
-          <button className="like-btn">
-            <img
-              onClick={savePlant}
-              src={heartOutline}
-              style={{ width: "2em" }}
-            />
-          </button>
-          <img
-            style={{ width: "100%" }}
-            className="plant-img"
-            src={eachPlant.image}
-            alt="green and growing"
-          />
-          <span className="like-btn-container"></span>
-        </div>
-      );
+  const savePlant = (favPlant) => {
+    console.log(favPlant);
+    // axios
+    //   .post("http://localhost:5000/api/savedplants", { favPlant: favPlant })
+    //   .then((res) => {
+    //     console.log(res);
+    //     setSavedPlants(favPlant);
+    //   });
+    actions.savePlant(favPlant).then((res) => {
+      console.log(res);
+      setSavedPlants(favPlant);
     });
   };
+  console.log("plant saved", savedPlants);
+  let ShowAllPlants = allPlants.map((eachPlant, i) => {
+    return (
+      <div key={eachPlant._id}>
+        <button className="like-btn">
+          <img
+            onClick={() => savePlant(eachPlant)}
+            src={heartOutline}
+            style={{ width: "2em" }}
+          />
+        </button>
+        <img
+          style={{ width: "100%" }}
+          className="plant-img"
+          src={eachPlant.image}
+          alt="green and growing"
+        />
+      </div>
+    );
+  });
 
   const ShowPlantDetails = () => {
     return allPlants.map((eachPlant) => {
@@ -78,10 +82,34 @@ function AllPlants(props) {
     });
   };
 
+  function shuffle(array) {
+    var currentIndex = array.length,
+      randomIndex;
+
+    // While there remain elements to shuffle...
+    while (0 !== currentIndex) {
+      // Pick a remaining element...
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+
+      // And swap it with the current element.
+      [array[currentIndex], array[randomIndex]] = [
+        array[randomIndex],
+        array[currentIndex],
+      ];
+    }
+    return array;
+  }
+
+  // function reversePlants(arr){
+  //   return arr.reverse()
+  // }
+
   return (
     <div>
       <main>
-        <ShowAllPlants />
+        {shuffle(ShowAllPlants)}
+        {/* {reversePlants(ShowAllPlants)} */}
       </main>
     </div>
   );
