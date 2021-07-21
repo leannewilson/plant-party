@@ -32,6 +32,7 @@ router.post("/savedplants", authorize, async (req, res) => {
 router.get("/get-the-user", authorize, async (req, res) => {
   let user = await User.findById(res.locals.user._id);
   res.json(user);
+  console.log(res.locals.user._id);
 });
 
 router.post("/authenticate", async (req, res) => {
