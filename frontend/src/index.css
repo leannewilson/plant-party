@@ -12,17 +12,19 @@ code {
     monospace;
 }
 
+.img-wrapper {
+  position: relative;
+}
+
 .gallery-grid {
   width: 99%;
 }
 
 main {
   display: flex;
-  position: absolute;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  width: 99%;
 }
 
 main div {
