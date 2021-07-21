@@ -17,13 +17,13 @@ const actions = {
         return await axios.get(`${serverUrl}/get-the-user`, createHeaders())
     },
 
-    addPost: async (post) => {
-        let res = await axios.post(`${serverUrl}/add-post`, post, createHeaders())
-        return res
-    },
-    getAllPosts: async (post) => {
-        return await axios.get(`${serverUrl}/all-the-posts`, createHeaders())
-    },
+    // addPost: async (post) => {
+    //     let res = await axios.post(`${serverUrl}/add-post`, post, createHeaders())
+    //     return res
+    // },
+    // getAllPosts: async (post) => {
+    //     return await axios.get(`${serverUrl}/all-the-posts`, createHeaders())
+    // },
 
     authenticate: async (profileObj) => {
         console.log(profileObj, 'profileObj')

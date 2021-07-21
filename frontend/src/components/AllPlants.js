@@ -11,10 +11,23 @@ function AllPlants(props) {
     });
   }, []);
 
-  const ShowAllPlants = () => {
-    return allPlants.map((eachPlant) => {
-      return (
-        <div key={eachPlant._id}>
+  // const ShowAllPlants = () => {
+  //   return allPlants.map((eachPlant) => {
+  //     return (
+  //       <div key={eachPlant._id}>
+  //         <img
+  //           style={{ width: "100%" }}
+  //           className="plant-img"
+  //           src={eachPlant.image}
+  //           alt="green and growing"
+  //         />
+  //       </div>
+  //     )
+  //   })
+  // }
+
+  let ShowAllPlants = allPlants.map((eachPlant) => {
+       return( <div key={eachPlant._id}>
           <img
             style={{ width: "100%" }}
             className="plant-img"
@@ -22,9 +35,7 @@ function AllPlants(props) {
             alt="green and growing"
           />
         </div>
-      )
-    })
-  }
+  )})
 
   // const showPlantDetails = () => {
   //   return allPlants.map((eachPlant) => {
@@ -59,10 +70,32 @@ function AllPlants(props) {
   //    )});
   // };
 
+  function shuffle(array) {
+    var currentIndex = array.length,  randomIndex;
+  
+    // While there remain elements to shuffle...
+    while (0 !== currentIndex) {
+  
+      // Pick a remaining element...
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+  
+      // And swap it with the current element.
+      [array[currentIndex], array[randomIndex]] = [
+        array[randomIndex], array[currentIndex]];
+    }
+    return array;
+  }
+  
+// function reversePlants(arr){
+//   return arr.reverse()
+// }
+
   return (
     <div>
       <main>
-        <ShowAllPlants />
+      {shuffle(ShowAllPlants)}
+      {/* {reversePlants(ShowAllPlants)} */}
       </main>
     </div>
   );
