@@ -28,16 +28,16 @@ main {
 .plant-img:hover {
   opacity: 50%;
 }
-
+/* 
 .like-btn-container {
   position: relative;
-}
+} */
 
 .like-btn {
-  position: absolute;
+  position: relative;
   z-index: 1;
-  top: 1em;
-  left: 7em;
+  top: 3em;
+  left: 8em;
   outline: none;
   background-color: Transparent;
   background-repeat: no-repeat;
@@ -45,7 +45,7 @@ main {
   cursor: pointer;
   overflow: hidden;
   outline: none;
-  opacity: 10%;
+  opacity: 20%;
 }
 @media screen and (max-width: 700px) {
   main {

@@ -13,32 +13,32 @@ function AllPlants(props) {
     });
   }, []);
 
-  const savePlant = async () => {
-    let res = await axios.post(`http://localhost:5000/api/savedplants`, {
-      res: allPlants,
-    });
-    console.log(res);
+  const savePlant = () => {
+    // let res = axios
+    //   .post(`http://localhost:5000/api/savedplants`)
+    //   .then(() => console.log("save plant"));
+    // setSavedPlants(res);
+    console.log("saved plant");
   };
 
   const ShowAllPlants = () => {
     return allPlants.map((eachPlant) => {
       return (
         <div key={eachPlant._id}>
+          <button className="like-btn">
+            <img
+              onClick={savePlant}
+              src={heartOutline}
+              style={{ width: "2em" }}
+            />
+          </button>
           <img
             style={{ width: "100%" }}
             className="plant-img"
             src={eachPlant.image}
             alt="green and growing"
           />
-          <span className="like-btn-container">
-            <button className="like-btn">
-              <img
-                onClick={savePlant}
-                src={heartOutline}
-                style={{ width: "2em" }}
-              />
-            </button>
-          </span>
+          <span className="like-btn-container"></span>
         </div>
       );
     });
