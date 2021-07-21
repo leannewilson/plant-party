@@ -13,7 +13,7 @@ function AddPlant(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("added", newPlant);
-    axios.post("http://localhost:5000/add-plant", newPlant).then((res) => {
+    axios.post("http://localhost:5000/api/add-plant", newPlant).then((res) => {
       console.log(res);
     });
   };
@@ -126,7 +126,7 @@ function AddPlant(props) {
         <label>
           Toxicity:
           <br></br>
-          <select name="toxicity" multiple={true} onChange={handleChange}>
+          <select name="toxicity" onChange={handleChange}>
             <option value="Pet-friendly">Pet friendly </option>
             <option value="Mildly-toxic">Mildly toxic</option>
             <option value="Toxic">Toxic</option>
