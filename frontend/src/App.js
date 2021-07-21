@@ -6,8 +6,7 @@ import Home from "./components/Home";
 import TheContext from "./TheContext";
 import actions from "./api";
 import Auth from "./components/Auth";
-import Profile from "./Profile";
-
+import Profile from "./components/Profile";
 
 function App() {
 
@@ -32,7 +31,6 @@ function App() {
           {user?.name ?
             <>
               <Link to='/Profile'>Profile</Link>
-              <Link to='/AddPost'>AddPost</Link>
             </>
             : <Link to='/Auth'>Login/Signup</Link>}
         </nav>

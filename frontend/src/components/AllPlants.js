@@ -50,9 +50,6 @@ function AllPlants(props) {
               src={eachPlant.image}
               alt="green and growing"
             />
-            <span className="hidden">
-              <button className="like-btn">🤍</button>
-            </span>
           </span>
         </div>
       );
