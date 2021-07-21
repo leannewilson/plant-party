@@ -13,37 +13,23 @@ code {
 }
 
 .gallery-grid {
+  width: 99%;
+}
+
+main {
   display: flex;
+  position: absolute;
   flex-direction: row;
   flex-wrap: wrap;
-  max-width: 400px;
-  float: right;
-  width: 100%;
-  padding: 5px;
+  justify-content: center;
+  width: 99%;
+}
+
+main div {
+  max-width: 25%;
+  align-content: center;
 }
 
 .gallery-grid:hover {
   opacity: 50%;
 }
-
-.img-wrapper {
-  position: relative;
-}
-
-.img-description {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  color: black;
-  /* visibility: hidden; */
-}
-.img-description:hover {
-  visibility: visible;
-}
-
-/* .img-wrapper:hover .img-description {
-  visibility: visible;
-  opacity: 1;
-} */
