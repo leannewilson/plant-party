@@ -12,26 +12,19 @@ code {
     monospace;
 }
 
-
-
-.gallery-grid {
-  width: 99%;
-}
-
 main {
-  display: flex;
-  position: absolute;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  width: 99%;
+  margin:auto;
+  width: 95%;
+  line-height: 0;
+  column-count:3;
+  column-gap: 3px;
 }
 
-main div {
-  max-width: 25%;
-  align-content: center;
-}
-
-.gallery-grid:hover {
+.plant-img:hover{
   opacity: 50%;
+} 
+
+.plant-img{
+  height: auto;
+  margin: 2px;
 }
