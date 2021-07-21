@@ -24,6 +24,11 @@ router.get("/getplantsfromserver", (req, res) => {
   });
 });
 
+router.post("/savedplants", authorize, async (req, res) => {
+  let savedPlant = req.body;
+  savedPlant.userId = res.locals.user._id;
+});
+
 router.get("/get-the-user", authorize, async (req, res) => {
   let user = await User.findById(res.locals.user._id);
   res.json(user);

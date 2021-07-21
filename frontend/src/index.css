@@ -12,25 +12,38 @@ code {
     monospace;
 }
 
-.img-wrapper {
+main {
+  margin: auto;
+  width: 95%;
+  line-height: 0;
+  column-count: 3;
+  column-gap: 3px;
+}
+
+.plant-img {
+  height: auto;
+  margin: 2px;
+}
+
+.plant-img:hover {
+  opacity: 50%;
+}
+
+.like-btn-container {
   position: relative;
 }
-.gallery-grid {
-  width: 99%;
-}
 
-main {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-main div {
-  max-width: 25%;
-  align-content: center;
-}
-
-.gallery-grid:hover {
-  opacity: 50%;
+.like-btn {
+  position: absolute;
+  z-index: 1;
+  top: 1em;
+  left: 7em;
+  outline: none;
+  background-color: Transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+  opacity: 10%;
 }
