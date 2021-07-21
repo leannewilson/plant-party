@@ -4,7 +4,6 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 require("dotenv").config();
 const bodyParser = require("body-parser");
-app.use(bodyParser.json());
 
 const URI = process.env.MONGODB_URI || "mongodb://localhost/plantparty";
 console.log(URI);
