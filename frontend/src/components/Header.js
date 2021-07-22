@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import TheContext from "../TheContext";
 import actions from "../api";
-import Profile from "./Profile";
 
 function Header(props) {
   let [user, setUser] = useState({});

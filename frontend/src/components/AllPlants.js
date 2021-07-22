@@ -5,7 +5,6 @@ import actions from "../api";
 
 function AllPlants(props) {
   let [allPlants, setAllPlants] = useState([]);
-  let [savedPlants, setSavedPlants] = useState([]);
 
   useEffect(() => {
     axios.get("http://localhost:5000/api/getplantsfromserver").then((res) => {
@@ -18,7 +17,7 @@ function AllPlants(props) {
     console.log(favPlant, favPlant.userIds);
     actions.savePlant(favPlant).then((res) => {
       console.log(res);
-      setSavedPlants(favPlant);
+      // setSavedPlants(favPlant);
     });
   };
 
@@ -31,11 +30,12 @@ function AllPlants(props) {
             onClick={() => savePlant(eachPlant)}
             src={heartOutline}
             style={{ width: "2em" }}
+            alt="save this plant"
           />
         </button>
         <img
           style={{ width: "100%" }}
-          className="plant-img"
+          className="plant-img-main"
           src={eachPlant.image}
           alt="green and growing"
         />

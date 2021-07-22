@@ -16,4 +16,4 @@ const plantSchema = new Schema({
   userIds: [{ type: Schema.Types.ObjectId, ref: "User" }],
 });
 
-module.exports = model("plant", plantSchema);
+module.exports = model("Plant", plantSchema);

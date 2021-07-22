@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Zen+Loop&display=swap");
 body {
   margin: 0;
   font-family: 'Nunito';
@@ -71,7 +71,7 @@ main {
   column-gap: 3px;
 }
 
-.plant-img {
+.plant-img-main {
   height: auto;
   margin: 2px;
   position: relative;
@@ -79,7 +79,49 @@ main {
   margin-top: -24px;
 }
 
-.plant-img:hover {
+.Auth {
+  border: 1px solid black;
+  width: 200px;
+  padding: 60px;
+  color: white;
+  border-radius: 10px;
+  background: #7a8b2c;
+  margin: auto;
+}
+
+.Footer {
+  position: relative;
+  bottom: 0;
+  height: 75px;
+  background: #eee;
+}
+
+/* plant details */
+.all-details {
+  border: 2px solid black;
+  display: flex;
+  justify-content: center;
+  width: 80%;
+  margin: 2em auto;
+  align-items: center;
+  max-width: 750px;
+}
+
+.plant-img-profile {
+  height: 225px;
+  padding: 2em;
+}
+
+.plant-title-profile {
+  display: flex;
+  flex-direction: column;
+}
+.plant-title-profile span {
+  text-align: center;
+}
+
+/* MEDIA QUERIES */
+.plant-img-main:hover {
   opacity: 50%;
 }
 
