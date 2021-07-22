@@ -1,17 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Nunito';
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+.Auth{
+  border: 1px solid black;
+  width: 200px;
+  padding: 60px;
+  color: white;
+  border-radius: 10px;
+  background:#7A8B2C;
+  margin: auto;
 }
 
+.About{
+  text-align: center;
+  background-image:url('http://www.greenobsessions.com/wp-content/uploads/2017/07/footer.png');
+  background-size:cover;
+}
+
+.plantMoms{
+  display: flex;
+  margin:auto;
+  width: 700px;
+  flex-direction: row;
+  justify-content: space-around;
+  text-align: center;
+}
+
+
+/* RESOURCES */
+
+.Resources{
+  text-align: center;
+  width: 95%;
+  margin: auto;
+}
+
+.blog-links{
+  display: flex;
+  flex-direction: column;
+}
+
+a{
+  text-decoration: none;
+  color:inherit;
+}
+
+.videos-list{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+iframe{
+  padding: 5px;
+}
+
+.videos h3 {
+  padding: 0;
+}
+
+/* PLANTS */
 main {
   margin: auto;
   width: 95%;
@@ -28,24 +79,6 @@ main {
   margin-top: -24px;
 }
 
-.Auth{
-  border: 1px solid black;
-  width: 200px;
-  padding: 60px;
-  color: white;
-  border-radius: 10px;
-  background:#7A8B2C;
-  margin: auto;
-}
-
-.Footer{
-  position: relative;
-  bottom: 0;
-  height: 75px;
-  background: #eee;
-}
-
-/* MEDIA QUERIES */
 .plant-img:hover {
   opacity: 50%;
 }
@@ -73,9 +106,16 @@ main {
   opacity: 90%;
 }
 
+/* MEDIA QUERIES */
+
 @media screen and (max-width: 700px) {
   main {
     column-count: 2;
+  }
+
+  .videos-list{
+    display: flex;
+    flex-direction: column
   }
 }
 
@@ -83,6 +123,7 @@ main {
   main {
     column-count: 4;
   }
+
 }
 
 @media screen and (min-width: 1800px) {
