@@ -7,20 +7,11 @@ import TheContext from "./TheContext";
 import actions from "./api";
 import Auth from "./components/Auth";
 import Profile from "./components/Profile";
-<<<<<<< HEAD
-import Resources from "./Resources";
-import About from "./components/About"
 import PlantDetails from "./components/PlantDetails";
 import Header from "./components/Header";
-import Footer from './components/Footer'
-=======
-import PlantDetails from "./components/PlantDetails";
-import Header from "./components/Header";
-import About from "./components/About";
-import PlantDetails from "./components/PlantDetails";
-import Header from "./components/Header";
+import About from "./components/About";   
+import Resources from "./components/Resources";        
 import Footer from "./components/Footer";
->>>>>>> bf4296e1af1c061dffe5ed81f618b6447471e235
 
 function App() {
   let [user, setUser] = useState({});
