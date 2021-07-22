@@ -23,6 +23,9 @@ main {
 .plant-img {
   height: auto;
   margin: 2px;
+  position: relative;
+  height: auto;
+  margin-top: -24px;
 }
 
 .Auth{
@@ -47,29 +50,29 @@ main {
   opacity: 50%;
 }
 
-/* .like-btn-container {
-  position: relative;
-} */
-
 .like-btn {
   position: relative;
-  z-index: 1;
-  top: 3em;
-  left: 7em;
   outline: none;
   background-color: Transparent;
   background-repeat: no-repeat;
   border: none;
   cursor: pointer;
   overflow: hidden;
-  outline: none;
   opacity: 20%;
-  padding: 0;
-  margin: 0;
+  top: 10px;
+  left: 5px;
+  z-index: 1;
 }
+
+.like-btn img {
+  display: block;
+  height: auto;
+}
+
 .like-btn:hover {
   opacity: 90%;
 }
+
 @media screen and (max-width: 700px) {
   main {
     column-count: 2;
@@ -80,16 +83,10 @@ main {
   main {
     column-count: 4;
   }
-  .like-btn {
-    left: 8em;
-  }
 }
 
 @media screen and (min-width: 1800px) {
   main {
     column-count: 5;
-  }
-  .like-btn {
-    left: 11em;
   }
 }
