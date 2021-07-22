@@ -14,8 +14,8 @@ function Auth(props) {
   };
 
   return (
-    <div>
-      <h3>Auth</h3>
+    <div className="Auth">
+      <h3>Sign in with Google</h3>
       <GoogleLogin
         clientId={process.env.REACT_APP_GOOGLEID}
         buttonText="Login"
