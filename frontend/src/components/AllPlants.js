@@ -27,7 +27,9 @@ function AllPlants(props) {
       setSavedPlants(favPlant);
     });
   };
-  console.log("plant saved", savedPlants);
+  
+// console.log("plant saved", savedPlants);
+
   let ShowAllPlants = allPlants.map((eachPlant, i) => {
     return (
       <div key={eachPlant._id}>

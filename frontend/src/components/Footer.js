@@ -4,6 +4,7 @@ function Footer(props) {
     return (
         <div className="Footer">
             this is the footer
+            <Link to="/about-us">About Us</Link>
         </div>
     );
 }

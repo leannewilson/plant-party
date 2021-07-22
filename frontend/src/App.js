@@ -7,6 +7,7 @@ import TheContext from "./TheContext";
 import actions from "./api";
 import Auth from "./components/Auth";
 import Profile from "./components/Profile";
+import About from "./components/About"
 import Footer from './components/Footer'
 
 function App() {
@@ -45,6 +46,7 @@ function App() {
         />
         <Route exact path="/Auth" render={(props) => <Auth {...props} />} />
         <Route exact path="/Profile" render={(props) => <Profile {...props} />} />
+        <Route exact path="/about-us" render={(props) => <About {...props} />} />
       </Switch>
 
 
