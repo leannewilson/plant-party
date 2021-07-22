@@ -15,24 +15,19 @@ function AllPlants(props) {
   }, []);
 
   const savePlant = (favPlant) => {
-    console.log(favPlant);
-    // axios
-    //   .post("http://localhost:5000/api/savedplants", { favPlant: favPlant })
-    //   .then((res) => {
-    //     console.log(res);
-    //     setSavedPlants(favPlant);
-    //   });
+    console.log(favPlant, favPlant.userIds);
     actions.savePlant(favPlant).then((res) => {
       console.log(res);
       setSavedPlants(favPlant);
     });
   };
-  console.log("plant saved", savedPlants);
+
   let ShowAllPlants = allPlants.map((eachPlant, i) => {
     return (
       <div key={eachPlant._id}>
         <button className="like-btn">
           <img
+            className="saved-icon"
             onClick={() => savePlant(eachPlant)}
             src={heartOutline}
             style={{ width: "2em" }}
@@ -47,40 +42,6 @@ function AllPlants(props) {
       </div>
     );
   });
-
-  const ShowPlantDetails = () => {
-    return allPlants.map((eachPlant) => {
-      return (
-        <div key={eachPlant._id}>
-          <span className="img-title">
-            <br />
-            {eachPlant.commonName}
-            <br />({eachPlant.scientificName})
-            <br />
-          </span>
-          <p className="img-description">
-            Care Leve: {eachPlant.careLevel}
-            <br />
-            Light: {eachPlant.light}
-            <br />
-            Water: {eachPlant.water}
-            <br />
-            Soil: {eachPlant.soil}
-            <br />
-            Humidity: {eachPlant.humidity}
-            <br />
-            GrowthHabit: {eachPlant.growthHabit}
-            <br />
-            Propagation: {eachPlant.propagation}
-            <br />
-            Position: {eachPlant.position}
-            <br />
-            Toxicity: {eachPlant.toxicity}
-          </p>
-        </div>
-      );
-    });
-  };
 
   function shuffle(array) {
     var currentIndex = array.length,

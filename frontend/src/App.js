@@ -7,6 +7,8 @@ import TheContext from "./TheContext";
 import actions from "./api";
 import Auth from "./components/Auth";
 import Profile from "./components/Profile";
+import PlantDetails from "./components/PlantDetails";
+import Header from "./components/Header";
 
 function App() {
   let [user, setUser] = useState({});
@@ -23,18 +25,8 @@ function App() {
   return (
     <TheContext.Provider value={{ user, setUser, getTheUser }}>
       <div className="App">
-        <nav>
-          <Link to="/">Home</Link>
+        <Header />
 
-          {user?.name ? (
-            <>
-              <Link to="/Profile">Profile</Link>
-            </>
-          ) : (
-            <Link to="/Auth">Login/Signup</Link>
-          )}
-        </nav>
-        <h1>Plant Partyyyy!</h1>
         <Switch>
           <Route exact path="/" render={(props) => <Home {...props} />} />
           <Route
@@ -47,6 +39,11 @@ function App() {
             exact
             path="/Profile"
             render={(props) => <Profile {...props} />}
+          />
+          <Route
+            exact
+            path="/plant-details"
+            render={(props) => <PlantDetails {...props} />}
           />
         </Switch>
       </div>

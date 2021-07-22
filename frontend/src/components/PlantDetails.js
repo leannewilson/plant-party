@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 function PlantDetails(props) {
   let [plantDetails, setPlantDetails] = useState([]);
@@ -13,7 +14,13 @@ function PlantDetails(props) {
   const ShowPlantDetails = () => {
     return plantDetails.map((eachPlant) => {
       return (
-        <div key={eachPlant._id}>
+        <div key={eachPlant._id} style={{ display: "flex" }}>
+          <img
+            style={{ width: "20%" }}
+            className="plant-img"
+            src={eachPlant.image}
+            alt="green and growing"
+          />
           <span className="img-title">
             <br />
             {eachPlant.commonName}
