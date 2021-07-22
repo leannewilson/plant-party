@@ -8,9 +8,7 @@ import actions from "./api";
 import Auth from "./components/Auth";
 import Profile from "./components/Profile";
 import PlantDetails from "./components/PlantDetails";
-import Header from "./components/Header";
 import About from "./components/About";
-import PlantDetails from "./components/PlantDetails";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
