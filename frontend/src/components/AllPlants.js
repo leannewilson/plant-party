@@ -18,8 +18,10 @@ function AllPlants(props) {
     actions.savePlant(favPlant).then((res) => {
       console.log(res);
       // setSavedPlants(favPlant);
-    });
+    })
   };
+
+  
 
   let ShowAllPlants = allPlants.map((eachPlant, i) => {
     return (

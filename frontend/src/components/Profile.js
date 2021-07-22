@@ -14,6 +14,8 @@ function Profile(props) {
     setUser(null);
   };
 
+console.log(user)
+
   const ShowFavPlants = () => {
     return user.favPlants.map((eachPlant) => {
       return (
