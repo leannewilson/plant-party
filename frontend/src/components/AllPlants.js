@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import heartOutline from "../assests/heartOutline.png";
+import redHeart from "../assests/redHeart.png";
 import actions from "../api";
 
 function AllPlants(props) {
@@ -17,22 +18,41 @@ function AllPlants(props) {
     console.log(favPlant, favPlant.userIds);
     actions.savePlant(favPlant).then((res) => {
       console.log(res);
-      // setSavedPlants(favPlant);
+    });
+  };
+
+  const removePlant = (favPlant) => {
+    console.log(favPlant, favPlant.userIds);
+    actions.removePlant(favPlant).then((res) => {
+      console.log(res);
     });
   };
 
   let ShowAllPlants = allPlants.map((eachPlant, i) => {
     return (
       <div key={eachPlant._id}>
-        <button className="like-btn">
-          <img
-            className="saved-icon"
-            onClick={() => savePlant(eachPlant)}
-            src={heartOutline}
-            style={{ width: "2em" }}
-            alt="save this plant"
-          />
-        </button>
+        {removePlant ? (
+          <button className="like-btn">
+            <img
+              className="saved-icon"
+              onClick={() => savePlant(eachPlant)}
+              src={heartOutline}
+              style={{ width: "2em" }}
+              alt="save this plant cto favorites"
+            />
+          </button>
+        ) : (
+          <button className="like-btn">
+            <img
+              className="saved-icon"
+              onClick={() => removePlant(eachPlant)}
+              src={redHeart}
+              style={{ width: "2em" }}
+              alt="remove this plant from favorites"
+            />
+          </button>
+        )}
+
         <img
           style={{ width: "100%" }}
           className="plant-img-main"

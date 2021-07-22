@@ -24,6 +24,10 @@ const actions = {
     return await axios.post(`${serverUrl}/savedplants`, data, createHeaders());
   },
 
+  removePlant: async (data) => {
+    return await axios.post(`${serverUrl}/removeplants`, data, createHeaders());
+  },
+
   GetFavPlants: async () => {
     return await axios.get(`${serverUrl}/profile`, createHeaders());
   },

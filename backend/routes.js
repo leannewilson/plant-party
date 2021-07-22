@@ -45,6 +45,27 @@ router.post("/savedplants", authorize, (req, res) => {
   });
 });
 
+router.post("/removeplants", authorize, (req, res) => {
+  console.log(req.body, res.locals.user);
+  User.findByIdAndUpdate(
+    res.locals.user._id,
+    {
+      $pull: { favPlants: req.body._id },
+    },
+    { new: true }
+  ).then((user) => {
+    Plant.findByIdAndUpdate(
+      req.body._id,
+      {
+        $pull: { userIds: res.locals.user._id },
+      },
+      { new: true }
+    ).then((plant) => {
+      res.json({ plant, user });
+    });
+  });
+});
+
 router.get("/get-the-user", authorize, async (req, res) => {
   let user = await User.findById(res.locals.user._id).populate("favPlants");
   res.json(user);
