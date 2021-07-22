@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import TheContext from "../TheContext";
 import actions from "../api";
-import Profile from "./Profile";
 
 function Header(props) {
   let [user, setUser] = useState({});
@@ -21,7 +20,7 @@ function Header(props) {
       <div>
         <nav className="nav-bar">
           <Link to="/" style={{ textDecoration: "none" }}>
-            <h1>Plant Party</h1>
+            <h1>PLANT PARTY</h1>
           </Link>
           <img src="./assests/logo.png" alt="" />
           <ul>

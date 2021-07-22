@@ -5,7 +5,7 @@ const userSchema = new Schema({
   email: String,
   imageUrl: String,
   googleId: String,
-  favPlants: [{ type: Schema.Types.ObjectId, ref: "Plants" }],
+  favPlants: [{ type: Schema.Types.ObjectId, ref: "Plant" }],
 });
 
 module.exports = model("User", userSchema);

@@ -1,7 +1,7 @@
 const express = require("express");
 const jwt = require("jsonwebtoken");
 const router = express.Router();
-const Plant = require("./models/Plants");
+const Plant = require("./models/Plant");
 const User = require("./models/User");
 /**ALL OUR BACKEND ROUTES */
 
@@ -46,9 +46,9 @@ router.post("/savedplants", authorize, (req, res) => {
 });
 
 router.get("/get-the-user", authorize, async (req, res) => {
-  let user = await User.findById(res.locals.user._id);
+  let user = await User.findById(res.locals.user._id).populate("favPlants");
   res.json(user);
-  console.log(res.locals.user._id);
+  // console.log(res.locals.user._id);
 });
 
 router.post("/authenticate", async (req, res) => {
@@ -57,7 +57,7 @@ router.post("/authenticate", async (req, res) => {
   if (!user) {
     user = await User.create(req.body);
   }
-  jwt.sign({ user }, "secret key", { expiresIn: "30min" }, (err, token) => {
+  jwt.sign({ user }, "secret key", { expiresIn: "100min" }, (err, token) => {
     res.json({ user, token });
   });
 });
