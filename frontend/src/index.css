@@ -1,61 +1,60 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Zen+Loop&display=swap");
 
 body {
   margin: 0;
-  font-family: 'Nunito';
+  font-family: "Nunito";
 }
 
-.Auth{
+.Auth {
   border: 1px solid black;
   width: 200px;
   padding: 60px;
   color: white;
   border-radius: 10px;
-  background:#7A8B2C;
+  background: #7a8b2c;
   margin: auto;
 }
 
-.About{
+.About {
   text-align: center;
-  background-image:url('http://www.greenobsessions.com/wp-content/uploads/2017/07/footer.png');
-  background-size:cover;
+  background-image: url("http://www.greenobsessions.com/wp-content/uploads/2017/07/footer.png");
+  background-size: cover;
 }
 
-.plantMoms{
+.plantMoms {
   display: flex;
-  margin:auto;
+  margin: auto;
   width: 700px;
   flex-direction: row;
   justify-content: space-around;
   text-align: center;
 }
 
-
 /* RESOURCES */
 
-.Resources{
+.Resources {
   text-align: center;
   width: 98%;
   margin: auto;
 }
 
-.blog-links{
+.blog-links {
   display: flex;
   flex-direction: column;
 }
 
-a{
+a {
   text-decoration: none;
-  color:inherit;
+  color: inherit;
 }
 
-.videos-list{
+.videos-list {
   display: flex;
   flex-wrap: wrap;
 }
 
-iframe{
+iframe {
   padding: 5px;
 }
 
@@ -134,7 +133,7 @@ main {
   border: none;
   cursor: pointer;
   overflow: hidden;
-  opacity: 20%;
+  opacity: 10%;
   top: 10px;
   left: 5px;
   z-index: 1;
@@ -156,9 +155,9 @@ main {
     column-count: 2;
   }
 
-  .videos-list{
+  .videos-list {
     display: flex;
-    flex-direction: column
+    flex-direction: column;
   }
 }
 
@@ -166,7 +165,6 @@ main {
   main {
     column-count: 4;
   }
-
 }
 
 @media screen and (min-width: 1800px) {

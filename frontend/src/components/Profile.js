@@ -1,6 +1,5 @@
 import { useContext, useState, useEffect } from "react";
 import TheContext from "../TheContext";
-import actions from "../api";
 
 function Profile(props) {
   let { user, setUser } = useContext(TheContext);
@@ -66,8 +65,9 @@ console.log(user)
       />
       <h2>Hello, {user?.name}!</h2>
       <button onClick={logOut}>Log out</button>
-
-      <ShowFavPlants />
+      <div>
+        <ShowFavPlants />
+      </div>
     </div>
   );
 }
