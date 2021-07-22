@@ -8,8 +8,9 @@ import actions from "./api";
 import Auth from "./components/Auth";
 import Profile from "./components/Profile";
 import PlantDetails from "./components/PlantDetails";
-import About from "./components/About";
 import Header from "./components/Header";
+import About from "./components/About";
+import Resources from "./components/Resources";
 import Footer from "./components/Footer";
 
 function App() {
@@ -44,8 +45,18 @@ function App() {
           />
           <Route
             exact
+            path="/resources"
+            render={(props) => <Resources {...props} />}
+          />
+          <Route
+            exact
             path="/plant-details"
             render={(props) => <PlantDetails {...props} />}
+          />
+          <Route
+            exact
+            path="/about-us"
+            render={(props) => <About {...props} />}
           />
         </Switch>
       </div>
