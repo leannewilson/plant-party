@@ -9,7 +9,7 @@ function AllPlants(props) {
   let [likedPlants, setLikedPlants] = useState(false);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/getplantsfromserver").then((res) => {
+    actions.getPlantsFromServer().then((res) => {
       console.log(res.data);
       setAllPlants(res.data);
     });

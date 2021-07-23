@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import actions from "../api";
 
 function PlantDetails(props) {
   let [plantDetails, setPlantDetails] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/getplantsfromserver").then((res) => {
+    actions.getPlantsFromServer().then((res) => {
       console.log(res.data);
       setPlantDetails(res.data);
     });

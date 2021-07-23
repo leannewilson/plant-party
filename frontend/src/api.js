@@ -31,6 +31,15 @@ const actions = {
   GetFavPlants: async () => {
     return await axios.get(`${serverUrl}/profile`, createHeaders());
   },
+
+  getPlantsFromServer: async () => {
+    return await axios.get(`${serverUrl}/getplantsfromserver`, createHeaders());
+  },
+
+  addPlant: async () => {
+    return await axios.post(`${serverUrl}/add-plant`, createHeaders());
+  },
+
   // addPost: async (post) => {
   //     let res = await axios.post(`${serverUrl}/add-post`, post, createHeaders())
   //     return res

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import actions from "../api";
 
 function AddPlant(props) {
   const [newPlant, setNewPlant] = useState({});
@@ -13,7 +14,7 @@ function AddPlant(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("added", newPlant);
-    axios.post("http://localhost:5000/api/add-plant", newPlant).then((res) => {
+    actions.addPlant().then((res) => {
       console.log(res);
     });
   };
