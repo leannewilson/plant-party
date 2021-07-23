@@ -6,6 +6,7 @@ function Profile(props) {
 
   useEffect(() => {
     console.log(user);
+    ShowFavPlants()
   }, []);
 
   const logOut = () => {
@@ -13,7 +14,7 @@ function Profile(props) {
     setUser(null);
   };
 
-console.log(user)
+  console.log(user);
 
   const ShowFavPlants = () => {
     return user.favPlants.map((eachPlant) => {
@@ -58,13 +59,19 @@ console.log(user)
 
   return (
     <div>
-      <img
-        src={user?.imageUrl}
-        style={{ borderRadius: "5px" }}
-        alt="google icon"
-      />
-      <h2>Hello, {user?.name}!</h2>
-      <button onClick={logOut}>Log out</button>
+      <div className="user-header">
+        <img
+          src={user?.imageUrl}
+          style={{ borderRadius: "10%"}}
+          alt="google icon"
+          className="userImg"
+        />
+        <div>
+          <h2 className="userName">Hello, {user?.name}!</h2>
+          <p>Number of plants: {user?.favPlants.length}</p>
+          <button onClick={logOut} className='log-out'>Log out</button>
+        </div>
+      </div>
       <div>
         <ShowFavPlants />
       </div>

@@ -62,6 +62,8 @@ iframe {
   margin-bottom: 0;
 }
 
+/* FORUM */
+
 /* PLANTS */
 main {
   margin: auto;
@@ -92,8 +94,24 @@ main {
 .Footer {
   position: relative;
   bottom: 0;
-  height: 75px;
+  height: 45px;
   background: #eee;
+  margin:0;
+}
+
+footer{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 400px;
+  margin: auto;  
+  height:100%;
+  align-items: center;
+}
+
+footer a:hover{
+  color:rgb(104,141,12);
+  font-weight: bolder;
 }
 
 /* plant details */
@@ -120,11 +138,11 @@ main {
   text-align: center;
 }
 
-/* MEDIA QUERIES */
 .plant-img-main:hover {
   opacity: 50%;
 }
 
+/* LIKE BUTTON */
 .like-btn {
   position: relative;
   outline: none;
@@ -133,7 +151,7 @@ main {
   border: none;
   cursor: pointer;
   overflow: hidden;
-  opacity: 10%;
+  opacity: 90%;
   top: 10px;
   left: 5px;
   z-index: 1;
@@ -146,6 +164,12 @@ main {
 
 .like-btn:hover {
   opacity: 90%;
+}
+
+.user-header{
+  display: flex;
+  justify-content: space-around;
+  margin: auto;
 }
 
 /* MEDIA QUERIES */
