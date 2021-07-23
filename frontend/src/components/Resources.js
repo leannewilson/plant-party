@@ -49,7 +49,6 @@ function Resources(props) {
             allowfullscreen
           ></iframe>
         </div>
-
         <div>
           <h3>Easy House Plants For Beginners | CRAZY PLANT GUY</h3>
           <iframe
@@ -86,8 +85,6 @@ function Resources(props) {
           <h3>Air Plants (Tillandsia) 101 | MOUNTAIN CREST GARDEN</h3>
           <iframe width="560" height="315" src="https://www.youtube.com/embed/oOo9p9lO2TA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
-
-
         </div>
       </section>
     </div>
