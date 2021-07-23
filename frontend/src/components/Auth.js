@@ -1,16 +1,16 @@
 import { GoogleLogin } from "react-google-login";
 import actions from "../api";
-import { useContext } from 'react';
-import TheContext from '../TheContext'
+import { useContext } from "react";
+import TheContext from "../TheContext";
 
 function Auth(props) {
-  
-    let { getTheUser } = useContext(TheContext);
-  
-    const responseGoogle = async (response) => {
-    //console.log(response);
+  let { getTheUser } = useContext(TheContext);
+
+  const responseGoogle = async (response) => {
+    console.log(response);
     await actions.authenticate(response.profileObj);
     await getTheUser();
+    props.history.push("/profile");
   };
 
   return (

@@ -1,5 +1,7 @@
 import { useContext, useState, useEffect } from "react";
 import TheContext from "../TheContext";
+import xicon from "../assests/xicon.png";
+import actions from "../api";
 
 function Profile(props) {
   let { user, setUser } = useContext(TheContext);
@@ -13,10 +15,26 @@ function Profile(props) {
     setUser(null);
   };
 
+  const removePlant = (favPlant) => {
+    actions.removePlant(favPlant).then((res) => {
+      console.log("removed", res.data);
+    });
+  };
+  console.log(user);
   const ShowFavPlants = () => {
     return user.favPlants.map((eachPlant) => {
       return (
         <div className="all-details" key={eachPlant._id}>
+          <div>
+            <button className="remove-icon">
+              <img
+                onClick={() => removePlant(eachPlant)}
+                src={xicon}
+                style={{ width: "2em" }}
+                alt="remove from plantry"
+              />
+            </button>
+          </div>
           <img
             className="plant-img-profile"
             src={eachPlant.image}
@@ -65,9 +83,7 @@ function Profile(props) {
         <h2>Hello, {user?.name}!</h2>
         <button onClick={logOut}>Log out</button>
       </div>
-      <div>
-        <ShowFavPlants />
-      </div>
+      <div className="colums">{user?._id ? <ShowFavPlants /> : "No user"}</div>
     </div>
   );
 }

@@ -62,7 +62,7 @@ li:hover {
 .menu .link:hover {
   color: black;
 }
-input {
+.input-hidden {
   display: none;
 }
 

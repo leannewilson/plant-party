@@ -26,7 +26,7 @@ function Header(props) {
           </Link>
 
           <div className="menuToggle">
-            <input type="checkbox" />
+            <input className="input-hidden" type="checkbox" />
             <span></span>
             <span></span>
             <span></span>

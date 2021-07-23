@@ -99,6 +99,7 @@ main {
 .welcome-profile {
   display: flex;
   justify-content: space-around;
+  align-items: center;
 }
 
 .welcome-profile button {
@@ -159,6 +160,18 @@ main {
   opacity: 90%;
 }
 
+/* REMOVE BUTTON */
+.remove-icon {
+  position: relative;
+  outline: none;
+  background-color: Transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  z-index: 1;
+}
+
 /* MEDIA QUERIES */
 
 @media screen and (max-width: 700px) {
@@ -181,6 +194,10 @@ main {
 @media screen and (min-width: 1000px) {
   main {
     column-count: 4;
+  }
+  .colums {
+    display: flex;
+    flex-wrap: wrap;
   }
 }
 
