@@ -8,7 +8,6 @@ function Profile(props) {
 
   useEffect(() => {
     console.log(user);
-    ShowFavPlants();
   }, []);
 
   const logOut = () => {
@@ -84,7 +83,9 @@ function Profile(props) {
         <h2>Hello, {user?.name}!</h2>
         <button onClick={logOut}>Log out</button>
       </div>
-      <div className="colums">{user?._id ? <ShowFavPlants /> : "No user"}</div>
+      <div className="colums">
+        {user?._id ? <ShowFavPlants /> : "Please log in"}
+      </div>
     </div>
   );
 }
