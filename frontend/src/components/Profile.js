@@ -59,18 +59,14 @@ function Profile(props) {
 
   return (
     <div>
-      <div className="user-header">
+      <div className="welcome-profile">
         <img
           src={user?.imageUrl}
-          style={{ borderRadius: "10%"}}
+          style={{ borderRadius: "5px" }}
           alt="google icon"
-          className="userImg"
         />
-        <div>
-          <h2 className="userName">Hello, {user?.name}!</h2>
-          <p>Number of plants: {user?.favPlants.length}</p>
-          <button onClick={logOut} className='log-out'>Log out</button>
-        </div>
+        <h2>Hello, {user?.name}!</h2>
+        <button onClick={logOut}>Log out</button>
       </div>
       <div>
         <ShowFavPlants />

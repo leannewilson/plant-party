@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import TheContext from "../TheContext";
 import actions from "../api";
 
 function Header(props) {
   let [user, setUser] = useState({});
+  const ref = useRef();
+  // const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const getTheUser = async () => {
     let res = await actions.getUser();
@@ -22,13 +24,13 @@ function Header(props) {
           <Link to="/" style={{ textDecoration: "none" }}>
             <h1 className="logo">PLANT PARTY</h1>
           </Link>
-          <img src="./assests/logo.png" alt="" />
+
           <div className="menuToggle">
             <input type="checkbox" />
             <span></span>
             <span></span>
             <span></span>
-            <ul className="menu">
+            <ul className="menu" ref={ref}>
               <Link to="/" className="link">
                 <li>Home</li>
               </Link>

@@ -6,51 +6,64 @@ import actions from "../api";
 
 function AllPlants(props) {
   let [allPlants, setAllPlants] = useState([]);
-  let [likes, setLikes] = useState(false);
+  let [likedPlants, setLikedPlants] = useState(false);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/getplantsfromserver").then((res) => {
+    actions.getPlantsFromServer().then((res) => {
       console.log(res.data);
       setAllPlants(res.data);
     });
   }, []);
 
   const savePlant = (favPlant) => {
-    console.log(favPlant, favPlant.userIds);
     actions.savePlant(favPlant).then((res) => {
-      console.log(res);
+      console.log("added", res.data.plant.userIds, res.data.user._id);
     });
+    setLikedPlants(true);
   };
+
+  console.log(likedPlants);
 
   const removePlant = (favPlant) => {
-    console.log(favPlant, favPlant.userIds);
     actions.removePlant(favPlant).then((res) => {
-      console.log(res);
-      setLikes(true);
+      console.log("removed", res.data);
     });
+    setLikedPlants(false);
   };
 
-  let ShowAllPlants = allPlants.map((eachPlant, i) => {
-    return (
-      <div key={eachPlant._id}>
-        <button className="like-btn">
+  const ShowButton = () => {
+    if (likedPlants === false) {
+      return (
+        <div>
           <img
             className="saved-icon"
-            onClick={() => savePlant(eachPlant)}
+            // onClick={() => savePlant(eachPlant)}
             src={heartOutline}
             style={{ width: "2em" }}
-            alt="save this plant cto favorites"
+            alt="save this plant to favorites"
           />
-        </button>
-
-        <button className="like-btn">
+        </div>
+      );
+    } else {
+      return (
+        <div>
           <img
             className="saved-icon"
-            onClick={() => removePlant(eachPlant)}
+            // onClick={() => removePlant(eachPlant)}
             src={redHeart}
             style={{ width: "2em" }}
             alt="remove this plant from favorites"
           />
+        </div>
+      );
+    }
+  };
+
+  let ShowAllPlants = allPlants.map((eachPlant) => {
+    return (
+      <div key={eachPlant._id}>
+        <button className="like-btn">
+          <ShowButton />
         </button>
 
         <img
@@ -63,29 +76,34 @@ function AllPlants(props) {
     );
   });
 
-  function shuffle(array) {
-    var currentIndex = array.length,
-      randomIndex;
+  // function shuffle(array) {
+  //   var currentIndex = array.length,
+  //     randomIndex;
 
-    // While there remain elements to shuffle...
-    while (0 !== currentIndex) {
-      // Pick a remaining element...
-      randomIndex = Math.floor(Math.random() * currentIndex);
-      currentIndex--;
+  //   // While there remain elements to shuffle...
+  //   while (0 !== currentIndex) {
+  //     // Pick a remaining element...
+  //     randomIndex = Math.floor(Math.random() * currentIndex);
+  //     currentIndex--;
 
-      // And swap it with the current element.
-      [array[currentIndex], array[randomIndex]] = [
-        array[randomIndex],
-        array[currentIndex],
-      ];
-    }
-    return array;
+  //     // And swap it with the current element.
+  //     [array[currentIndex], array[randomIndex]] = [
+  //       array[randomIndex],
+  //       array[currentIndex],
+  //     ];
+  //   }
+  //   return array;
+  // }
+
+  function reversePlants(arr) {
+    return arr.reverse();
   }
 
   return (
     <div>
       <main>
-        {shuffle(ShowAllPlants)}
+        {/* {shuffle(ShowAllPlants)} */}
+        {reversePlants(ShowAllPlants)}
       </main>
     </div>
   );

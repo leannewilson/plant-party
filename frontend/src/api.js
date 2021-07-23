@@ -6,7 +6,7 @@ console.log(process.env);
 
 const serverUrl =
   process.env.NODE_ENV === "production"
-    ? "https://toro-plate.herokuapp.com/api"
+    ? "https://plant-party.herokuapp.com/api"
     : `http://localhost:5000/api`;
 console.log(serverUrl);
 const createHeaders = () => {
@@ -31,6 +31,15 @@ const actions = {
   GetFavPlants: async () => {
     return await axios.get(`${serverUrl}/profile`, createHeaders());
   },
+
+  getPlantsFromServer: async () => {
+    return await axios.get(`${serverUrl}/getplantsfromserver`, createHeaders());
+  },
+
+  addPlant: async () => {
+    return await axios.post(`${serverUrl}/add-plant`, createHeaders());
+  },
+
   // addPost: async (post) => {
   //     let res = await axios.post(`${serverUrl}/add-post`, post, createHeaders())
   //     return res

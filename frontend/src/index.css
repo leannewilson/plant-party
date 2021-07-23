@@ -113,11 +113,22 @@ footer a:hover{
   color:rgb(104,141,12);
   font-weight: bolder;
 }
+/* PROFILE PAGE */
+
+.welcome-profile {
+  display: flex;
+  justify-content: space-around;
+}
+
+.welcome-profile button {
+  height: 20px;
+}
 
 /* plant details */
 .all-details {
   border: 2px solid black;
   display: flex;
+  flex-direction: row;
   justify-content: center;
   width: 80%;
   margin: 2em auto;
@@ -133,6 +144,7 @@ footer a:hover{
 .plant-title-profile {
   display: flex;
   flex-direction: column;
+  max-width: 250px;
 }
 .plant-title-profile span {
   text-align: center;
@@ -178,10 +190,16 @@ footer a:hover{
   main {
     column-count: 2;
   }
-
   .videos-list {
     display: flex;
     flex-direction: column;
+  }
+  .all-details {
+    flex-direction: column;
+    text-align: center;
+  }
+  .plant-img-profile {
+    padding-bottom: 0px;
   }
 }
 
