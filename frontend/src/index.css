@@ -111,7 +111,6 @@ main {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  text-align: center;
   width: 80%;
   margin: 2em auto;
   align-items: center;
@@ -126,6 +125,7 @@ main {
 .plant-title-profile {
   display: flex;
   flex-direction: column;
+  max-width: 250px;
 }
 .plant-title-profile span {
   text-align: center;
@@ -170,8 +170,11 @@ main {
     flex-direction: column;
   }
   .all-details {
-    display: flex;
     flex-direction: column;
+    text-align: center;
+  }
+  .plant-img-profile {
+    padding-bottom: 0px;
   }
 }
 
