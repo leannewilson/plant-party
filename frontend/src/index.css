@@ -94,12 +94,24 @@ main {
   height: 75px;
   background: #eee;
 }
+/* PROFILE PAGE */
+
+.welcome-profile {
+  display: flex;
+  justify-content: space-around;
+}
+
+.welcome-profile button {
+  height: 20px;
+}
 
 /* plant details */
 .all-details {
   border: 2px solid black;
   display: flex;
+  flex-direction: row;
   justify-content: center;
+  text-align: center;
   width: 80%;
   margin: 2em auto;
   align-items: center;
@@ -153,8 +165,11 @@ main {
   main {
     column-count: 2;
   }
-
   .videos-list {
+    display: flex;
+    flex-direction: column;
+  }
+  .all-details {
     display: flex;
     flex-direction: column;
   }

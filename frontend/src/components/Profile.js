@@ -56,13 +56,15 @@ function Profile(props) {
 
   return (
     <div>
-      <img
-        src={user?.imageUrl}
-        style={{ borderRadius: "5px" }}
-        alt="google icon"
-      />
-      <h2>Hello, {user?.name}!</h2>
-      <button onClick={logOut}>Log out</button>
+      <div className="welcome-profile">
+        <img
+          src={user?.imageUrl}
+          style={{ borderRadius: "5px" }}
+          alt="google icon"
+        />
+        <h2>Hello, {user?.name}!</h2>
+        <button onClick={logOut}>Log out</button>
+      </div>
       <div>
         <ShowFavPlants />
       </div>
