@@ -119,11 +119,11 @@ main {
   text-align: center;
 }
 
-/* MEDIA QUERIES */
 .plant-img-main:hover {
   opacity: 50%;
 }
 
+/* LIKE BUTTON */
 .like-btn {
   position: relative;
   outline: none;
@@ -132,7 +132,7 @@ main {
   border: none;
   cursor: pointer;
   overflow: hidden;
-  opacity: 10%;
+  opacity: 90%;
   top: 10px;
   left: 5px;
   z-index: 1;

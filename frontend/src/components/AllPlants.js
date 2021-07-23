@@ -6,6 +6,7 @@ import actions from "../api";
 
 function AllPlants(props) {
   let [allPlants, setAllPlants] = useState([]);
+  let [likes, setLikes] = useState(false);
 
   useEffect(() => {
     axios.get("http://localhost:5000/api/getplantsfromserver").then((res) => {
@@ -25,33 +26,38 @@ function AllPlants(props) {
     console.log(favPlant, favPlant.userIds);
     actions.removePlant(favPlant).then((res) => {
       console.log(res);
+      setLikes(true);
     });
   };
+
+  // const LikeButton = () => {
+  //   if (likes === false){
+
+  //   }
+  // }
 
   let ShowAllPlants = allPlants.map((eachPlant, i) => {
     return (
       <div key={eachPlant._id}>
-        {removePlant ? (
-          <button className="like-btn">
-            <img
-              className="saved-icon"
-              onClick={() => savePlant(eachPlant)}
-              src={heartOutline}
-              style={{ width: "2em" }}
-              alt="save this plant cto favorites"
-            />
-          </button>
-        ) : (
-          <button className="like-btn">
-            <img
-              className="saved-icon"
-              onClick={() => removePlant(eachPlant)}
-              src={redHeart}
-              style={{ width: "2em" }}
-              alt="remove this plant from favorites"
-            />
-          </button>
-        )}
+        <button className="like-btn">
+          <img
+            className="saved-icon"
+            onClick={() => savePlant(eachPlant)}
+            src={heartOutline}
+            style={{ width: "2em" }}
+            alt="save this plant cto favorites"
+          />
+        </button>
+
+        <button className="like-btn">
+          <img
+            className="saved-icon"
+            onClick={() => removePlant(eachPlant)}
+            src={redHeart}
+            style={{ width: "2em" }}
+            alt="remove this plant from favorites"
+          />
+        </button>
 
         <img
           style={{ width: "100%" }}

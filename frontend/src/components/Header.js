@@ -18,41 +18,43 @@ function Header(props) {
   return (
     <TheContext.Provider value={{ user, setUser, getTheUser }}>
       <div>
-        <nav className="nav-bar">
+        <nav className="nav-bar navigation">
           <Link to="/" style={{ textDecoration: "none" }}>
-            <h1>PLANT PARTY</h1>
+            <h1 className="logo">PLANT PARTY</h1>
           </Link>
           <img src="./assests/logo.png" alt="" />
-          <ul>
-            <Link to="/" style={{ textDecoration: "none" }}>
-              <li>Home</li>
-            </Link>
-            {user?.name ? (
-              <>
-                <Link
-                  className="nav-link"
-                  to="/Profile"
-                  style={{ textDecoration: "none" }}
-                >
-                  <li>Profile</li>
-                </Link>
-              </>
-            ) : (
-              <Link to="/Auth" style={{ textDecoration: "none" }}>
-                <li>Log In</li>
+          <div className="menuToggle">
+            <input type="checkbox" />
+            <span></span>
+            <span></span>
+            <span></span>
+            <ul className="menu">
+              <Link to="/" className="link">
+                <li>Home</li>
               </Link>
-            )}
+              {user?.name ? (
+                <>
+                  <Link className="nav-link" to="/Profile" className="link">
+                    <li>Profile</li>
+                  </Link>
+                </>
+              ) : (
+                <Link to="/Auth" className="link">
+                  <li>Log In</li>
+                </Link>
+              )}
 
-            <Link to="/fourm" style={{ textDecoration: "none" }}>
-              <li>Forum</li>
-            </Link>
-            <Link to="/resources" style={{ textDecoration: "none" }}>
-              <li>Resources</li>
-            </Link>
-            <Link to="/add-plant" style={{ textDecoration: "none" }}>
-              <li>Plant Proposals</li>
-            </Link>
-          </ul>
+              <Link to="/fourm" className="link">
+                <li>Forum</li>
+              </Link>
+              <Link to="/resources" className="link">
+                <li>Resources</li>
+              </Link>
+              <Link to="/add-plant" className="link">
+                <li>Plant Proposals</li>
+              </Link>
+            </ul>
+          </div>
         </nav>
       </div>
     </TheContext.Provider>
