@@ -46,7 +46,7 @@ function Header(props) {
                 </Link>
               )}
 
-              <Link to="/fourm" className="link">
+              <Link to="/forum" className="link">
                 <li>Forum</li>
               </Link>
               <Link to="/resources" className="link">

@@ -8,6 +8,7 @@ function Profile(props) {
 
   useEffect(() => {
     console.log(user);
+    ShowFavPlants();
   }, []);
 
   const logOut = () => {
