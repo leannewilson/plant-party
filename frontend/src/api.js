@@ -36,8 +36,8 @@ const actions = {
     return await axios.get(`${serverUrl}/getplantsfromserver`, createHeaders());
   },
 
-  addPlant: async () => {
-    return await axios.post(`${serverUrl}/add-plant`, createHeaders());
+  addPlant: async (data) => {
+    return await axios.post(`${serverUrl}/add-plant`, data, createHeaders());
   },
 
   // addPost: async (post) => {

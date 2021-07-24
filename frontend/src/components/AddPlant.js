@@ -1,5 +1,4 @@
 import { useState } from "react";
-import axios from "axios";
 import actions from "../api";
 
 function AddPlant(props) {
@@ -79,7 +78,6 @@ function AddPlant(props) {
             <option value="Well-draining">Well-draining</option>
             <option value="Moisture-retaining">Moisture-retaining </option>
             <option value="Coarse-sandy">Coarse + sandy </option>
-            <option value="None">None </option>
           </select>
         </label>
         <label>

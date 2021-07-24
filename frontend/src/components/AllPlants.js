@@ -17,7 +17,7 @@ function AllPlants(props) {
 
   const savePlant = (favPlant) => {
     actions.savePlant(favPlant).then((res) => {
-      console.log("added", res.data.plant.userIds, res.data.user._id);
+      console.log("added", res.data);
     });
     setLikedPlants(true);
   };
@@ -37,7 +37,7 @@ function AllPlants(props) {
         <div>
           <img
             className="saved-icon"
-            // onClick={() => savePlant(eachPlant)}
+            onClick={() => savePlant(props.eachPlant)}
             src={heartOutline}
             style={{ width: "2em" }}
             alt="save this plant to favorites"
@@ -49,7 +49,7 @@ function AllPlants(props) {
         <div>
           <img
             className="saved-icon"
-            // onClick={() => removePlant(eachPlant)}
+            onClick={() => removePlant(props.eachPlant)}
             src={redHeart}
             style={{ width: "2em" }}
             alt="remove this plant from favorites"

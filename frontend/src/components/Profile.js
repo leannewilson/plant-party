@@ -1,4 +1,4 @@
-import { useContext, useState, useEffect } from "react";
+import { useContext, useEffect } from "react";
 import TheContext from "../TheContext";
 import xicon from "../assests/xicon.png";
 import actions from "../api";
@@ -20,7 +20,7 @@ function Profile(props) {
       console.log("removed", res.data);
     });
   };
-  console.log(user);
+
   const ShowFavPlants = () => {
     return user.favPlants.map((eachPlant) => {
       return (

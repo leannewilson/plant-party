@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useContext } from "react";
 import { Link } from "react-router-dom";
 import TheContext from "../TheContext";
 import actions from "../api";
 
 function Header(props) {
-  let [user, setUser] = useState({});
+  let { user, setUser } = useContext(TheContext);
   const ref = useRef();
   // const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -52,7 +52,7 @@ function Header(props) {
               <Link to="/resources" className="link">
                 <li>Resources</li>
               </Link>
-              <Link to="/add-plant" className="link">
+              <Link to="/plant-suggestion" className="link">
                 <li>Plant Proposals</li>
               </Link>
             </ul>
