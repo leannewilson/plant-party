@@ -7,18 +7,17 @@ function Forum(props) {
         console.log('hello')
     }
 
+
+
     return (
         <div style={{border: '1px solid black'}}>
-            <div className="Topics" style={{border:"1px solid black", width:'20%'}}>
-                <h3>Beginners</h3>
-                <h3>Propagation</h3>
-                <h3>Dying Plants</h3>
-            </div>
-
             <div className="message-box">
+                <div>
+                    Create post
+                </div>
                 <form>
-                    <textarea placeholder="type your message here"></textarea>
-                    <button>SEND</button>
+                    <input type="text" placeholder="Subject or Question"/>
+                    <textarea></textarea>
                 </form>
             </div>
         </div>
