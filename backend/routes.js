@@ -3,7 +3,8 @@ const jwt = require("jsonwebtoken");
 const router = express.Router();
 const Plant = require("./models/Plant");
 const User = require("./models/User");
-const Post = require('./models/Post')
+const Post = require("./models/Post");
+const Suggestion = require("./models/Suggestion");
 /**ALL OUR BACKEND ROUTES */
 
 router.get("/", (req, res) => {
@@ -33,17 +34,19 @@ router.post("/savedplants", authorize, (req, res) => {
       $addToSet: { favPlants: req.body._id },
     },
     { new: true }
-  ).then((user) => {
-    Plant.findByIdAndUpdate(
-      req.body._id,
-      {
-        $addToSet: { userIds: res.locals.user._id },
-      },
-      { new: true }
-    ).then((plant) => {
-      res.json({ plant, user });
+  )
+    .populate("favPlants")
+    .then((user) => {
+      Plant.findByIdAndUpdate(
+        req.body._id,
+        {
+          $addToSet: { userIds: res.locals.user._id },
+        },
+        { new: true }
+      ).then((plant) => {
+        res.json({ plant, user });
+      });
     });
-  });
 });
 
 router.post("/removeplants", authorize, (req, res) => {
@@ -54,16 +57,26 @@ router.post("/removeplants", authorize, (req, res) => {
       $pull: { favPlants: req.body._id },
     },
     { new: true }
-  ).then((user) => {
-    Plant.findByIdAndUpdate(
-      req.body._id,
-      {
-        $pull: { userIds: res.locals.user._id },
-      },
-      { new: true }
-    ).then((plant) => {
-      res.json({ plant, user });
+  )
+    .populate("favPlants")
+    .then((user) => {
+      Plant.findByIdAndUpdate(
+        req.body._id,
+        {
+          $pull: { userIds: res.locals.user._id },
+        },
+        { new: true }
+      ).then((plant) => {
+        res.json({ plant, user });
+      });
     });
+});
+
+router.post("/suggestions", authorize, (req, res) => {
+  let newSuggestion = req.body;
+  newSuggestion.userId = res.locals.user._id;
+  Suggestion.create(newSuggestion).then((suggestion) => {
+    res.json(suggestion);
   });
 });
 
@@ -80,22 +93,24 @@ router.post("/authenticate", async (req, res) => {
   }
   jwt.sign({ user }, "secret key", { expiresIn: "100min" }, (err, token) => {
     res.json({ user, token });
-  })
+  });
 });
 
-router.post("/add-post", authorize, async(req, res) => {
-  let newPost = req.body
-  newPost.userId = res.locals.user._id
-  Post.create(newPost).then(post => {
-    res.json(post)
-  })
-})
+router.post("/add-post", authorize, async (req, res) => {
+  let newPost = req.body;
+  newPost.userId = res.locals.user._id;
+  Post.create(newPost).then((post) => {
+    res.json(post);
+  });
+});
 
-router.get('/all-the-posts', (req, res) => {
-  Post.find().populate('userId').then(posts => {
-      res.json(posts)
-  })
-})
+router.get("/all-the-posts", (req, res) => {
+  Post.find()
+    .populate("userId")
+    .then((posts) => {
+      res.json(posts);
+    });
+});
 
 //Middle ware >>> Put this in the middle of any route where you want to authorize
 function authorize(req, res, next) {

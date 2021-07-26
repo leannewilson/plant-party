@@ -11,10 +11,14 @@ function Forum(props) {
     setPost(e.target.value);
   };
 
+  console.log(post);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     let res = await actions.addPost({ post });
     history.push("/forum");
+    console.log("plant!");
   };
 
   let [allPosts, setAllPosts] = useState([]);

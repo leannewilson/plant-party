@@ -41,11 +41,19 @@ const actions = {
   },
 
   addPost: async (post) => {
-      let res = await axios.post(`${serverUrl}/add-post`, post, createHeaders())
-      return res
+    let res = await axios.post(`${serverUrl}/add-post`, post, createHeaders());
+    return res;
   },
   getAllPosts: async (post) => {
-      return await axios.get(`${serverUrl}/all-the-posts`, createHeaders())
+    return await axios.get(`${serverUrl}/all-the-posts`, createHeaders());
+  },
+
+  saveSuggestion: async (suggestion) => {
+    return await axios.post(
+      `${serverUrl}/suggestions`,
+      suggestion,
+      createHeaders()
+    );
   },
 
   authenticate: async (profileObj) => {
