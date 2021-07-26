@@ -16,15 +16,15 @@ function AllPlants(props) {
   }, []);
 
   const ShowButton = (props) => {
-    console.log("?", user.favPlants, props.eachPlant._id);
+    // console.log("?", user.favPlants, props.eachPlant._id);
     let likedPlants = user.favPlants.some(
       (eachPlant) => eachPlant._id === props.eachPlant._id
     );
-    console.log(likedPlants);
+    // console.log(likedPlants);
 
     const savePlant = (favPlant) => {
       actions.savePlant(favPlant).then((res) => {
-        console.log("added", res.data, user, setUser);
+        // console.log("added", res.data, user, setUser);
         // let newUser = { ...user };
 
         setUser(res.data.user);
@@ -33,7 +33,7 @@ function AllPlants(props) {
 
     const removePlant = (favPlant) => {
       actions.removePlant(favPlant).then((res) => {
-        console.log("removed", res.data, user, setUser);
+        // console.log("removed", res.data, user, setUser);
         // let newUser = { ...user };
         setUser(res.data.user);
       });

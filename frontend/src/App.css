@@ -47,6 +47,7 @@ li:hover {
   list-style: none;
   justify-content: flex-end;
   font-size: 22px;
+  margin-bottom: 0;
 }
 
 .menu .link {
@@ -184,7 +185,6 @@ li:hover {
 .suggestion_box {
   background: #f9f9f9;
   padding: 25px;
-  margin: 50px 0;
 }
 
 .suggestion_box h3 {
