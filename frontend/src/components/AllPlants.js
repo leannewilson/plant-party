@@ -21,9 +21,13 @@ function AllPlants(props) {
       (eachPlant) => eachPlant._id == props.eachPlant._id
     );
     console.log(likedPlants);
+
     const savePlant = (favPlant) => {
       actions.savePlant(favPlant).then((res) => {
         console.log("added", res.data, user, setUser);
+        let newUser = { ...user };
+
+        setUser(res.data.user);
       });
     };
 
