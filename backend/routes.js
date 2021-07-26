@@ -3,6 +3,7 @@ const jwt = require("jsonwebtoken");
 const router = express.Router();
 const Plant = require("./models/Plant");
 const User = require("./models/User");
+const Post = require('./models/Post')
 /**ALL OUR BACKEND ROUTES */
 
 router.get("/", (req, res) => {
@@ -82,6 +83,14 @@ router.post("/authenticate", async (req, res) => {
     res.json({ user, token });
   });
 });
+
+router.post("/add-post", authorize, async(req, res) => {
+  let newPost = req.body
+  newPost.userId = res.locals.user._id
+  Post.create(newPost).then(post => {
+    res.json(post)
+  })
+})
 
 //Middle ware >>> Put this in the middle of any route where you want to authorize
 function authorize(req, res, next) {

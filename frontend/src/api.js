@@ -40,10 +40,10 @@ const actions = {
     return await axios.post(`${serverUrl}/add-plant`, data, createHeaders());
   },
 
-  // addPost: async (post) => {
-  //     let res = await axios.post(`${serverUrl}/add-post`, post, createHeaders())
-  //     return res
-  // },
+  addPost: async (post) => {
+      let res = await axios.post(`${serverUrl}/add-post`, post, createHeaders())
+      return res
+  },
   // getAllPosts: async (post) => {
   //     return await axios.get(`${serverUrl}/all-the-posts`, createHeaders())
   // },
