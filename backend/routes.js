@@ -33,19 +33,17 @@ router.post("/savedplants", authorize, (req, res) => {
       $addToSet: { favPlants: req.body._id },
     },
     { new: true }
-  )
-    .populate("favPlants")
-    .then((user) => {
-      Plant.findByIdAndUpdate(
-        req.body._id,
-        {
-          $addToSet: { userIds: res.locals.user._id },
-        },
-        { new: true }
-      ).then((plant) => {
-        res.json({ plant, user });
-      });
+  ).then((user) => {
+    Plant.findByIdAndUpdate(
+      req.body._id,
+      {
+        $addToSet: { userIds: res.locals.user._id },
+      },
+      { new: true }
+    ).then((plant) => {
+      res.json({ plant, user });
     });
+  });
 });
 
 router.post("/removeplants", authorize, (req, res) => {
@@ -56,19 +54,17 @@ router.post("/removeplants", authorize, (req, res) => {
       $pull: { favPlants: req.body._id },
     },
     { new: true }
-  )
-    .populate("favPlants")
-    .then((user) => {
-      Plant.findByIdAndUpdate(
-        req.body._id,
-        {
-          $pull: { userIds: res.locals.user._id },
-        },
-        { new: true }
-      ).then((plant) => {
-        res.json({ plant, user });
-      });
+  ).then((user) => {
+    Plant.findByIdAndUpdate(
+      req.body._id,
+      {
+        $pull: { userIds: res.locals.user._id },
+      },
+      { new: true }
+    ).then((plant) => {
+      res.json({ plant, user });
     });
+  });
 });
 
 router.post("/plant-suggestions", authorize, (req, res) => {
@@ -82,7 +78,6 @@ router.post("/plant-suggestions", authorize, (req, res) => {
 router.get("/get-the-user", authorize, async (req, res) => {
   let user = await User.findById(res.locals.user._id).populate("favPlants");
   res.json(user);
-  // console.log(res.locals.user._id);
 });
 
 router.post("/authenticate", async (req, res) => {
@@ -93,7 +88,7 @@ router.post("/authenticate", async (req, res) => {
   }
   jwt.sign({ user }, "secret key", { expiresIn: "100min" }, (err, token) => {
     res.json({ user, token });
-  });
+  })
 });
 
 router.post("/add-post", authorize, async (req, res) => {
@@ -103,6 +98,12 @@ router.post("/add-post", authorize, async (req, res) => {
     res.json(post);
   });
 });
+
+router.get('/all-the-posts', (req, res) => {
+  Post.find().populate('userId').then(posts => {
+      res.json(posts)
+  })
+})
 
 //Middle ware >>> Put this in the middle of any route where you want to authorize
 function authorize(req, res, next) {

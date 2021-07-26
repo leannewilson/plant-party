@@ -44,9 +44,9 @@ const actions = {
     let res = await axios.post(`${serverUrl}/add-post`, post, createHeaders());
     return res;
   },
-  // getAllPosts: async (post) => {
-  //     return await axios.get(`${serverUrl}/all-the-posts`, createHeaders())
-  // },
+  getAllPosts: async (post) => {
+      return await axios.get(`${serverUrl}/all-the-posts`, createHeaders())
+  },
 
   saveSuggestion: async (data) => {
     return await axios.post(
