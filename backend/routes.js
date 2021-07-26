@@ -3,6 +3,7 @@ const jwt = require("jsonwebtoken");
 const router = express.Router();
 const Plant = require("./models/Plant");
 const User = require("./models/User");
+const Post = require("./models/Post");
 /**ALL OUR BACKEND ROUTES */
 
 router.get("/", (req, res) => {
@@ -70,6 +71,14 @@ router.post("/removeplants", authorize, (req, res) => {
     });
 });
 
+router.post("/plant-suggestions", authorize, (req, res) => {
+  let suggestion = req.body;
+  console.log(suggestion);
+  Suggestion.create(suggestion).then((res) => {
+    res.json(res);
+  });
+});
+
 router.get("/get-the-user", authorize, async (req, res) => {
   let user = await User.findById(res.locals.user._id).populate("favPlants");
   res.json(user);
@@ -84,6 +93,14 @@ router.post("/authenticate", async (req, res) => {
   }
   jwt.sign({ user }, "secret key", { expiresIn: "100min" }, (err, token) => {
     res.json({ user, token });
+  });
+});
+
+router.post("/add-post", authorize, async (req, res) => {
+  let newPost = req.body;
+  newPost.userId = res.locals.user._id;
+  Post.create(newPost).then((post) => {
+    res.json(post);
   });
 });
 

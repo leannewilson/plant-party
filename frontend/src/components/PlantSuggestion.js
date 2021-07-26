@@ -1,13 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
+import actions from "../api";
+import { useHistory } from "react-router-dom";
 
 function PlantSuggestion(props) {
+  const [suggestion, setSuggestion] = useState("");
+  let history = useHistory();
+
+  const handleChange = (e) => {
+    setSuggestion(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(suggestion);
+    actions.saveSuggestion(suggestion).then((res) => {
+      console.log(res);
+      history.push("/plant-suggestion");
+    });
+  };
+
   return (
     <div className="container">
-      <form className="suggestion_box" action="" method="post">
-        <h3>We want to keep growing our collection!</h3>
+      <form onSubmit={handleSubmit} className="suggestion_box" method="post">
+        <h3>We want to keep growing!</h3>
         <h4>
-          Please add any plants, blogs, videos, ideas, or feedback you have and
-          we'll continue sprouting!
+          Don't see a plant you want to add to your plantry? Tell us what you're
+          looking for and we'll try to dig it up.
         </h4>
         <p>Thank you!</p>
 
@@ -16,6 +34,7 @@ function PlantSuggestion(props) {
           tabindex="5"
           name="suggestion_text"
           required
+          onChange={handleChange}
         ></textarea>
         <br></br>
         <button
