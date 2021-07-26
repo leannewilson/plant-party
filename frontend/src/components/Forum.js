@@ -1,56 +1,62 @@
-import React, {useEffect, useState} from 'react';
-import axios from 'axios'
-import {useHistory} from 'react-router-dom'
-import actions from '../api'
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { useHistory, Link } from "react-router-dom";
+import actions from "../api";
 
 function Forum(props) {
+  let [post, setPost] = useState("");
+  let history = useHistory();
 
-    let [post, setPost] = useState('')
-    let history = useHistory()
+  const handleChange = (e) => {
+    setPost(e.target.value);
+  };
 
-    const handleChange= (e) => {
-        setPost(e.target.value)
-    }
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    let res = await actions.addPost({ post });
+    history.push("/forum");
+  };
 
-    console.log(post)
+  let [allPosts, setAllPosts] = useState([]);
 
-    const handleSubmit = async e => {
-        e.preventDefault()
+  useEffect(async () => {
+    let res = await actions.getAllPosts();
+    setAllPosts(res.data);
+  }, []);
 
-        let res = await actions.addPost({post})
-        history.push('/forum')
-        console.log('plant!')
-    }
+  let someStyling = {
+    width: '75%',
+    padding: "10px",
+    margin: "10px auto",
+    border:'2px solid black',
+    borderRadius: "0px 10px"
+  };
 
-    let [allPosts, setAllPosts] = useState([])
+  const ShowPosts = () =>
+    allPosts.map((eachPost) => (
+      <div style={someStyling}>
+        <p className="eachPost" key={eachPost._id}>
+          {eachPost.post}
+          <br></br>
+          <span>{eachPost.userId?.name}</span>
+        </p>
+        <button>comments</button>
+      </div>
+    ));
 
-    useEffect(async () => {
-        let res = await actions.getAllPosts()
-            setAllPosts(res.data)
-    }, [])
+  return (
+    <div>
+      <>Create post</>
+      <form onSubmit={handleSubmit}>
+        <textarea cols="40" rows="5" onChange={handleChange} />
+        <button>Plant!</button>
+      </form>
 
-    const ShowPosts = () => allPosts.map(eachPost => <li key={eachPost._id}> {eachPost.post} <i>created by ...{eachPost.userId?.name}</i></li>)
-
-    return (
-        <div style={{border: '1px solid black'}}>
-            <div className="message-box">
-                <div>
-                    Create post
-                </div>
-                <form onSubmit={handleSubmit}>
-                    <textarea cols="40" rows="5" onChange={handleChange}/>
-                    <button>Plant!</button>
-                </form>
-                <div>
-                    <h3>POSTS</h3>
-                    <div>
-                        all the posts here
-                        <ShowPosts />
-                    </div>
-                </div>
-            </div>
-        </div>
-    );
+      <div>
+        <ShowPosts />
+      </div>
+    </div>
+  );
 }
 
 export default Forum;

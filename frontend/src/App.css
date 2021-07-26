@@ -10,7 +10,7 @@ body {
   width: 100%;
 }
 
-li:hover {
+.menu li:hover {
   text-decoration: underline;
 }
 
