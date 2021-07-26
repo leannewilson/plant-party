@@ -11,7 +11,7 @@ function Forum(props) {
     setPost(e.target.value);
   };
 
-  console.log(post);
+  //console.log(post);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -36,15 +36,27 @@ function Forum(props) {
     borderRadius: "0px 10px"
   };
 
+  let sendComment = (e) => {
+      e.preventDefault()
+      history.push("/forum")
+      console.log('sent')
+  }
+
   const ShowPosts = () =>
     allPosts.map((eachPost) => (
       <div style={someStyling}>
         <p className="eachPost" key={eachPost._id}>
           {eachPost.post}
-          <br></br>
+          <br/>
           <span>{eachPost.userId?.name}</span>
         </p>
         <button>comments</button>
+        <div>
+            <form onSubmit={sendComment}>
+                <textarea/>
+                <button >send</button>
+            </form>
+        </div>
       </div>
     ));
 
