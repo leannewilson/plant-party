@@ -6,6 +6,7 @@ const userSchema = new Schema({
   imageUrl: String,
   googleId: String,
   favPlants: [{ type: Schema.Types.ObjectId, ref: "Plant" }],
+  admin: Boolean,
 });
 
 module.exports = model("User", userSchema);

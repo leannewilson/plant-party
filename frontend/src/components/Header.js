@@ -52,9 +52,15 @@ function Header(props) {
               <Link to="/resources" className="link">
                 <li>Resources</li>
               </Link>
-              <Link to="/plant-suggestion" className="link">
-                <li>Plant Proposals</li>
-              </Link>
+              {user?.admin === true ? (
+                <Link to="/add-plant" className="link">
+                  <li>Add Plant</li>
+                </Link>
+              ) : (
+                <Link to="/plant-suggestion" className="link">
+                  <li>Plant Proposals</li>
+                </Link>
+              )}
             </ul>
           </div>
         </nav>
