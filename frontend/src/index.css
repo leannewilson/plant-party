@@ -95,8 +95,7 @@ main {
 }
 
 .Footer {
-  position: relative;
-  bottom: 0;
+  position: sticky;
   height: 45px;
   background: #eee;
   margin: 0;
