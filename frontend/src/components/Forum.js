@@ -6,17 +6,15 @@ import actions from '../api'
 function Forum(props) {
 
     let [post, setPost] = useState('')
-    // let [subject, setSubject] = useState('')
     let history = useHistory()
 
     const handleChange= (e) => {
         setPost(e.target.value)
-
     }
 
     const handleSubmit = async e => {
         e.preventDefault()
-
+        
         let res = await actions.addPost({post})
         history.push('/forum')
         console.log('plant!')
