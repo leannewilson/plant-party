@@ -101,7 +101,6 @@ main {
 
 footer {
   display: flex;
-  position: sticky;
   flex-direction: row;
   justify-content: space-around;
   width: 400px;

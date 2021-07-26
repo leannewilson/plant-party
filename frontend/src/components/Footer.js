@@ -4,11 +4,11 @@ function Footer(props) {
   return (
     <div className="Footer">
       <footer>
-      <div>
-        <Link to="/about-us">About Us</Link>
+        <div>
+          <Link to="/about-us">About Us</Link>
         </div>
-        <div>  
-        <a href = "https://github.com/leannewilson/plant-party">GitHub</a>
+        <div>
+          <a href="https://github.com/leannewilson/plant-party">GitHub</a>
         </div>
       </footer>
     </div>
