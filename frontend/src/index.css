@@ -4,6 +4,7 @@
 body {
   margin: 0;
   font-family: "Nunito";
+  overflow-x: hidden;
 }
 
 .Auth {
@@ -144,9 +145,12 @@ footer a:hover {
 
 .plant-title-profile {
   display: flex;
+  flex-direction: column;
   max-width: 250px;
 }
 .plant-title-profile span {
+  display: flex;
+  flex-direction: column;
   text-align: center;
 }
 
