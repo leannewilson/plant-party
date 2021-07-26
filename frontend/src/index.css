@@ -219,7 +219,6 @@ footer a:hover {
 @media screen and (max-width: 700px) {
   main {
     column-count: 2;
-    overflow-x: hidden;
   }
   .videos-list {
     display: flex;
