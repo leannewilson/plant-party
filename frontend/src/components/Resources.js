@@ -8,7 +8,7 @@ function Resources(props) {
 
   return (
     <div className="Resources">
-      <Maintenance />
+      {/* <Maintenance /> */}
       <section className="blogs">
         <h2>BLOGS</h2>
         <div className="blog-links">
