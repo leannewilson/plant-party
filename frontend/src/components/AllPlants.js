@@ -10,7 +10,7 @@ function AllPlants(props) {
 
   useEffect(() => {
     actions.getPlantsFromServer().then((res) => {
-      console.log(res.data);
+      // console.log(res.data);
       setAllPlants(res.data);
     });
   }, []);
@@ -20,8 +20,6 @@ function AllPlants(props) {
     let likedPlants = user.favPlants.some(
       (eachPlant) => eachPlant._id === props.eachPlant._id
     );
-    // console.log(likedPlants);
-
     const savePlant = (favPlant) => {
       actions.savePlant(favPlant).then((res) => {
         // console.log("added", res.data, user, setUser);

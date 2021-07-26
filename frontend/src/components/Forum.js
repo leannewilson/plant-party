@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import actions from "../api";
 
 function Forum(props) {
@@ -28,29 +28,36 @@ function Forum(props) {
     setAllPosts(res.data);
   }, []);
 
+  let someStyling = {
+    width: '75%',
+    padding: "10px",
+    margin: "10px auto",
+    border:'2px solid black',
+    borderRadius: "0px 10px"
+  };
+
   const ShowPosts = () =>
     allPosts.map((eachPost) => (
-      <li key={eachPost._id}>
-        {" "}
-        {eachPost.post} <i>created by ...{eachPost.userId?.name}</i>
-      </li>
+      <div style={someStyling}>
+        <p className="eachPost" key={eachPost._id}>
+          {eachPost.post}
+          <br></br>
+          <span>{eachPost.userId?.name}</span>
+        </p>
+        <button>comments</button>
+      </div>
     ));
 
   return (
-    <div style={{ border: "1px solid black" }}>
-      <div className="message-box">
-        <div>Create post</div>
-        <form onSubmit={handleSubmit}>
-          <textarea cols="40" rows="5" onChange={handleChange} />
-          <button>Plant!</button>
-        </form>
-        <div>
-          <h3>POSTS</h3>
-          <div>
-            all the posts here
-            <ShowPosts />
-          </div>
-        </div>
+    <div>
+      <>Create post</>
+      <form onSubmit={handleSubmit}>
+        <textarea cols="40" rows="5" onChange={handleChange} />
+        <button>Plant!</button>
+      </form>
+
+      <div>
+        <ShowPosts />
       </div>
     </div>
   );
