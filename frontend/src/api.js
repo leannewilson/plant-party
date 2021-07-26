@@ -45,13 +45,13 @@ const actions = {
     return res;
   },
   getAllPosts: async (post) => {
-      return await axios.get(`${serverUrl}/all-the-posts`, createHeaders())
+    return await axios.get(`${serverUrl}/all-the-posts`, createHeaders());
   },
 
-  saveSuggestion: async (data) => {
+  saveSuggestion: async (suggestion) => {
     return await axios.post(
-      `${serverUrl}/plant-suggestions`,
-      data,
+      `${serverUrl}/suggestions`,
+      suggestion,
       createHeaders()
     );
   },

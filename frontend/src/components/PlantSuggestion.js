@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import actions from "../api";
-import { useHistory } from "react-router-dom";
 
 function PlantSuggestion(props) {
   const [suggestion, setSuggestion] = useState("");
-  let history = useHistory();
 
   const handleChange = (e) => {
     setSuggestion(e.target.value);
@@ -13,9 +11,10 @@ function PlantSuggestion(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(suggestion);
-    actions.saveSuggestion(suggestion).then((res) => {
+    actions.saveSuggestion({ suggestion }).then((res) => {
       console.log(res);
-      history.push("/plant-suggestion");
+
+      console.log("test suggestion");
     });
   };
 
