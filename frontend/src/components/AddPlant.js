@@ -13,7 +13,7 @@ function AddPlant(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("added", newPlant);
-    actions.addPlant().then((res) => {
+    actions.addPlant(newPlant).then((res) => {
       console.log(res);
     });
   };

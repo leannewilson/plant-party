@@ -33,17 +33,19 @@ router.post("/savedplants", authorize, (req, res) => {
       $addToSet: { favPlants: req.body._id },
     },
     { new: true }
-  ).then((user) => {
-    Plant.findByIdAndUpdate(
-      req.body._id,
-      {
-        $addToSet: { userIds: res.locals.user._id },
-      },
-      { new: true }
-    ).then((plant) => {
-      res.json({ plant, user });
+  )
+    .populate("favPlants")
+    .then((user) => {
+      Plant.findByIdAndUpdate(
+        req.body._id,
+        {
+          $addToSet: { userIds: res.locals.user._id },
+        },
+        { new: true }
+      ).then((plant) => {
+        res.json({ plant, user });
+      });
     });
-  });
 });
 
 router.post("/removeplants", authorize, (req, res) => {
@@ -54,17 +56,19 @@ router.post("/removeplants", authorize, (req, res) => {
       $pull: { favPlants: req.body._id },
     },
     { new: true }
-  ).then((user) => {
-    Plant.findByIdAndUpdate(
-      req.body._id,
-      {
-        $pull: { userIds: res.locals.user._id },
-      },
-      { new: true }
-    ).then((plant) => {
-      res.json({ plant, user });
+  )
+    .populate("favPlants")
+    .then((user) => {
+      Plant.findByIdAndUpdate(
+        req.body._id,
+        {
+          $pull: { userIds: res.locals.user._id },
+        },
+        { new: true }
+      ).then((plant) => {
+        res.json({ plant, user });
+      });
     });
-  });
 });
 
 router.get("/get-the-user", authorize, async (req, res) => {

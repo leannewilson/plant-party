@@ -144,7 +144,6 @@ footer a:hover {
 
 .plant-title-profile {
   display: flex;
-  flex-direction: column;
   max-width: 250px;
 }
 .plant-title-profile span {
@@ -153,6 +152,27 @@ footer a:hover {
 
 .plant-img-main:hover {
   opacity: 50%;
+}
+
+/* PLANT MAINTENANCE */
+.plant-care {
+  display: flex;
+  flex-direction: row;
+}
+
+.plant-care-boxes {
+  width: 500px;
+  justify-content: space-around;
+  padding: 0 3em;
+}
+
+.plant-care-care {
+  width: 600px;
+}
+
+.plant-care-boxes span {
+  height: 400px;
+  align-content: stretch;
 }
 
 /* LIKE BUTTON */

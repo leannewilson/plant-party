@@ -18,6 +18,7 @@ function Profile(props) {
   const removePlant = (favPlant) => {
     actions.removePlant(favPlant).then((res) => {
       console.log("removed", res.data);
+      setUser(res.data.user);
     });
   };
 

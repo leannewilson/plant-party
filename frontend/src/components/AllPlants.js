@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React, { useEffect, useState, useContext } from "react";
 import heartOutline from "../assests/heartOutline.png";
 import redHeart from "../assests/redHeart.png";
 import actions from "../api";
+import TheContext from "../TheContext";
 
 function AllPlants(props) {
   let [allPlants, setAllPlants] = useState([]);
-  let [likedPlants, setLikedPlants] = useState(false);
+  let { user, setUser } = useContext(TheContext);
 
   useEffect(() => {
     actions.getPlantsFromServer().then((res) => {
@@ -15,23 +15,29 @@ function AllPlants(props) {
     });
   }, []);
 
-  const savePlant = (favPlant) => {
-    actions.savePlant(favPlant).then((res) => {
-      console.log("added", res.data);
-    });
-    setLikedPlants(true);
-  };
+  const ShowButton = (props) => {
+    console.log("?", user.favPlants, props.eachPlant._id);
+    let likedPlants = user.favPlants.some(
+      (eachPlant) => eachPlant._id == props.eachPlant._id
+    );
+    console.log(likedPlants);
 
-  console.log(likedPlants);
+    const savePlant = (favPlant) => {
+      actions.savePlant(favPlant).then((res) => {
+        console.log("added", res.data, user, setUser);
+        let newUser = { ...user };
 
-  const removePlant = (favPlant) => {
-    actions.removePlant(favPlant).then((res) => {
-      console.log("removed", res.data);
-    });
-    setLikedPlants(false);
-  };
+        setUser(res.data.user);
+      });
+    };
 
-  const ShowButton = () => {
+    const removePlant = (favPlant) => {
+      actions.removePlant(favPlant).then((res) => {
+        console.log("removed", res.data);
+        setUser(res.data.user);
+      });
+    };
+
     if (likedPlants === false) {
       return (
         <div>
@@ -63,7 +69,7 @@ function AllPlants(props) {
     return (
       <div key={eachPlant._id}>
         <button className="like-btn">
-          <ShowButton />
+          <ShowButton eachPlant={eachPlant} />
         </button>
 
         <img
@@ -103,7 +109,7 @@ function AllPlants(props) {
     <div>
       <main>
         {/* {shuffle(ShowAllPlants)} */}
-        {reversePlants(ShowAllPlants)}
+        {user.favPlants && reversePlants(ShowAllPlants)}
       </main>
     </div>
   );
