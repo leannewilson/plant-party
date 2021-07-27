@@ -11,105 +11,71 @@ function AllPlants(props) {
   useEffect(() => {
     actions.getPlantsFromServer().then((res) => {
       // console.log(res.data);
-      setAllPlants(res.data);
+      setAllPlants(res.data.reverse());
     });
   }, []);
 
-  const ShowButton = (props) => {
-    // console.log("?", user.favPlants, props.eachPlant._id);
-    let likedPlants = user.favPlants.some(
-      (eachPlant) => eachPlant._id === props.eachPlant._id
-    );
-    const savePlant = (favPlant) => {
-      actions.savePlant(favPlant).then((res) => {
-        // console.log("added", res.data, user, setUser);
-        // let newUser = { ...user };
+  const savePlant = (favPlant) => {
+    actions.savePlant(favPlant).then((res) => {
+      console.log("added", res.data);
 
-        setUser(res.data.user);
-      });
-    };
-
-    const removePlant = (favPlant) => {
-      actions.removePlant(favPlant).then((res) => {
-        // console.log("removed", res.data, user, setUser);
-        // let newUser = { ...user };
-        setUser(res.data.user);
-      });
-    };
-
-    if (likedPlants === false) {
-      return (
-        <div>
-          <img
-            className="saved-icon"
-            onClick={() => savePlant(props.eachPlant)}
-            src={heartOutline}
-            style={{ width: "2em" }}
-            alt="save this plant to favorites"
-          />
-        </div>
-      );
-    } else {
-      return (
-        <div>
-          <img
-            className="saved-icon"
-            onClick={() => removePlant(props.eachPlant)}
-            src={redHeart}
-            style={{ width: "2em" }}
-            alt="remove this plant from favorites"
-          />
-        </div>
-      );
-    }
+      setUser(res.data.user);
+    });
   };
 
-  let ShowAllPlants = allPlants.map((eachPlant) => {
-    return (
-      <div key={eachPlant._id}>
-        <button className="like-btn">
-          <ShowButton eachPlant={eachPlant} />
-        </button>
+  const removePlant = (favPlant) => {
+    actions.removePlant(favPlant).then((res) => {
+      console.log("removed", res.data, user, setUser);
+      // let newUser = { ...user };
+      setUser(res.data.user);
+    });
+  };
 
-        <img
-          style={{ width: "100%" }}
-          className="plant-img-main"
-          src={eachPlant.image}
-          alt="green and growing"
-        />
-        {/* <h2 className='plant-name-hover'>{eachPlant.commonName}</h2> */}
-      </div>
+  const ShowButton = (props) => {
+    //let likedIt = props.eachPlant.userIds.includes(user._id);
+    let likedIt = user.favPlants.some(
+      (each) => each._id == props.eachPlant._id
     );
-  });
+    console.log(props.eachPlant.userIds, user._id, likedIt);
+    return (
+      <img
+        className="saved-icon"
+        src={likedIt ? redHeart : heartOutline}
+        style={{ width: "2em" }}
+        alt="remove this plant from favorites"
+        onClick={
+          likedIt
+            ? () => removePlant(props.eachPlant)
+            : () => savePlant(props.eachPlant)
+        }
+      />
+    );
+  };
 
-  // function shuffle(array) {
-  //   var currentIndex = array.length,
-  //     randomIndex;
+  const ShowAllPlants = () => {
+    return allPlants.map((eachPlant) => {
+      return (
+        <div key={eachPlant._id}>
+          <button className="like-btn">
+            <ShowButton eachPlant={eachPlant} />
+          </button>
 
-  //   // While there remain elements to shuffle...
-  //   while (0 !== currentIndex) {
-  //     // Pick a remaining element...
-  //     randomIndex = Math.floor(Math.random() * currentIndex);
-  //     currentIndex--;
-
-  //     // And swap it with the current element.
-  //     [array[currentIndex], array[randomIndex]] = [
-  //       array[randomIndex],
-  //       array[currentIndex],
-  //     ];
-  //   }
-  //   return array;
-  // }
-
-  function reversePlants(arr) {
-    return arr.reverse();
-  }
+          <img
+            style={{ width: "100%" }}
+            className="plant-img-main"
+            src={eachPlant.image}
+            alt="green and growing"
+          />
+          {/* <h2 className='plant-name-hover'>{eachPlant.commonName}</h2> */}
+        </div>
+      );
+    });
+  };
 
   return (
     <div>
       <main>
-        {/* {shuffle(ShowAllPlants)} */}
-        {user.favPlants && reversePlants(ShowAllPlants)}
+        <ShowAllPlants />
       </main>
     </div>
   );
