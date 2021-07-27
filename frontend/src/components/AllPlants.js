@@ -18,7 +18,6 @@ function AllPlants(props) {
   const savePlant = (favPlant) => {
     actions.savePlant(favPlant).then((res) => {
       console.log("added", res.data);
-
       setUser(res.data.user);
     });
   };

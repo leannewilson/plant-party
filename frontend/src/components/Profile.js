@@ -2,9 +2,11 @@ import { useContext, useEffect } from "react";
 import TheContext from "../TheContext";
 import xicon from "../assests/xicon.png";
 import actions from "../api";
+import { useHistory } from "react-router-dom";
 
 function Profile(props) {
   let { user, setUser } = useContext(TheContext);
+  let history = useHistory();
 
   useEffect(() => {
     console.log(user);
@@ -13,6 +15,7 @@ function Profile(props) {
   const logOut = () => {
     localStorage.removeItem("token");
     setUser(null);
+    history.push("/auth");
   };
 
   const removePlant = (favPlant) => {
