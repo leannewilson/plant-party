@@ -114,11 +114,10 @@ router.get("/all-the-posts", (req, res) => {
 
 
 // router.post("/comment", authorize, async (req, res) => {
-//   Post.update(comment).then((comment) => {
+//   Post.findByIdAndUpdate(_).then((comment) => {
 //     res.json(comment);
 //   });
 // });
-
 
 //Middle ware >>> Put this in the middle of any route where you want to authorize
 function authorize(req, res, next) {

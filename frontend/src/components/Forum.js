@@ -59,7 +59,7 @@ function Forum(props) {
         <button>comments</button>
         <div>
           <form onSubmit={sendComment}>
-            <textarea />
+            <textarea/>
             <button>send</button>
           </form>
         </div>
