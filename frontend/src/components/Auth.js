@@ -14,15 +14,17 @@ function Auth(props) {
   };
 
   return (
-    <div className="Auth">
-      <h3>Sign in with Google</h3>
-      <GoogleLogin
-        clientId={process.env.REACT_APP_GOOGLEID}
-        buttonText="Login"
-        onSuccess={responseGoogle}
-        onFailure={responseGoogle}
-        cookiePolicy={"single_host_origin"}
-      />
+    <div className="log-in">
+      <span className="Auth">
+        <h3>Please sign in to like and learn about plants!</h3>
+        <GoogleLogin
+          clientId={process.env.REACT_APP_GOOGLEID}
+          buttonText="Login"
+          onSuccess={responseGoogle}
+          onFailure={responseGoogle}
+          cookiePolicy={"single_host_origin"}
+        />
+      </span>
     </div>
   );
 }

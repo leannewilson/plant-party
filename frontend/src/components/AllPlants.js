@@ -3,10 +3,12 @@ import heartOutline from "../assests/heartOutline.png";
 import redHeart from "../assests/redHeart.png";
 import actions from "../api";
 import TheContext from "../TheContext";
+import { useHistory } from "react-router-dom";
 
 function AllPlants(props) {
   let [allPlants, setAllPlants] = useState([]);
   let { user, setUser } = useContext(TheContext);
+  let history = useHistory();
 
   useEffect(() => {
     actions.getPlantsFromServer().then((res) => {
@@ -71,10 +73,36 @@ function AllPlants(props) {
     });
   };
 
+  const ShowAllPlantsNotLoggedIn = () => {
+    return allPlants.map((eachPlant) => {
+      return (
+        <div key={eachPlant._id}>
+          <button className="like-btn">
+            <img
+              className="saved-icon"
+              src={heartOutline}
+              style={{ width: "2em" }}
+              alt="remove this plant from favorites"
+              onClick={() => history.push("/auth")}
+            />
+          </button>
+
+          <img
+            style={{ width: "100%" }}
+            className="plant-img-main"
+            src={eachPlant.image}
+            alt="green and growing"
+          />
+          {/* <h2 className='plant-name-hover'>{eachPlant.commonName}</h2> */}
+        </div>
+      );
+    });
+  };
+
   return (
     <div>
       <main>
-        <ShowAllPlants />
+        {user?.name ? <ShowAllPlants /> : <ShowAllPlantsNotLoggedIn />}
       </main>
     </div>
   );
