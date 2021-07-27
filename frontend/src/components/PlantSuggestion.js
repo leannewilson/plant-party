@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import actions from "../api";
 import suggestionBG from "../assests/suggestionBG.jpeg";
+import TheContext from "../TheContext";
 
 function PlantSuggestion(props) {
+  let { user, setUser } = useContext(TheContext);
   const [suggestion, setSuggestion] = useState("");
-  // const [allSuggestions, setAllSuggestions] = useState([]);
+  const [allSuggestions, setAllSuggestions] = useState([]);
 
   const handleChange = (e) => {
     setSuggestion(e.target.value);
@@ -20,18 +22,17 @@ function PlantSuggestion(props) {
     });
   };
 
-  // useEffect(() => {
-  //   actions.getSuggestions().then((res) => {
-  //     setAllSuggestions(res.data);
-  //   });
-  // }, []);
+  useEffect(() => {
+    actions.getSuggestions().then((res) => {
+      setAllSuggestions(res.data);
+    });
+  }, []);
 
-  // const ShowSuggestions = () => {
-  //   return allSuggestions.map((each) => {
-  //     return <div>{each.suggestion}</div>;
-  //   });
-  // };
-  // console.log("sugg", allSuggestions.suggestion);
+  const ShowSuggestions = () => {
+    return allSuggestions.map((each) => {
+      return <div>{each.suggestion}</div>;
+    });
+  };
 
   return (
     <div
@@ -69,8 +70,10 @@ function PlantSuggestion(props) {
           >
             Submit
           </button>
+          <span className="suggestion-results">
+            {user?.admin === true ? <ShowSuggestions /> : null}
+          </span>
         </form>
-        {/* <ShowSuggestions /> */}
       </div>
     </div>
   );
