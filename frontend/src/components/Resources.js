@@ -1,9 +1,28 @@
 import React from "react";
 import Maintenance from "./Maintenance";
+import blog1 from "../assests/blog1.jpg";
+import blog2 from "../assests/blog2.jpg";
+import blog3 from "../assests/blog3.jpg";
+import blog4 from "../assests/blog4.jpg";
+import blog5 from "../assests/blog5.jpg";
+import blog6 from "../assests/blog6.jpg";
 
 function Resources(props) {
   let postHeight = {
     height: "315px",
+  };
+
+  let BlogPosts = () => {
+    return (
+      <div className="blog-imgs">
+        <img className="blog-imgs" src={blog1} alt="" />
+        <img className="blog-imgs" src={blog2} alt="" />
+        <img className="blog-imgs" src={blog3} alt="" />
+        <img className="blog-imgs" src={blog4} alt="" />
+        <img className="blog-imgs" src={blog5} alt="" />
+        <img className="blog-imgs" src={blog6} alt="" />
+      </div>
+    );
   };
 
   return (
@@ -11,6 +30,7 @@ function Resources(props) {
       {/* <Maintenance /> */}
       <section className="blogs">
         <h2>BLOGS</h2>
+        {/* <BlogPosts /> */}
         <div className="blog-links">
           <a href="https://www.greenobsessions.com/">Green Obsessions</a>
           <a href="https://www.urbanjunglebloggers.com/">

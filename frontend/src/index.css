@@ -53,6 +53,7 @@ a {
 .videos-list {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 iframe {
@@ -154,7 +155,7 @@ footer a:hover {
 }
 
 .plant-img-main:hover {
-  opacity: 50%;
+  opacity: 0.5;
 }
 
 /* PLANT MAINTENANCE */
@@ -212,6 +213,31 @@ footer a:hover {
   cursor: pointer;
   overflow: hidden;
   z-index: 1;
+}
+
+/* ADD PLANT */
+
+.add-plant-form {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  margin: auto;
+  justify-content: center;
+  text-align: center;
+  width: 200px;
+  font-size: 18px;
+  font-weight: 800;
+}
+.add-plant {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 150px;
+  margin: auto;
+}
+.add-plant option {
+  text-align: center;
+  justify-content: center;
 }
 
 /* MEDIA QUERIES */
