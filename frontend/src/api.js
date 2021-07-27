@@ -56,6 +56,10 @@ const actions = {
     );
   },
 
+  getSuggestions: async () => {
+    return await axios.get(`${serverUrl}/suggestions`, createHeaders());
+  },
+
   addComment: async (comment) => {
     return await axios.post(`${serverUrl}/comment`, comment, createHeaders());
   },

@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import actions from "../api";
 import suggestionBG from "../assests/suggestionBG.jpeg";
 
 function AddPlant(props) {
   const [newPlant, setNewPlant] = useState({});
+  const [allSuggestions, setAllSuggestions] = useState([]);
 
   const handleChange = (e) => {
     let plant = { ...newPlant };
@@ -19,13 +20,30 @@ function AddPlant(props) {
     });
   };
 
+  useEffect(() => {
+    actions.getSuggestions().then((res) => {
+      setAllSuggestions(res.data);
+    });
+  }, []);
+
+  const ShowSuggestions = () => {
+    return allSuggestions.map((each) => {
+      return <div key={each._id}>{each.suggestion}</div>;
+    });
+  };
+  // console.log("sugg", allSuggestions);
+
   return (
     <div
       style={{
         backgroundImage: `url(${suggestionBG})`,
         backgroundSize: "cover",
+        display: "flex",
       }}
     >
+      <span>
+        <ShowSuggestions />
+      </span>
       <form onSubmit={handleSubmit} className="add-plant-form">
         <span>
           Names:

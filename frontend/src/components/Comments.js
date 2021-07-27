@@ -8,13 +8,11 @@ function Comments(props) {
     setComment(e.target.value);
   };
 
-  console.log(comment);
-
   const handleSubmit = (e) => {
     e.preventDefault();
     actions.addComment({ comment }).then((res) => console.log(res));
 
-    console.log("comment", comment);
+    console.log("comment:", comment);
   };
 
   return (

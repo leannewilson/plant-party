@@ -80,6 +80,13 @@ router.post("/suggestions", authorize, (req, res) => {
   });
 });
 
+router.get("/suggestions", (req, res) => {
+  Suggestion.find().then((suggestion) => {
+    res.json(suggestion);
+    // console.log(plants);
+  });
+});
+
 router.get("/get-the-user", authorize, async (req, res) => {
   let user = await User.findById(res.locals.user._id).populate("favPlants");
   res.json(user);
@@ -122,10 +129,12 @@ router.post("/comment", authorize, async (req, res) => {
       $addToSet: { comment: newComment },
     },
     { new: true }
-  ).then((post) => {
-    res.json({ post, user });
-    console.log("pie", post);
-  });
+  )
+    .populate("comment")
+    .then((post) => {
+      res.json({ post, user });
+      console.log("pie", post);
+    });
 });
 
 //Middle ware >>> Put this in the middle of any route where you want to authorize

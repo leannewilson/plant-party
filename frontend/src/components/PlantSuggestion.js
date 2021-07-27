@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import actions from "../api";
 import suggestionBG from "../assests/suggestionBG.jpeg";
 
 function PlantSuggestion(props) {
   const [suggestion, setSuggestion] = useState("");
+  // const [allSuggestions, setAllSuggestions] = useState([]);
 
   const handleChange = (e) => {
     setSuggestion(e.target.value);
@@ -18,6 +19,19 @@ function PlantSuggestion(props) {
       console.log("test suggestion");
     });
   };
+
+  // useEffect(() => {
+  //   actions.getSuggestions().then((res) => {
+  //     setAllSuggestions(res.data);
+  //   });
+  // }, []);
+
+  // const ShowSuggestions = () => {
+  //   return allSuggestions.map((each) => {
+  //     return <div>{each.suggestion}</div>;
+  //   });
+  // };
+  // console.log("sugg", allSuggestions.suggestion);
 
   return (
     <div
@@ -56,6 +70,7 @@ function PlantSuggestion(props) {
             Submit
           </button>
         </form>
+        {/* <ShowSuggestions /> */}
       </div>
     </div>
   );

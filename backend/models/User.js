@@ -7,7 +7,7 @@ const userSchema = new Schema({
   googleId: String,
   favPlants: [{ type: Schema.Types.ObjectId, ref: "Plant" }],
   admin: Boolean,
-  comment: [String],
+  comments: [String],
 });
 
 module.exports = model("User", userSchema);

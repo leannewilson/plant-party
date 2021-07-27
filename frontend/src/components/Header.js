@@ -37,7 +37,7 @@ function Header(props) {
               {user?.name ? (
                 <>
                   <Link className="nav-link" to="/Profile" className="link">
-                    <li>Profile</li>
+                    <li>Plantry</li>
                   </Link>
                 </>
               ) : (
