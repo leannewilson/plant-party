@@ -8,9 +8,7 @@ function Forum(props) {
 
   let [post, setPost] = useState("");
   let history = useHistory();
-
   let [allPosts, setAllPosts] = useState([]);
-
   let [comment, setComment] = useState([]);
 
   // SEND A POST
