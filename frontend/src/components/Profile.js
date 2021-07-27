@@ -2,9 +2,12 @@ import { useContext, useEffect } from "react";
 import TheContext from "../TheContext";
 import xicon from "../assests/xicon.png";
 import actions from "../api";
+import { useHistory } from "react-router-dom";
+import { GoogleLogout } from "react-google-login";
 
 function Profile(props) {
   let { user, setUser } = useContext(TheContext);
+  let history = useHistory();
 
   useEffect(() => {
     console.log(user);
@@ -13,6 +16,7 @@ function Profile(props) {
   const logOut = () => {
     localStorage.removeItem("token");
     setUser(null);
+    history.push("/auth");
   };
 
   const removePlant = (favPlant) => {
@@ -83,7 +87,12 @@ function Profile(props) {
           alt="google icon"
         />
         <h2>Hello, {user?.name}!</h2>
-        <button onClick={logOut}>Log out</button>
+        {/* <button onClick={logOut}>Log out</button> */}
+        <GoogleLogout
+          clientId={process.env.REACT_APP_GOOGLEID}
+          buttonText="Logout"
+          onLogoutSuccess={() => logOut()}
+        ></GoogleLogout>
       </div>
       <div className="colums">
         {user?._id ? <ShowFavPlants /> : "Please log in"}

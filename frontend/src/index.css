@@ -91,6 +91,14 @@ main {
   border-radius: 10px;
   background: #7a8b2c;
   margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.log-in {
+  height: 85vh;
 }
 
 .Footer {
@@ -199,10 +207,6 @@ footer a:hover {
   height: auto;
 }
 
-.like-btn:hover {
-  opacity: 90%;
-}
-
 /* REMOVE BUTTON */
 .remove-icon {
   position: relative;
@@ -212,7 +216,6 @@ footer a:hover {
   border: none;
   cursor: pointer;
   overflow: hidden;
-  z-index: 1;
 }
 
 /* ADD PLANT */

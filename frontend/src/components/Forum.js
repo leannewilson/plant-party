@@ -4,8 +4,7 @@ import { useHistory, Link } from "react-router-dom";
 import actions from "../api";
 
 function Forum(props) {
-  
-    // STATES
+  // STATES
 
   let [post, setPost] = useState("");
   let history = useHistory();
@@ -60,7 +59,7 @@ function Forum(props) {
         <button>comments</button>
         <div>
           <form onSubmit={sendComment}>
-            <textarea/>
+            <textarea />
             <button>send</button>
           </form>
         </div>
