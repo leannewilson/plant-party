@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
-import { useHistory, Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import actions from "../api";
+import Comments from "./Comments";
 
 function Forum(props) {
   // STATES
@@ -9,7 +9,6 @@ function Forum(props) {
   let [post, setPost] = useState("");
   let history = useHistory();
   let [allPosts, setAllPosts] = useState([]);
-  let [comment, setComment] = useState([]);
 
   // SEND A POST
   const handleChange = (e) => {
@@ -24,20 +23,12 @@ function Forum(props) {
     console.log("plant!");
   };
 
-  // ADD A COMMENT
-
-  let sendComment = async (e) => {
-    e.preventDefault();
-    let res = await actions.addComment({ comment });
-    history.push("/forum");
-    console.log("sent");
-  };
-
   // SHOW POSTS
 
-  useEffect(async () => {
-    let res = await actions.getAllPosts();
-    setAllPosts(res.data);
+  useEffect(() => {
+    actions.getAllPosts().then((res) => {
+      setAllPosts(res.data);
+    });
   }, []);
 
   let someStyling = {
@@ -50,18 +41,15 @@ function Forum(props) {
 
   const ShowPosts = () =>
     allPosts.map((eachPost) => (
-      <div style={someStyling}>
-        <p className="eachPost" key={eachPost._id}>
+      <div style={someStyling} key={eachPost._id}>
+        <p className="eachPost">
           {eachPost.post}
           <br />
           <span>{eachPost.userId?.name}</span>
         </p>
         <button>comments</button>
         <div>
-          <form onSubmit={sendComment}>
-            <textarea />
-            <button>send</button>
-          </form>
+          <Comments />
         </div>
       </div>
     ));

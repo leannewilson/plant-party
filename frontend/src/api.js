@@ -57,7 +57,7 @@ const actions = {
   },
 
   addComment: async (comment) => {
-    return await axios.post(`${serverUrl}/comment`, comment, createHeaders())
+    return await axios.post(`${serverUrl}/comment`, comment, createHeaders());
   },
 
   // getComments: async (post) => {
