@@ -35,7 +35,7 @@ function AllPlants(props) {
   const ShowButton = (props) => {
     //let likedIt = props.eachPlant.userIds.includes(user._id);
     let likedIt = user.favPlants.some(
-      (each) => each._id == props.eachPlant._id
+      (each) => each._id === props.eachPlant._id
     );
     console.log(props.eachPlant.userIds, user._id, likedIt);
     return (

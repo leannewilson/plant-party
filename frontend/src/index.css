@@ -207,10 +207,6 @@ footer a:hover {
   height: auto;
 }
 
-.like-btn:hover {
-  opacity: 90%;
-}
-
 /* REMOVE BUTTON */
 .remove-icon {
   position: relative;

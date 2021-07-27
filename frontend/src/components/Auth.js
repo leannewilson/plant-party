@@ -7,7 +7,7 @@ function Auth(props) {
   let { getTheUser } = useContext(TheContext);
 
   const responseGoogle = async (response) => {
-    // console.log(response);
+    console.log(response);
     await actions.authenticate(response.profileObj);
     await getTheUser();
     props.history.push("/profile");
