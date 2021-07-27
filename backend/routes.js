@@ -112,12 +112,21 @@ router.get("/all-the-posts", (req, res) => {
     });
 });
 
-
-// router.post("/comment", authorize, async (req, res) => {
-//   Post.findByIdAndUpdate(_).then((comment) => {
-//     res.json(comment);
-//   });
-// });
+router.post("/comment", authorize, async (req, res) => {
+  let newComment = req.body;
+  newComment.userId = res.locals.user._id;
+  console.log(newComment, newComment.userId);
+  User.findByIdAndUpdate(
+    res.locals.user._id,
+    {
+      $addToSet: { comment: newComment },
+    },
+    { new: true }
+  ).then((post) => {
+    res.json({ post, user });
+    console.log("pie", post);
+  });
+});
 
 //Middle ware >>> Put this in the middle of any route where you want to authorize
 function authorize(req, res, next) {
