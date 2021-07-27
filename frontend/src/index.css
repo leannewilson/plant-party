@@ -220,7 +220,6 @@ footer a:hover {
   border: none;
   cursor: pointer;
   overflow: hidden;
-  z-index: 1;
 }
 
 /* ADD PLANT */
