@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import TheContext from "../TheContext";
 import xicon from "../assests/xicon.png";
 import actions from "../api";
@@ -9,9 +9,9 @@ function Profile(props) {
   let { user, setUser } = useContext(TheContext);
   let history = useHistory();
 
-  useEffect(() => {
-    console.log(user);
-  }, []);
+  // useEffect(() => {
+  //   console.log(user);
+  // }, []);
 
   const logOut = () => {
     localStorage.removeItem("token");
@@ -28,7 +28,7 @@ function Profile(props) {
   };
 
   const ShowFavPlants = () => {
-    return user.favPlants.map((eachPlant) => {
+    return user.favPlants.reverse().map((eachPlant) => {
       return (
         <div className="all-details" key={eachPlant._id}>
           <div>
