@@ -49,7 +49,7 @@ function Forum(props) {
         </p>
         <button>comments</button>
         <div>
-          <Comments />
+          <Comments eachPost={eachPost}/>
         </div>
       </div>
     ));

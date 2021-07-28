@@ -83,6 +83,17 @@ main {
   margin-top: -24px;
 }
 
+.plant-name-hover{
+  color:blue;
+  display: none;
+}
+
+.plant-name-hover:hover{
+  display: block;
+}
+
+/* AUTHORIZATION */
+
 .Auth {
   border: 1px solid black;
   width: 200px;

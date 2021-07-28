@@ -4,6 +4,7 @@ const router = express.Router();
 const Plant = require("./models/Plant");
 const User = require("./models/User");
 const Post = require("./models/Post");
+const Comment = require("./models/Comment")
 const Suggestion = require("./models/Suggestion");
 /**ALL OUR BACKEND ROUTES */
 
@@ -100,7 +101,7 @@ router.post("/add-post", authorize, async (req, res) => {
   let newPost = req.body;
   newPost.userId = res.locals.user._id;
   Post.create(newPost).then((post) => {
-    res.json(post);
+    res.json(post)
   });
 });
 
@@ -115,17 +116,11 @@ router.get("/all-the-posts", (req, res) => {
 router.post("/comment", authorize, async (req, res) => {
   let newComment = req.body;
   newComment.userId = res.locals.user._id;
-  console.log(newComment, newComment.userId);
-  User.findByIdAndUpdate(
-    res.locals.user._id,
-    {
-      $addToSet: { comment: newComment },
-    },
-    { new: true }
-  ).then((post) => {
-    res.json({ post, user });
-    console.log("pie", post);
-  });
+  console.log(newComment);
+  Comment.create( newComment )
+  .then((newComment) => {
+    res.json(newComment)
+  })
 });
 
 //Middle ware >>> Put this in the middle of any route where you want to authorize

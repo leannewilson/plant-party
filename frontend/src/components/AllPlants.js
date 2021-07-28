@@ -67,7 +67,7 @@ function AllPlants(props) {
             src={eachPlant.image}
             alt="green and growing"
           />
-          {/* <h2 className='plant-name-hover'>{eachPlant.commonName}</h2> */}
+          <h2 className='plant-name-hover'>{eachPlant.commonName}</h2>
         </div>
       );
     });
@@ -93,7 +93,7 @@ function AllPlants(props) {
             src={eachPlant.image}
             alt="green and growing"
           />
-          {/* <h2 className='plant-name-hover'>{eachPlant.commonName}</h2> */}
+          <h2 className='plant-name-hover'>{eachPlant.commonName}</h2>
         </div>
       );
     });
