@@ -173,6 +173,16 @@ body {
   text-align: center;
 }
 
+.suggestion-box {
+  border: 1px solid #333333;
+  width: 200px;
+  height: 200px;
+  overflow: scroll;
+  margin: auto;
+  margin-bottom: 2em;
+  background-color: #f9f9f9;
+}
+
 .container {
   max-width: 400px;
   width: 100%;

@@ -39,7 +39,7 @@ function PlantSuggestion(props) {
   const ShowSuggestions = () => {
     return allSuggestions.map((each) => {
       return (
-        <div className="suggestion-results" key={each._id}>
+        <div key={each._id}>
           {each.suggestion}
           <button
             onClick={() => removeSuggestion(each._id)}
@@ -64,9 +64,11 @@ function PlantSuggestion(props) {
       }}
     >
       <div className="container">
-        <span className="suggestion-results">
-          {user?.admin === true ? <ShowSuggestions /> : null}
-        </span>
+        <div className="suggestion-box">
+          <span className="suggestion-results">
+            {user?.admin === true ? <ShowSuggestions /> : null}
+          </span>
+        </div>
         <form onSubmit={handleSubmit} className="suggestion_box" method="post">
           <h3>We want to keep growing!</h3>
           <h4>
