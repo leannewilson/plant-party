@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import actions from "../api";
 import suggestionBG from "../assests/suggestionBG.jpeg";
+import TheContext from "../TheContext";
 
 function PlantSuggestion(props) {
+  let { user, setUser } = useContext(TheContext);
   const [suggestion, setSuggestion] = useState("");
+  const [allSuggestions, setAllSuggestions] = useState([]);
 
   const handleChange = (e) => {
     setSuggestion(e.target.value);
@@ -19,6 +22,37 @@ function PlantSuggestion(props) {
     });
   };
 
+  useEffect(() => {
+    actions.getSuggestions().then((res) => {
+      setAllSuggestions(res.data);
+    });
+  }, []);
+
+  const removeSuggestion = (id) => {
+    actions.removeSuggestion(id).then((res) => {
+      console.log("removed");
+    });
+  };
+
+  console.log(allSuggestions);
+
+  const ShowSuggestions = () => {
+    return allSuggestions.map((each) => {
+      return (
+        <div className="suggestion-results" key={each._id}>
+          {each.suggestion}
+          <button
+            onClick={() => removeSuggestion(each._id)}
+            type="button"
+            style={{ margin: "5px" }}
+          >
+            x
+          </button>
+        </div>
+      );
+    });
+  };
+
   return (
     <div
       style={{
@@ -30,6 +64,9 @@ function PlantSuggestion(props) {
       }}
     >
       <div className="container">
+        <span className="suggestion-results">
+          {user?.admin === true ? <ShowSuggestions /> : null}
+        </span>
         <form onSubmit={handleSubmit} className="suggestion_box" method="post">
           <h3>We want to keep growing!</h3>
           <h4>

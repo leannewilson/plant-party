@@ -56,6 +56,18 @@ const actions = {
     );
   },
 
+  getSuggestions: async () => {
+    return await axios.get(`${serverUrl}/suggestions`, createHeaders());
+  },
+
+  removeSuggestion: async (suggestionID) => {
+    console.log(suggestionID);
+    return await axios.delete(
+      `${serverUrl}/suggestions?id=${suggestionID}`,
+      createHeaders()
+    );
+  },
+
   addComment: async (comment) => {
     return await axios.post(`${serverUrl}/comment`, comment, createHeaders());
   },

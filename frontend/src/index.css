@@ -7,16 +7,6 @@ body {
   overflow-x: hidden;
 }
 
-.Auth {
-  border: 1px solid black;
-  width: 200px;
-  padding: 60px;
-  color: white;
-  border-radius: 10px;
-  background: #7a8b2c;
-  margin: auto;
-}
-
 .About {
   text-align: center;
   background-image: url("http://www.greenobsessions.com/wp-content/uploads/2017/07/footer.png");
@@ -93,23 +83,26 @@ main {
 }
 
 /* AUTHORIZATION */
+/* LOG IN PAGE */
 
 .Auth {
-  border: 1px solid black;
   width: 200px;
   padding: 60px;
-  color: white;
-  border-radius: 10px;
-  background: #7a8b2c;
   margin: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
+  padding-top: 119px;
+  color: green;
 }
 
 .log-in {
-  height: 85vh;
+  background-image: url(../src/assests/loginBG.jpeg);
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position: top;
+  height: 80vh;
 }
 
 .Footer {

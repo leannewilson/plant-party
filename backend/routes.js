@@ -81,6 +81,20 @@ router.post("/suggestions", authorize, (req, res) => {
   });
 });
 
+router.get("/suggestions", (req, res) => {
+  Suggestion.find().then((suggestion) => {
+    res.json(suggestion);
+    // console.log(plants);
+  });
+});
+
+router.delete("/suggestions", authorize, (req, res) => {
+  console.log(req.body);
+  Suggestion.findByIdAndDelete(req.query.id).then((res) => {
+    res.json(res);
+  });
+});
+
 router.get("/get-the-user", authorize, async (req, res) => {
   let user = await User.findById(res.locals.user._id).populate("favPlants");
   res.json(user);
