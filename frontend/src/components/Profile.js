@@ -36,7 +36,9 @@ function Profile(props) {
               <img
                 onClick={() => removePlant(eachPlant)}
                 src={xicon}
-                style={{ width: "2em" }}
+                style={{
+                  width: "2em",
+                }}
                 alt="remove from plantry"
               />
             </button>

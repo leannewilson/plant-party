@@ -28,9 +28,28 @@ function PlantSuggestion(props) {
     });
   }, []);
 
+  const removeSuggestion = (id) => {
+    actions.removeSuggestion(id).then((res) => {
+      console.log("removed");
+    });
+  };
+
+  console.log(allSuggestions);
+
   const ShowSuggestions = () => {
     return allSuggestions.map((each) => {
-      return <div>{each.suggestion}</div>;
+      return (
+        <div className="suggestion-results" key={each._id}>
+          {each.suggestion}
+          <button
+            onClick={() => removeSuggestion(each._id)}
+            type="button"
+            style={{ margin: "5px" }}
+          >
+            x
+          </button>
+        </div>
+      );
     });
   };
 
@@ -45,6 +64,9 @@ function PlantSuggestion(props) {
       }}
     >
       <div className="container">
+        <span className="suggestion-results">
+          {user?.admin === true ? <ShowSuggestions /> : null}
+        </span>
         <form onSubmit={handleSubmit} className="suggestion_box" method="post">
           <h3>We want to keep growing!</h3>
           <h4>
@@ -70,9 +92,6 @@ function PlantSuggestion(props) {
           >
             Submit
           </button>
-          <span className="suggestion-results">
-            {user?.admin === true ? <ShowSuggestions /> : null}
-          </span>
         </form>
       </div>
     </div>
