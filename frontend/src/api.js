@@ -72,9 +72,9 @@ const actions = {
     return await axios.post(`${serverUrl}/comment`, comment, createHeaders());
   },
 
-  // getComments: async (post) => {
-  //   return await axios.get(`${serverUrl}/all-the-posts`, createHeaders());
-  // },
+  getComments: async () => {
+    return await axios.get(`${serverUrl}/comment`, createHeaders());
+  },
 
   authenticate: async (profileObj) => {
     console.log(profileObj, "profileObj");

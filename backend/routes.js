@@ -136,6 +136,12 @@ router.post("/comment", authorize, async (req, res) => {
   });
 });
 
+router.get("/comment", (req, res) => {
+  Comment.find(postId).then((comments) => {
+    res.json(comments);
+  });
+});
+
 //Middle ware >>> Put this in the middle of any route where you want to authorize
 function authorize(req, res, next) {
   let token = req.headers.authorization?.split(" ")[1]; //Token from front end

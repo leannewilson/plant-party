@@ -5,7 +5,7 @@ function Maintenance(props) {
     <div>
       <h1>Plant Parenthood 101</h1>
       <div className="plant-care">
-        <span className="plant-care-boxes">
+        <span className="plant-care-boxes plantcare-box ">
           <h3>WATER</h3>
           <p>
             <span>
@@ -27,7 +27,7 @@ function Maintenance(props) {
             once a week or so, to increase humidity levels.
           </p>
         </span>
-        <span className="plant-care-care">
+        <span className="plant-care-care plantcare-box ">
           <h3>CARE</h3>
           <p>
             <span>
@@ -51,7 +51,7 @@ function Maintenance(props) {
             months.
           </p>
         </span>
-        <span className="plant-care-boxes">
+        <span className="plant-care-boxes plantcare-box ">
           <h3>LIGHT</h3>
           <p>
             <span>
