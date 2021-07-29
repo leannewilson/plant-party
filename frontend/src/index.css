@@ -85,7 +85,7 @@ main {
   position: relative;
   bottom: 100px;
   z-index: 2;
-  margin-bottom: -40px;
+  margin-bottom: -20px;
 }
 
 .plant-img-main:hover + .hover-div {
@@ -94,9 +94,8 @@ main {
 
 .plant-img-main:hover {
   opacity: 0.5;
-  cursor:pointer;
+  /* cursor: pointer; */
 }
-
 
 /* LOG IN PAGE */
 
@@ -192,7 +191,6 @@ footer a:hover {
   text-align: center;
 }
 
-
 /* PLANT MAINTENANCE */
 .plant-care {
   display: flex;
@@ -223,6 +221,9 @@ footer a:hover {
   z-index: 1;
 }
 
+.openPlant {
+  width: 100%;
+}
 .like-btn img {
   display: block;
   height: auto;
@@ -297,6 +298,10 @@ footer a:hover {
   font-family: "Nunito";
 }
 /* FORUM COMMENT MODAL */
+
+.ReactModal__Content--after-open {
+  z-index: 100 !important;
+}
 
 /* MEDIA QUERIES */
 

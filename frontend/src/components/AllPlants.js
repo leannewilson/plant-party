@@ -6,15 +6,13 @@ import TheContext from "../TheContext";
 import { useHistory } from "react-router-dom";
 import Modal from "react-modal";
 import PlantModal from "./PlantModal";
-import openModal from './PlantModal'
-
+import openModal from "./PlantModal";
 
 function AllPlants(props) {
   let [allPlants, setAllPlants] = useState([]);
   let { user, setUser } = useContext(TheContext);
   let history = useHistory();
-
-  
+  let [showHeart, setShowHeart] = useState(true);
 
   useEffect(() => {
     actions.getPlantsFromServer().then((res) => {
@@ -45,17 +43,19 @@ function AllPlants(props) {
     );
     console.log(props.eachPlant.userIds, user._id, likedIt);
     return (
-      <img
-        className="saved-icon"
-        src={likedIt ? redHeart : heartOutline}
-        style={{ width: "2em" }}
-        alt="remove this plant from favorites"
-        onClick={
-          likedIt
-            ? () => removePlant(props.eachPlant)
-            : () => savePlant(props.eachPlant)
-        }
-      />
+      <div>
+        <img
+          // className="saved-icon"
+          src={likedIt ? redHeart : heartOutline}
+          style={{ width: "2em", display: showHeart ? "block" : "none" }}
+          alt="remove this plant from favorites"
+          onClick={
+            likedIt
+              ? () => removePlant(props.eachPlant)
+              : () => savePlant(props.eachPlant)
+          }
+        />
+      </div>
     );
   };
 
@@ -71,10 +71,12 @@ function AllPlants(props) {
             className="plant-img-main"
             src={eachPlant.image}
             alt="green and growing"
-            onClick={openModal}
+            // onClick={() => PlantModal()}
           />
+
           <div className="hover-div">
-            <h2 className="plant-name">{eachPlant.commonName}</h2>
+            {/* <h2 className="plant-name">{eachPlant.commonName}</h2> */}
+            <PlantModal {...eachPlant} setShowHeart={setShowHeart} />
           </div>
         </div>
       );
@@ -100,11 +102,12 @@ function AllPlants(props) {
             className="plant-img-main"
             src={eachPlant.image}
             alt="green and growing"
-            onClick={openModal}
+            // onClick={openModal}
           />
 
           <div className="hover-div">
-            <h2 className="plant-name">{eachPlant.commonName}</h2>
+            {/* <h2 className="plant-name">{eachPlant.commonName}</h2> */}
+            <PlantModal {...eachPlant} />
           </div>
         </div>
       );
