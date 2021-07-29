@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 import actions from "../api";
-import { Link } from "react-router-dom";
-import CommentModal from "./CommentModal";
 
 function Comments(props) {
   const [comment, setComment] = useState("");
@@ -26,45 +24,16 @@ function Comments(props) {
     });
   }, []);
 
-  console.log(allComments);
-
-  const ShowOneComment = () => {
-    return allComments.reverse().map((eachComment) => {
-      if (eachComment.postId === props.eachPost._id) {
-        return (
-          <div>
-            <span>{eachComment.comment}</span>
-            <br></br>
-            <h4 style={{ textAlign: "right" }}>-{eachComment.userId?.name}</h4>
-            {/* <h4 style={{ textAlign: "right" }}>on {eachComment.created}</h4> */}
-          </div>
-        );
-      }
-    });
-  };
-
-  const ShowAllComments = () => {
-    return allComments.reverse().map((eachComment) => {
-      if (eachComment.postId === props.eachPost._id) {
-        return (
-          <div>
-            <span>{eachComment.comment}</span>
-            <br></br>
-            <h4 style={{ textAlign: "right" }}>-{eachComment.userId?.name}</h4>
-            {/* <h4 style={{ textAlign: "right" }}>on {eachComment.created}</h4> */}
-          </div>
-        );
-      }
-    });
-  };
-
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <textarea onChange={onChange} required />
-        <button>contribute</button>
-
-        <ShowOneComment />
+        <textarea
+          className="comment-box"
+          onChange={onChange}
+          required
+          placeholder="Answer a question here"
+        />
+        <button className="view-all-comments-btn">contribute</button>
       </form>
     </div>
   );

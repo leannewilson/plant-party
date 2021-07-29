@@ -40,19 +40,15 @@ function Forum(props) {
   let someStyling = {
     width: "75%",
     padding: "10px",
-    margin: "10px auto",
+    margin: "50px auto",
     border: "2px solid black",
-    borderRadius: "0px 10px",
   };
 
   const ShowPosts = () =>
     allPosts.map((eachPost) => (
       <div style={someStyling} key={eachPost._id}>
         <p className="eachPost">
-          <h2>{eachPost.post}</h2>
-
-          <h2>{eachPost.image}</h2>
-          <br />
+          <h2 style={{ color: "#618B4A" }}>{eachPost.post}</h2>
           <span style={{ marginLeft: ".5rem" }}>
             Posted by {eachPost.userId?.name}
           </span>
@@ -60,29 +56,52 @@ function Forum(props) {
 
         <div>
           <Comments eachPost={eachPost} />
+
+          <h4
+            style={{
+              backgroundColor: "#618B4A80",
+              margin: "1em",
+              padding: "1em",
+            }}
+          >
+            {eachPost.comments?.comment}
+            <br />
+            <div style={{ textAlign: "right" }}>
+              {/* GET THE COMMENTERS NAME TO SHOW UP */}-{eachPost.userId?.name}
+            </div>
+          </h4>
           <CommentModal eachPost={eachPost} />
         </div>
       </div>
     ));
 
+  console.log(allPosts);
+
   // MAIN RETURN
 
   return (
     <div>
-      <>Create post</>
-      <form onSubmit={handleSubmit}>
-        <textarea cols="40" rows="5" onChange={handleChange} name="text" />
-        {/* <span>
-            <input
-              className="add-plant-img"
-              onChange={handleChange}
-              type="text"
-              placeholder="images"
-              name="image"
-            />
-          </span> */}
-        <button>Plant!</button>
-      </form>
+      <div className="welcome-profile welcome-banner">
+        <>Ask the plant community</>
+      </div>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
+        <form onSubmit={handleSubmit}>
+          <textarea
+            className="post-box"
+            cols="40"
+            rows="5"
+            onChange={handleChange}
+            name="text"
+            placeholder="Ask a question here"
+          />
+          <button className="view-all-comments-btn">Plant!</button>
+        </form>
+      </div>
 
       <div>
         <ShowPosts />
