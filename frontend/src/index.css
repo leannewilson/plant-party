@@ -35,6 +35,11 @@ body {
   flex-direction: column;
 }
 
+.blog-imgs {
+  height: 200px;
+  width: 200px;
+}
+
 a {
   text-decoration: none;
   color: inherit;
@@ -179,19 +184,14 @@ footer a:hover {
   flex-direction: row;
 }
 
-.plant-care-boxes {
-  width: 500px;
-  justify-content: space-around;
-  padding: 0 3em;
-}
-
-.plant-care-care {
-  width: 600px;
-}
-
-.plant-care-boxes span {
-  height: 400px;
-  align-content: stretch;
+.plantcare-box {
+  border: 1px solid #333333;
+  width: 300px;
+  height: 200px;
+  overflow: scroll;
+  margin: auto;
+  margin-bottom: 2em;
+  background-color: white;
 }
 
 /* LIKE BUTTON */

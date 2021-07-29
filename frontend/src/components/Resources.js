@@ -14,34 +14,42 @@ function Resources(props) {
 
   let BlogPosts = () => {
     return (
-      <div className="blog-imgs">
-        <img className="blog-imgs" src={blog1} alt="" />
-        <img className="blog-imgs" src={blog2} alt="" />
-        <img className="blog-imgs" src={blog3} alt="" />
-        <img className="blog-imgs" src={blog4} alt="" />
-        <img className="blog-imgs" src={blog5} alt="" />
-        <img className="blog-imgs" src={blog6} alt="" />
+      <div className="blog-imgs blog-links">
+        <h2>BLOGS</h2>
+        <span>
+          <img className="blog-imgs" src={blog1} alt="" />
+          <a href="https://www.greenobsessions.com/">Green Obsessions</a>
+        </span>
+        <span>
+          <img className="blog-imgs" src={blog2} alt="" />
+          <a href="https://www.houseplantjournal.com/">House Plant Journal</a>
+        </span>
+        <span>
+          <img className="blog-imgs" src={blog3} alt="" />
+          <a href="https://www.urbanjunglebloggers.com/">
+            Urban Jungle Bloggers
+          </a>
+        </span>
+        <span>
+          <img className="blog-imgs" src={blog4} alt="" />
+          <a href="https://www.thesill.com/">The Sill</a>
+        </span>
+        <span>
+          <img className="blog-imgs" src={blog5} alt="" />
+          <a href="https://cleverbloom.com/">Cleverbloom</a>
+        </span>
+        <span>
+          <img className="blog-imgs" src={blog6} alt="" />
+          <a href="https://thankyourgarden.com/">Thank You Garden</a>
+        </span>
       </div>
     );
   };
 
   return (
     <div className="Resources">
-      {/* <Maintenance /> */}
-      <section className="blogs">
-        <h2>BLOGS</h2>
-        {/* <BlogPosts /> */}
-        <div className="blog-links">
-          <a href="https://www.greenobsessions.com/">Green Obsessions</a>
-          <a href="https://www.urbanjunglebloggers.com/">
-            Urban Jungle Bloggers
-          </a>
-          <a href="https://www.houseplantjournal.com/">House Plant Journal</a>
-          <a href="https://www.thesill.com/">The Sill</a>
-          <a href="https://cleverbloom.com/">Cleverbloom</a>
-          <a href="https://thankyourgarden.com/">Thank You Garden</a>
-        </div>
-      </section>
+      <Maintenance />
+      <section className="blogs">{/* <BlogPosts /> */}</section>
 
       <section className="videos">
         <h2>VIDEOS</h2>

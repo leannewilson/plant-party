@@ -73,7 +73,7 @@ const actions = {
   },
 
   getComments: async () => {
-    return await axios.get(`${serverUrl}/get-comments`, createHeaders());
+    return await axios.get(`${serverUrl}/getcomments`, createHeaders());
   },
 
   authenticate: async (profileObj) => {

@@ -5,7 +5,6 @@ import Comments from "./Comments";
 
 function Forum(props) {
   // STATES
-
   let [post, setPost] = useState("");
   let history = useHistory();
   let [allPosts, setAllPosts] = useState([]);
@@ -49,13 +48,17 @@ function Forum(props) {
     allPosts.map((eachPost) => (
       <div style={someStyling} key={eachPost._id}>
         <p className="eachPost">
-          {eachPost.post}
+          <h2>{eachPost.post}</h2>
+
+          <h2>{eachPost.image}</h2>
           <br />
-          <span>{eachPost.userId?.name}</span>
+          <span style={{ marginLeft: ".5rem" }}>
+            Posted by {eachPost.userId?.name}
+          </span>
         </p>
-        <button>comments</button>
+
         <div>
-          <Comments eachPost={eachPost}/>
+          <Comments eachPost={eachPost} />
         </div>
       </div>
     ));
@@ -66,7 +69,8 @@ function Forum(props) {
     <div>
       <>Create post</>
       <form onSubmit={handleSubmit}>
-        <textarea cols="40" rows="5" onChange={handleChange} />
+        <textarea cols="40" rows="5" onChange={handleChange} name="text" />
+
         <button>Plant!</button>
       </form>
 
