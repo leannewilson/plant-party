@@ -74,20 +74,23 @@ main {
   height: auto;
   margin: 2px;
   position: relative;
-  height: auto;
   margin-top: -24px;
 }
 
-.plant-name-hover {
-  color: blue;
+.hover-div{
+  text-align: center;
   display: none;
 }
 
-.plant-name-hover:hover {
+.plant-name + .hover{
+  position: absolute;
+  bottom: 50%;
+}
+
+.plant-img-main:hover + .hover-div{
   display: block;
 }
 
-/* AUTHORIZATION */
 /* LOG IN PAGE */
 
 .Auth {

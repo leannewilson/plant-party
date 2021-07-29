@@ -6,6 +6,7 @@ function Comments(props) {
   const [comment, setComment] = useState("");
   const [allComments, setAllComments] = useState([]);
 
+
   const onChange = (e) => {
     setComment(e.target.value);
   };

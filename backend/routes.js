@@ -127,7 +127,7 @@ router.get("/all-the-posts", (req, res) => {
     });
 });
 
-router.post("/comment", authorize, async (req, res) => {
+router.post("/add-comment", authorize, async (req, res) => {
   let newComment = req.body;
   newComment.userId = res.locals.user._id;
   console.log(newComment);
@@ -141,6 +141,14 @@ router.get("/getcomments", (req, res) => {
     res.json(comments);
     console.log(comments);
   });
+});
+
+router.get("/get-comments", (req, res) => {
+  Comment.find({postId: req.body.postId})
+    //.populate("userId")
+    .then((comments) => {
+      res.json(comments, user);
+    });
 });
 
 //Middle ware >>> Put this in the middle of any route where you want to authorize
