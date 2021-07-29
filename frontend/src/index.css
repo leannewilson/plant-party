@@ -88,7 +88,7 @@ main {
   margin-bottom: -40px;
 }
 
-.plant-img-main:hover + .hover-div{
+.plant-img-main:hover + .hover-div {
   display: block;
 }
 
@@ -249,6 +249,8 @@ footer a:hover {
   text-align: center;
   justify-content: center;
 }
+
+/* FORUM COMMENT MODAL */
 
 /* MEDIA QUERIES */
 

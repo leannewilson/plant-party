@@ -64,11 +64,14 @@ function PlantSuggestion(props) {
       }}
     >
       <div className="container">
-        <div className="suggestion-box">
-          <span className="suggestion-results">
-            {user?.admin === true ? <ShowSuggestions /> : null}
-          </span>
-        </div>
+        {user?.admin === true ? (
+          <div className="suggestion-box">
+            <span className="suggestion-results">
+              <ShowSuggestions />
+            </span>
+          </div>
+        ) : null}
+
         <form onSubmit={handleSubmit} className="suggestion_box" method="post">
           <h3>We want to keep growing!</h3>
           <h4>
