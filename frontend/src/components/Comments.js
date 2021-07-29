@@ -3,6 +3,8 @@ import actions from "../api";
 
 function Comments(props) {
   const [comment, setComment] = useState("");
+  const [allComments, setAllComments] = useState([]);
+
   const onChange = (e) => {
     setComment(e.target.value);
   };
@@ -16,11 +18,22 @@ function Comments(props) {
     console.log("comment:", comment);
   };
 
+  useEffect(() => {
+    actions.getComments().then((res) => {
+      setAllComments(res.data);
+    });
+  }, []);
+
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <textarea onChange={onChange} required />
-        <button>contribute</button>
+        <textarea
+          className="comment-box"
+          onChange={onChange}
+          required
+          placeholder="Answer a question here"
+        />
+        <button className="view-all-comments-btn">contribute</button>
       </form>
     </div>
   );
