@@ -26,24 +26,7 @@ function Comments(props) {
     });
   }, []);
 
-  console.log(allComments);
-
   const ShowOneComment = () => {
-    return allComments.reverse().map((eachComment) => {
-      if (eachComment.postId === props.eachPost._id) {
-        return (
-          <div>
-            <span>{eachComment.comment}</span>
-            <br></br>
-            <h4 style={{ textAlign: "right" }}>-{eachComment.userId?.name}</h4>
-            {/* <h4 style={{ textAlign: "right" }}>on {eachComment.created}</h4> */}
-          </div>
-        );
-      }
-    });
-  };
-
-  const ShowAllComments = () => {
     return allComments.reverse().map((eachComment) => {
       if (eachComment.postId === props.eachPost._id) {
         return (
@@ -64,7 +47,7 @@ function Comments(props) {
         <textarea onChange={onChange} required />
         <button>contribute</button>
 
-        <ShowOneComment />
+        {/* <ShowOneComment /> */}
       </form>
     </div>
   );

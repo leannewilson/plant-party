@@ -51,7 +51,7 @@ function Forum(props) {
         <p className="eachPost">
           <h2>{eachPost.post}</h2>
 
-          <h2>{eachPost.image}</h2>
+          {/* <h2>{eachPost.image}</h2> */}
           <br />
           <span style={{ marginLeft: ".5rem" }}>
             Posted by {eachPost.userId?.name}
@@ -60,10 +60,17 @@ function Forum(props) {
 
         <div>
           <Comments eachPost={eachPost} />
+
+          <h2>
+            {eachPost.comments?.comment}
+            <br />-{eachPost.comments?.userId?.name}
+          </h2>
           <CommentModal eachPost={eachPost} />
         </div>
       </div>
     ));
+
+  console.log(allPosts);
 
   // MAIN RETURN
 

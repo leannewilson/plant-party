@@ -14,7 +14,7 @@ router.get("/", (req, res) => {
 
 router.post("/add-plant", (req, res) => {
   let newPlant = req.body;
-  console.log(newPlant);
+  // console.log(newPlant);
   Plant.create(newPlant).then((res) => {
     res.json(res);
   });
@@ -28,7 +28,7 @@ router.get("/getplantsfromserver", (req, res) => {
 });
 
 router.post("/savedplants", authorize, (req, res) => {
-  console.log(req.body, res.locals.user);
+  // console.log(req.body, res.locals.user);
   User.findByIdAndUpdate(
     res.locals.user._id,
     {
@@ -122,6 +122,7 @@ router.post("/add-post", authorize, async (req, res) => {
 router.get("/all-the-posts", (req, res) => {
   Post.find()
     .populate("userId")
+    .populate("comments")
     .then((posts) => {
       res.json(posts);
     });
@@ -130,9 +131,19 @@ router.get("/all-the-posts", (req, res) => {
 router.post("/add-comment", authorize, async (req, res) => {
   let newComment = req.body;
   newComment.userId = res.locals.user._id;
-  console.log(newComment);
-  Comment.create(newComment).then((newComment) => {
-    res.json(newComment);
+  console.log(newComment, req.body.postId, req.body._id);
+  Comment.create(newComment).then((comment) => {
+    Post.findByIdAndUpdate(
+      req.body.postId,
+      {
+        $addToSet: { comments: comment },
+      },
+      { new: true }
+    )
+      .populate("comments")
+      .then((newComment) => {
+        res.json(newComment);
+      });
   });
 });
 
@@ -141,7 +152,7 @@ router.get("/getcomments", (req, res) => {
     .populate("userId")
     .then((comments) => {
       res.json(comments);
-      console.log(comments);
+      // console.log(comments);
     });
 });
 
