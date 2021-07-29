@@ -72,19 +72,20 @@ main {
 
 .plant-img-main {
   height: auto;
+  width: 100%;
   margin: 2px;
   position: relative;
   margin-top: -24px;
+  bottom: 0px;
 }
 
 .hover-div {
   text-align: center;
   display: none;
-}
-
-.plant-name + .hover {
-  position: absolute;
-  bottom: 50%;
+  position: relative;
+  bottom: 100px;
+  z-index: 2;
+  margin-bottom: -40px;
 }
 
 .plant-img-main:hover + .hover-div {

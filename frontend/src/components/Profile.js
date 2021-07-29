@@ -80,6 +80,8 @@ function Profile(props) {
     });
   };
 
+  
+
   return (
     <div>
       <div className="welcome-profile">
