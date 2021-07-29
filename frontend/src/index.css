@@ -141,10 +141,14 @@ footer a:hover {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  background-color: rgb(104, 141, 12);
+  margin: 50px;
+  border-radius: 5px;
 }
 
 .welcome-profile button {
   height: 20px;
+  border-radius: 5px;
 }
 
 /* plant details */

@@ -80,14 +80,12 @@ function Profile(props) {
     });
   };
 
-  
-
   return (
     <div>
       <div className="welcome-profile">
         <img
           src={user?.imageUrl}
-          style={{ borderRadius: "5px" }}
+          style={{ padding: "10px", borderRadius: "20px" }}
           alt="google icon"
         />
         <h2>Hello, {user?.name}!</h2>

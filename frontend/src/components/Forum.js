@@ -61,10 +61,11 @@ function Forum(props) {
         <div>
           <Comments eachPost={eachPost} />
 
-          <h2>
+          <h4>
             {eachPost.comments?.comment}
-            <br />-{eachPost.comments?.userId?.name}
-          </h2>
+            <br />
+            {/* GET THE COMMENTERS NAME TO SHOW UP */}-{eachPost.userId?.name}
+          </h4>
           <CommentModal eachPost={eachPost} />
         </div>
       </div>
