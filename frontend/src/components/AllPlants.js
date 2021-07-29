@@ -64,7 +64,7 @@ function AllPlants(props) {
             style={{ width: "100%" }}
             className="plant-img-main"
             src={eachPlant.image}
-            alt="green and growing"
+            alt="green and growing" 
           />
           <div className="hover-div">
             <h2 className="plant-name">{eachPlant.commonName}</h2>
@@ -94,6 +94,9 @@ function AllPlants(props) {
             src={eachPlant.image}
             alt="green and growing"
           />
+          <div className="hover-div">
+            <h2 className="plant-name">{eachPlant.commonName}</h2>
+          </div>
         </div>
       );
     });
