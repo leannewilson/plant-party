@@ -9,7 +9,7 @@ function Forum(props) {
   let [post, setPost] = useState("");
   let history = useHistory();
   let [allPosts, setAllPosts] = useState([]);
-
+  let [allComments, setAllComments] = useState([]);
   // SEND A POST
   const handleChange = (e) => {
     setPost(e.target.value);
@@ -29,6 +29,12 @@ function Forum(props) {
     actions.getAllPosts().then((res) => {
       setAllPosts(res.data);
     });
+
+    actions.getComments().then((res) => {
+      setAllComments(res.data);
+    });
+
+    console.log(allComments)
   }, []);
 
   let someStyling = {

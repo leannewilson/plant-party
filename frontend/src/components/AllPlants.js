@@ -56,18 +56,19 @@ function AllPlants(props) {
   const ShowAllPlants = () => {
     return allPlants.map((eachPlant) => {
       return (
-        <div key={eachPlant._id}>
+        <div key={eachPlant._id} className="hover">
           <button className="like-btn">
             <ShowButton eachPlant={eachPlant} />
           </button>
-
           <img
             style={{ width: "100%" }}
             className="plant-img-main"
             src={eachPlant.image}
             alt="green and growing"
           />
-          <h2 className='plant-name-hover'>{eachPlant.commonName}</h2>
+          <div className="hover-div">
+            <h2 className="plant-name">{eachPlant.commonName}</h2>
+          </div>
         </div>
       );
     });
@@ -93,7 +94,6 @@ function AllPlants(props) {
             src={eachPlant.image}
             alt="green and growing"
           />
-          <h2 className='plant-name-hover'>{eachPlant.commonName}</h2>
         </div>
       );
     });
