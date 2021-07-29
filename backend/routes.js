@@ -136,9 +136,10 @@ router.post("/comment", authorize, async (req, res) => {
   });
 });
 
-router.get("/comment", (req, res) => {
-  Comment.find(postId).then((comments) => {
+router.get("/getcomments", (req, res) => {
+  Comment.find().then((comments) => {
     res.json(comments);
+    console.log(comments);
   });
 });
 

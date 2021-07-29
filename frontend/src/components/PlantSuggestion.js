@@ -18,7 +18,7 @@ function PlantSuggestion(props) {
     actions.saveSuggestion({ suggestion }).then((res) => {
       console.log(res);
 
-      console.log("test suggestion");
+      // console.log("test suggestion");
     });
   };
 
