@@ -39,7 +39,7 @@ function Comments(props) {
               -{props.eachPost.userId?.name}
             </h4>
             {/* <h4 style={{ textAlign: "right" }}>on {eachComment.created}</h4> */}
-            <button>{eachComment.postId.length} Comments</button>
+            <button>{eachComment.length} Comments</button>
           </div>
         );
       }
