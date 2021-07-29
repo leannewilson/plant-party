@@ -92,6 +92,12 @@ main {
   display: block;
 }
 
+.plant-img-main:hover {
+  opacity: 0.5;
+  cursor:pointer;
+}
+
+
 /* LOG IN PAGE */
 
 .Auth {
@@ -186,9 +192,6 @@ footer a:hover {
   text-align: center;
 }
 
-.plant-img-main:hover {
-  opacity: 0.5;
-}
 
 /* PLANT MAINTENANCE */
 .plant-care {
@@ -311,6 +314,11 @@ footer a:hover {
   }
   .plant-img-profile {
     padding-bottom: 0px;
+  }
+
+  .plant-care {
+    display: flex;
+    flex-direction: column;
   }
 }
 

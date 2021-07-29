@@ -8,7 +8,7 @@ function Comments(props) {
   const onChange = (e) => {
     setComment(e.target.value);
   };
-
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     actions

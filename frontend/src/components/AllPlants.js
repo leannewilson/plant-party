@@ -4,11 +4,17 @@ import redHeart from "../assests/redHeart.png";
 import actions from "../api";
 import TheContext from "../TheContext";
 import { useHistory } from "react-router-dom";
+import Modal from "react-modal";
+import PlantModal from "./PlantModal";
+import openModal from './PlantModal'
+
 
 function AllPlants(props) {
   let [allPlants, setAllPlants] = useState([]);
   let { user, setUser } = useContext(TheContext);
   let history = useHistory();
+
+  
 
   useEffect(() => {
     actions.getPlantsFromServer().then((res) => {
@@ -64,7 +70,8 @@ function AllPlants(props) {
             style={{ width: "100%" }}
             className="plant-img-main"
             src={eachPlant.image}
-            alt="green and growing" 
+            alt="green and growing"
+            onClick={openModal}
           />
           <div className="hover-div">
             <h2 className="plant-name">{eachPlant.commonName}</h2>
@@ -93,7 +100,9 @@ function AllPlants(props) {
             className="plant-img-main"
             src={eachPlant.image}
             alt="green and growing"
+            onClick={openModal}
           />
+
           <div className="hover-div">
             <h2 className="plant-name">{eachPlant.commonName}</h2>
           </div>
