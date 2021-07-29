@@ -74,10 +74,10 @@ function AllPlants(props) {
             // onClick={() => PlantModal()}
           />
 
-          <div className="hover-div">
+          <button className="hover-div">
             {/* <h2 className="plant-name">{eachPlant.commonName}</h2> */}
             <PlantModal {...eachPlant} setShowHeart={setShowHeart} />
-          </div>
+          </button>
         </div>
       );
     });
@@ -106,8 +106,7 @@ function AllPlants(props) {
           />
 
           <div className="hover-div">
-            {/* <h2 className="plant-name">{eachPlant.commonName}</h2> */}
-            <PlantModal {...eachPlant} />
+            <h2 className="plant-name">{eachPlant.commonName}</h2>
           </div>
         </div>
       );

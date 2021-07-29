@@ -34,7 +34,6 @@ function PlantModal(props) {
   }
 
   const styles = {
-    zIndex: "100000",
     height: "60%",
     backgroundColor: "green",
     top: "50%",
@@ -78,15 +77,15 @@ function PlantModal(props) {
       <button
         className="openPlant "
         onClick={openModal}
-        // style={{
-        //   background: "none",
-        //   border: "none",
-        //   fontSize: "20px",
-        //   width: "100%",
-        //   height: "auto",
-        //   // padding: "2em 0",
-        //   cursor: "pointer",
-        // }}
+        style={{
+          background: "none",
+          border: "none",
+          fontSize: "20px",
+          width: "100%",
+          height: "auto",
+          // padding: "2em 0",
+          cursor: "pointer",
+        }}
       >
         {props?.commonName}
       </button>

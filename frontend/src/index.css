@@ -85,7 +85,7 @@ main {
   position: relative;
   bottom: 100px;
   z-index: 2;
-  margin-bottom: -20px;
+  margin-bottom: -40px;
 }
 
 .plant-img-main:hover + .hover-div {
@@ -94,7 +94,7 @@ main {
 
 .plant-img-main:hover {
   opacity: 0.5;
-  /* cursor: pointer; */
+  cursor: pointer;
 }
 
 /* LOG IN PAGE */
