@@ -5,6 +5,7 @@ const commentSchema = new Schema({
   userId: { type: Schema.Types.ObjectId, ref: "User" },
   created: { type: Date, default: Date.now },
   postId: { type: Schema.Types.ObjectId, ref: "Post" },
+  image: String,
 });
 
 module.exports = model("Comment", commentSchema);

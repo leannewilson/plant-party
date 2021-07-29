@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import actions from "../api";
 import { Link } from "react-router-dom";
+import CommentModal from "./CommentModal";
 
 function Comments(props) {
   const [comment, setComment] = useState("");
   const [allComments, setAllComments] = useState([]);
-
 
   const onChange = (e) => {
     setComment(e.target.value);
@@ -28,19 +28,30 @@ function Comments(props) {
 
   console.log(allComments);
 
-  const ShowComments = () => {
+  const ShowOneComment = () => {
     return allComments.reverse().map((eachComment) => {
       if (eachComment.postId === props.eachPost._id) {
         return (
           <div>
-            <Link to="/forum"></Link>
             <span>{eachComment.comment}</span>
             <br></br>
-            <h4 style={{ textAlign: "right" }}>
-              -{props.eachPost.userId?.name}
-            </h4>
+            <h4 style={{ textAlign: "right" }}>-{eachComment.userId?.name}</h4>
             {/* <h4 style={{ textAlign: "right" }}>on {eachComment.created}</h4> */}
-            <button>{eachComment.length} Comments</button>
+          </div>
+        );
+      }
+    });
+  };
+
+  const ShowAllComments = () => {
+    return allComments.reverse().map((eachComment) => {
+      if (eachComment.postId === props.eachPost._id) {
+        return (
+          <div>
+            <span>{eachComment.comment}</span>
+            <br></br>
+            <h4 style={{ textAlign: "right" }}>-{eachComment.userId?.name}</h4>
+            {/* <h4 style={{ textAlign: "right" }}>on {eachComment.created}</h4> */}
           </div>
         );
       }
@@ -50,10 +61,10 @@ function Comments(props) {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <textarea onChange={onChange} />
-        <button>send</button>
+        <textarea onChange={onChange} required />
+        <button>contribute</button>
 
-        <ShowComments />
+        <ShowOneComment />
       </form>
     </div>
   );

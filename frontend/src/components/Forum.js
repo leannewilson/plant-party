@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import actions from "../api";
 import Comments from "./Comments";
+import CommentModal from "./CommentModal";
 
 function Forum(props) {
   // STATES
@@ -33,7 +34,7 @@ function Forum(props) {
       setAllComments(res.data);
     });
 
-    console.log(allComments)
+    console.log(allComments);
   }, []);
 
   let someStyling = {
@@ -59,6 +60,7 @@ function Forum(props) {
 
         <div>
           <Comments eachPost={eachPost} />
+          <CommentModal eachPost={eachPost} />
         </div>
       </div>
     ));
@@ -70,7 +72,15 @@ function Forum(props) {
       <>Create post</>
       <form onSubmit={handleSubmit}>
         <textarea cols="40" rows="5" onChange={handleChange} name="text" />
-
+        {/* <span>
+            <input
+              className="add-plant-img"
+              onChange={handleChange}
+              type="text"
+              placeholder="images"
+              name="image"
+            />
+          </span> */}
         <button>Plant!</button>
       </form>
 

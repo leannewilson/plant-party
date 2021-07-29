@@ -137,14 +137,16 @@ router.post("/add-comment", authorize, async (req, res) => {
 });
 
 router.get("/getcomments", (req, res) => {
-  Comment.find().then((comments) => {
-    res.json(comments);
-    console.log(comments);
-  });
+  Comment.find()
+    .populate("userId")
+    .then((comments) => {
+      res.json(comments);
+      console.log(comments);
+    });
 });
 
 router.get("/get-comments", (req, res) => {
-  Comment.find({postId: req.body.postId})
+  Comment.find({ postId: req.body.postId })
     //.populate("userId")
     .then((comments) => {
       res.json(comments, user);
