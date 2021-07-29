@@ -32,7 +32,6 @@ function CommentModal(props) {
         <h2 ref={(_subtitle) => (subtitle = _subtitle)}>
           {props.eachPost.post}
         </h2>
-
         <div>
           comments go here
           {/* {Comment()} */}
