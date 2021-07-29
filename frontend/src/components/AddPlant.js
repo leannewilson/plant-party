@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
 import actions from "../api";
-import suggestionBG from "../assests/suggestionBG.jpeg";
 import PlantSuggestion from "./PlantSuggestion";
+import { useHistory } from "react-router-dom";
 
 function AddPlant(props) {
   const [newPlant, setNewPlant] = useState({});
+  let history = useHistory();
 
   const handleChange = (e) => {
     let plant = { ...newPlant };
@@ -18,6 +19,7 @@ function AddPlant(props) {
     actions.addPlant(newPlant).then((res) => {
       console.log(res);
     });
+    history.push("/");
   };
 
   return (
