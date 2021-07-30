@@ -77,7 +77,7 @@ function PlantModal(props) {
         className="openPlant "
         onClick={openModal}
         style={{
-          display: "inline-block",
+          display: "flow-root",
           position: "relative",
           background: "none",
           border: "none",
@@ -88,7 +88,7 @@ function PlantModal(props) {
           margin: "-2em, 0",
           cursor: "pointer",
           overflowY: "hidden",
-          zIndex: "10",
+          // zIndex: "10",
         }}
       >
         {props?.commonName}
@@ -101,7 +101,11 @@ function PlantModal(props) {
         contentLabel="Example Modal"
       >
         <button
-          style={{ background: "none", border: "none", fontSize: "20px" }}
+          style={{
+            background: "none",
+            border: "none",
+            fontSize: "20px",
+          }}
           onClick={closeModal}
         >
           X

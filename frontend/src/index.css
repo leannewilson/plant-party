@@ -85,8 +85,9 @@ main {
   position: relative;
   bottom: 100px;
   z-index: 2;
-  margin-bottom: -26px;
+  margin-bottom: -25px;
   overflow-y: hidden;
+  display: ;
 }
 
 .plant-img-main:hover + .hover-div {
@@ -291,25 +292,21 @@ footer a:hover {
 
 .view-all-comments-btn {
   outline: none;
-  padding: 10px;
   font-size: 15px;
   background-color: Transparent;
   border: black 1px solid;
-  overflow: hidden;
-  margin: 5px auto;
-  display: flex;
-  font-family: "Nunito";
-}
-
-.view-all-comments-btn:hover {
-  background: #eee;
   cursor: pointer;
+  overflow: hidden;
+  margin: auto;
+  display: flex;
+  align-items: flex-end !important;
+  font-family: "Nunito";
 }
 /* FORUM COMMENT MODAL */
 
-/* .ReactModal__Content--after-open {
+.ReactModal__Content--after-open {
   z-index: 100 !important;
-} */
+}
 
 /* MEDIA QUERIES */
 

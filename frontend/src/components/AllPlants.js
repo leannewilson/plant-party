@@ -69,9 +69,11 @@ function AllPlants(props) {
             className="plant-img-main"
             src={eachPlant.image}
             alt="green and growing"
+            // onClick={() => PlantModal()}
           />
 
           <div className="hover-div">
+            {/* <h2 className="plant-name">{eachPlant.commonName}</h2> */}
             <PlantModal {...eachPlant} />
           </div>
         </div>
@@ -89,6 +91,7 @@ function AllPlants(props) {
               src={heartOutline}
               style={{ width: "2em", overflowY: "hidden" }}
               alt="remove this plant from favorites"
+              onClick={() => history.push("/auth")}
             />
           </button>
 
