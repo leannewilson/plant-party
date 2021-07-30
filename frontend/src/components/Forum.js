@@ -41,15 +41,18 @@ function Forum(props) {
     width: "75%",
     padding: "10px",
     margin: "50px auto",
-    border: "2px solid #618B4A80",
+    // border: "2px solid #618B4A80",
+    backgroundColor: "#618B4A80",
     borderRadius: '10px'
   };
+
+    // COMMENTS
 
   const ShowPosts = () =>
     allPosts.map((eachPost) => (
       <div style={someStyling} key={eachPost._id}>
         <p className="eachPost">
-          <h2 style={{ color: "#618B4A" }}>{eachPost.post}</h2>
+          <h2>{eachPost.post}</h2>
           <span style={{ marginLeft: ".5rem" }}>
             Posted by {eachPost.userId?.name}
           </span>
@@ -57,10 +60,10 @@ function Forum(props) {
 
         <div>
           <Comments eachPost={eachPost} />
-
           <h4
             style={{
-              backgroundColor: "#618B4A80",
+              // backgroundColor: "#618B4A80"
+              border: "1px dashed black",
               margin: "1em",
               padding: "1em",
             }}
@@ -77,6 +80,10 @@ function Forum(props) {
     ));
 
   console.log(allPosts);
+
+
+
+
 
   // MAIN RETURN
 
@@ -105,6 +112,9 @@ function Forum(props) {
           <button style={{marginLeft: '10px'}} className="view-all-comments-btn">Plant!</button>
         </form>
       </div>
+
+<hr style={{width: '75%', border:'0.5px solid black', marginTop:'50px'}}/>
+
       <div>
         <ShowPosts />
       </div>

@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Zen+Loop&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@700&display=swap');
 
 body {
   margin: 0;
@@ -9,17 +10,20 @@ body {
 
 .About {
   text-align: center;
-  background-image: url("http://www.greenobsessions.com/wp-content/uploads/2017/07/footer.png");
-  background-size: cover;
 }
 
 .plantMoms {
   display: flex;
   margin: auto;
-  width: 700px;
   flex-direction: row;
   justify-content: space-around;
   text-align: center;
+  padding: 10px;
+  width: 60%
+}
+
+.mom{
+  width: 40%
 }
 
 /* RESOURCES */
@@ -285,7 +289,10 @@ footer a:hover {
   display: flex;
   justify-content: center;
   font-family: "Nunito";
+  outline:none;
+  background: #eee;
 }
+
 .post-box {
   width: 90%;
   height: 80px;
@@ -307,6 +314,16 @@ footer a:hover {
   display: flex;
   align-items: flex-end !important;
   font-family: "Nunito";
+}
+
+.view-all-comments-btn:hover {
+  background: #eee;
+  cursor: pointer;
+}
+
+.eachPost h2 {
+  font-family: 'Nunito Sans';
+  font-weight: 700
 }
 /* FORUM COMMENT MODAL */
 
@@ -333,6 +350,11 @@ footer a:hover {
   }
 
   .plant-care {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .plantMoms{
     display: flex;
     flex-direction: column;
   }

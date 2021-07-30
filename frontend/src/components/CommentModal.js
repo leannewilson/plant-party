@@ -21,7 +21,7 @@ function CommentModal(props) {
         return (
           <div
             style={{
-              backgroundColor: "#618B4A80",
+              border: '1px dashed black',
               margin: "1em",
               padding: "1em",
             }}
