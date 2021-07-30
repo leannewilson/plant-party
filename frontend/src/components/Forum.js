@@ -43,10 +43,10 @@ function Forum(props) {
     margin: "50px auto",
     // border: "2px solid #618B4A80",
     backgroundColor: "#618B4A80",
-    borderRadius: '10px'
+    borderRadius: "10px",
   };
 
-    // COMMENTS
+  // COMMENTS
 
   const ShowPosts = () =>
     allPosts.map((eachPost) => (
@@ -64,8 +64,9 @@ function Forum(props) {
             style={{
               // backgroundColor: "#618B4A80"
               border: "1px dashed black",
-              margin: "1em",
+              margin: "1em auto",
               padding: "1em",
+              width: "75%",
             }}
           >
             {eachPost.comments?.comment}
@@ -81,10 +82,6 @@ function Forum(props) {
 
   console.log(allPosts);
 
-
-
-
-
   // MAIN RETURN
 
   return (
@@ -96,10 +93,12 @@ function Forum(props) {
         style={{
           display: "flex",
           justifyContent: "center",
-          
         }}
       >
-        <form onSubmit={handleSubmit} style={{ display: 'flex', alignItems: 'center'}}>
+        <form
+          onSubmit={handleSubmit}
+          style={{ display: "flex", alignItems: "center" }}
+        >
           <textarea
             className="post-box"
             cols="40"
@@ -109,11 +108,18 @@ function Forum(props) {
             placeholder="Ask a question here"
             required
           />
-          <button style={{marginLeft: '10px'}} className="view-all-comments-btn">Plant!</button>
+          <button
+            style={{ marginLeft: "10px" }}
+            className="view-all-comments-btn"
+          >
+            Plant!
+          </button>
         </form>
       </div>
 
-<hr style={{width: '75%', border:'0.5px solid black', marginTop:'50px'}}/>
+      <hr
+        style={{ width: "75%", border: "0.5px solid black", marginTop: "50px" }}
+      />
 
       <div>
         <ShowPosts />
