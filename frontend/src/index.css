@@ -231,6 +231,8 @@ footer a:hover {
 
 .openPlant:after {
   display: contents;
+  padding: 0;
+  z-index: 100;
 }
 
 .like-btn img {
