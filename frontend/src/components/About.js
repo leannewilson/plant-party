@@ -10,12 +10,13 @@ function About(props) {
     backgroundColor: "#8BA63A",
   };
 
-  let nameColor = {color:'rgb(104, 141, 12)'}
-
+  let nameColor = { color: "rgb(104, 141, 12)" };
 
   return (
     <div className="About">
-      <h4 style={{textAlign: 'center', fontStyle:'italic'}}>Two plant moms and developers from opposite sides of the country!</h4>
+      <h4 style={{ textAlign: "center", fontStyle: "italic" }}>
+        Two plant moms and developers from opposite sides of the country!
+      </h4>
       <div className="plantMoms">
         <div className="mom">
           <img src={leanne} style={styleImg} />
@@ -33,7 +34,11 @@ function About(props) {
           <h2 style={nameColor}>Myllie</h2>
           <h5>Fort Lauderdale, Florida</h5>
           <p>
-            I currently own 14 healthy plants and I'm in the process of adding more to the family! Even though I find myself running out of space, it's impossible to have too many plants. I'm in love with my snake plants, silver squill and I can't wait to see my small birds of paradise grow tall and beautiful.  
+            I currently own 14 healthy plants and I'm in the process of adding
+            more to the family! Even though I find myself running out of space,
+            it's impossible to have too many plants. I'm in love with my snake
+            plants, silver squill and I can't wait to see my small birds of
+            paradise grow tall and beautiful.
           </p>
         </div>
       </div>

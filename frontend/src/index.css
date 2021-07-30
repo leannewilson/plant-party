@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Zen+Loop&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@700&display=swap");
 
 body {
   margin: 0;
@@ -10,6 +10,7 @@ body {
 
 .About {
   text-align: center;
+  height: 81vh;
 }
 
 .plantMoms {
@@ -19,11 +20,11 @@ body {
   justify-content: space-around;
   text-align: center;
   padding: 10px;
-  width: 60%
+  width: 60%;
 }
 
-.mom{
-  width: 40%
+.mom {
+  width: 40%;
 }
 
 /* RESOURCES */
@@ -123,7 +124,7 @@ main {
   background-repeat: no-repeat;
   background-size: auto;
   background-position: top;
-  height: 80vh;
+  height: 83vh;
 }
 
 .Footer {
@@ -289,7 +290,7 @@ footer a:hover {
   display: flex;
   justify-content: center;
   font-family: "Nunito";
-  outline:none;
+  outline: none;
   background: #eee;
 }
 
@@ -322,8 +323,8 @@ footer a:hover {
 }
 
 .eachPost h2 {
-  font-family: 'Nunito Sans';
-  font-weight: 700
+  font-family: "Nunito Sans";
+  font-weight: 700;
 }
 /* FORUM COMMENT MODAL */
 
@@ -354,7 +355,7 @@ footer a:hover {
     flex-direction: column;
   }
 
-  .plantMoms{
+  .plantMoms {
     display: flex;
     flex-direction: column;
   }
