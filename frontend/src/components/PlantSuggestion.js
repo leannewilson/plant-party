@@ -61,6 +61,7 @@ function PlantSuggestion(props) {
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
         padding: "100px",
+        height: "75vh",
       }}
     >
       <div className="container">
