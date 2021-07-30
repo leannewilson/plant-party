@@ -19,7 +19,6 @@ function PlantModal(props) {
   const [modalIsOpen, setIsOpen] = React.useState(false);
 
   function openModal() {
-    props.setShowHeart(false);
     setIsOpen(true);
   }
 
@@ -29,7 +28,6 @@ function PlantModal(props) {
   }
 
   function closeModal() {
-    props.setShowHeart(true);
     setIsOpen(false);
   }
 
@@ -42,8 +40,8 @@ function PlantModal(props) {
     bottom: "auto",
     marginRight: "-50%",
     transform: "translate(-50%, -50%)",
-    zIndex: "100",
     width: "400px",
+    overflowY: "hidden",
     overlay: {
       position: "fixed",
       top: 0,
@@ -51,6 +49,7 @@ function PlantModal(props) {
       right: 0,
       bottom: 0,
       backgroundColor: "rgba(255, 255, 255, 0.75)",
+      zIndex: "100",
     },
     content: {
       position: "absolute",
@@ -67,7 +66,7 @@ function PlantModal(props) {
       padding: "20px",
       margin: "5em",
       maxWidth: "400px",
-      maxHeight: "300px",
+      maxHeight: "350px",
       margin: "auto",
     },
   };
@@ -78,13 +77,18 @@ function PlantModal(props) {
         className="openPlant "
         onClick={openModal}
         style={{
+          display: "inline-block",
+          position: "relative",
           background: "none",
           border: "none",
           fontSize: "20px",
           width: "100%",
           height: "auto",
           // padding: "2em 0",
+          margin: "-2em, 0",
           cursor: "pointer",
+          overflowY: "hidden",
+          zIndex: "10",
         }}
       >
         {props?.commonName}
@@ -96,21 +100,30 @@ function PlantModal(props) {
         style={styles}
         contentLabel="Example Modal"
       >
-        <button onClick={closeModal}>X</button>
-        <br />
-        <br />
-        <h2 ref={(_subtitle) => (subtitle = _subtitle)}>{props?.commonName}</h2>
+        <button
+          style={{ background: "none", border: "none", fontSize: "20px" }}
+          onClick={closeModal}
+        >
+          X
+        </button>
+
+        <h2 ref={(_subtitle) => (subtitle = _subtitle)}></h2>
         <div style={{ display: "flex" }}>
           <img
-            style={{ width: "200px", float: "right" }}
-            className="plant-img-main"
+            style={{
+              width: "200px",
+              float: "right",
+              overflowY: "hidden",
+              paddingRight: "1em",
+            }}
             src={props?.image}
             alt="green and growing"
           />
           <div
             className="img-description"
-            style={{ float: "left", textAlign: "left" }}
+            style={{ float: "left", textAlign: "left", overflowY: "hidden" }}
           >
+            <h3>{props?.commonName}</h3>
             Care Level: {props?.careLevel}
             <br />
             Light: {props?.light}
@@ -121,7 +134,7 @@ function PlantModal(props) {
             <br />
             Humidity: {props?.humidity}
             <br />
-            GrowthHabit: {props?.growthHabit}
+            Growth Habit: {props?.growthHabit}
             <br />
             Propagation: {props?.propagation}
             <br />

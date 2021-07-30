@@ -12,7 +12,6 @@ function AllPlants(props) {
   let [allPlants, setAllPlants] = useState([]);
   let { user, setUser } = useContext(TheContext);
   let history = useHistory();
-  let [showHeart, setShowHeart] = useState(true);
 
   useEffect(() => {
     actions.getPlantsFromServer().then((res) => {
@@ -45,9 +44,8 @@ function AllPlants(props) {
     return (
       <div>
         <img
-          // className="saved-icon"
           src={likedIt ? redHeart : heartOutline}
-          style={{ width: "2em", display: showHeart ? "block" : "none" }}
+          style={{ width: "2em" }}
           alt="remove this plant from favorites"
           onClick={
             likedIt
@@ -67,17 +65,15 @@ function AllPlants(props) {
             <ShowButton eachPlant={eachPlant} />
           </button>
           <img
-            style={{ width: "100%" }}
+            style={{ width: "100%", overflowY: "hidden" }}
             className="plant-img-main"
             src={eachPlant.image}
             alt="green and growing"
-            // onClick={() => PlantModal()}
           />
 
-          <button className="hover-div">
-            {/* <h2 className="plant-name">{eachPlant.commonName}</h2> */}
-            <PlantModal {...eachPlant} setShowHeart={setShowHeart} />
-          </button>
+          <div className="hover-div">
+            <PlantModal {...eachPlant} />
+          </div>
         </div>
       );
     });
@@ -91,7 +87,7 @@ function AllPlants(props) {
             <img
               className="saved-icon"
               src={heartOutline}
-              style={{ width: "2em" }}
+              style={{ width: "2em", overflowY: "hidden" }}
               alt="remove this plant from favorites"
               onClick={() => history.push("/auth")}
             />
@@ -106,7 +102,8 @@ function AllPlants(props) {
           />
 
           <div className="hover-div">
-            <h2 className="plant-name">{eachPlant.commonName}</h2>
+            {/* <h2 className="plant-name">{eachPlant.commonName}</h2> */}
+            <PlantModal {...eachPlant} />
           </div>
         </div>
       );
