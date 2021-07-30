@@ -16,10 +16,10 @@ import actions from "../api";
 
 function PlantModal(props) {
   let subtitle;
-  const [modalIsOpen, setIsOpen] = React.useState(false);
+  const [modalIsOpen1, setIsOpen1] = React.useState(false);
 
   function openModal() {
-    setIsOpen(true);
+    setIsOpen1(true);
   }
 
   function afterOpenModal() {
@@ -28,7 +28,7 @@ function PlantModal(props) {
   }
 
   function closeModal() {
-    setIsOpen(false);
+    setIsOpen1(false);
   }
 
   const styles = {
@@ -77,8 +77,6 @@ function PlantModal(props) {
         className="openPlant "
         onClick={openModal}
         style={{
-          display: "flow-root",
-          position: "relative",
           background: "none",
           border: "none",
           fontSize: "20px",
@@ -94,7 +92,7 @@ function PlantModal(props) {
         {props?.commonName}
       </button>
       <Modal
-        isOpen={modalIsOpen}
+        isOpen={modalIsOpen1}
         onAfterOpen={afterOpenModal}
         onRequestClose={closeModal}
         style={styles}
