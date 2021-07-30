@@ -77,6 +77,8 @@ function PlantModal(props) {
         className="openPlant "
         onClick={openModal}
         style={{
+          display: "flow-root",
+          position: "relative",
           background: "none",
           border: "none",
           fontSize: "20px",
@@ -86,7 +88,7 @@ function PlantModal(props) {
           margin: "-2em, 0",
           cursor: "pointer",
           overflowY: "hidden",
-          // zIndex: "10",
+          zIndex: "20",
         }}
       >
         {props?.commonName}

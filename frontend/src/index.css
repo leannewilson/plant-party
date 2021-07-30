@@ -87,7 +87,6 @@ main {
   z-index: 2;
   margin-bottom: -25px;
   overflow-y: hidden;
-  display: ;
 }
 
 .plant-img-main:hover + .hover-div {
@@ -227,6 +226,11 @@ footer a:hover {
 
 .openPlant {
   width: 100%;
+  z-index: 100;
+}
+
+.openPlant:after {
+  display: contents;
 }
 
 .like-btn img {
