@@ -89,7 +89,7 @@ main {
   position: relative;
   bottom: 100px;
   z-index: 2;
-  margin-bottom: -26px;
+  margin-bottom: -25px;
   overflow-y: hidden;
 }
 
@@ -230,6 +230,11 @@ footer a:hover {
 
 .openPlant {
   width: 100%;
+  z-index: 100;
+}
+
+.openPlant:after {
+  display: contents;
 }
 
 .like-btn img {
@@ -298,13 +303,14 @@ footer a:hover {
 
 .view-all-comments-btn {
   outline: none;
-  padding: 10px;
   font-size: 15px;
   background-color: Transparent;
   border: black 1px solid;
+  cursor: pointer;
   overflow: hidden;
-  margin: 5px auto;
+  margin: auto;
   display: flex;
+  align-items: flex-end !important;
   font-family: "Nunito";
 }
 
@@ -319,9 +325,9 @@ footer a:hover {
 }
 /* FORUM COMMENT MODAL */
 
-/* .ReactModal__Content--after-open {
+.ReactModal__Content--after-open {
   z-index: 100 !important;
-} */
+}
 
 /* MEDIA QUERIES */
 
