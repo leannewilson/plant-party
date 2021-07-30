@@ -72,7 +72,7 @@ function AllPlants(props) {
             // onClick={() => PlantModal()}
           />
 
-          <div className="hover-div">
+          <div onPress="{" className="hover-div">
             {/* <h2 className="plant-name">{eachPlant.commonName}</h2> */}
             <PlantModal {...eachPlant} />
           </div>

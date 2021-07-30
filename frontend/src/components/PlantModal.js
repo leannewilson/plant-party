@@ -76,6 +76,7 @@ function PlantModal(props) {
       <button
         className="openPlant "
         onClick={openModal}
+        onPress={openModal}
         style={{
           display: "flow-root",
           position: "relative",
