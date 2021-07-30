@@ -73,14 +73,9 @@ function PlantModal(props) {
 
   return (
     <div>
-      <button
-        className="openPlant"
-        onPress={openModal}
-        style={{ background: "none", border: "none" }}
-      >
+      <div onClick={openModal} style={{ background: "none" }}>
         <button
-          className="openPlant"
-          onClick={openModal}
+          className="openPlant "
           style={{
             display: "flow-root",
             position: "relative",
@@ -98,7 +93,7 @@ function PlantModal(props) {
         >
           {props?.commonName}
         </button>
-      </button>
+      </div>
       <Modal
         isOpen={modalIsOpen1}
         onAfterOpen={afterOpenModal}

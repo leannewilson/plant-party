@@ -90,7 +90,7 @@ main {
   position: relative;
   bottom: 100px;
   z-index: 2;
-  margin-bottom: -31px;
+  margin-bottom: -25px;
   overflow-y: hidden;
 }
 
@@ -232,9 +232,6 @@ footer a:hover {
 .openPlant {
   width: 100%;
   z-index: 100;
-}
-.openPlant:hover {
-  display: block;
 }
 
 .openPlant:after {
