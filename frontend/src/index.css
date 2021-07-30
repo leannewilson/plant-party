@@ -233,6 +233,9 @@ footer a:hover {
   width: 100%;
   z-index: 100;
 }
+.openPlant:hover {
+  display: block;
+}
 
 .openPlant:after {
   display: contents;
