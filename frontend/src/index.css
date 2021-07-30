@@ -291,15 +291,19 @@ footer a:hover {
 
 .view-all-comments-btn {
   outline: none;
+  padding: 10px;
   font-size: 15px;
   background-color: Transparent;
   border: black 1px solid;
-  cursor: pointer;
   overflow: hidden;
-  margin: auto;
+  margin: 5px auto;
   display: flex;
-  align-items: flex-end !important;
   font-family: "Nunito";
+}
+
+.view-all-comments-btn:hover {
+  background: #eee;
+  cursor: pointer;
 }
 /* FORUM COMMENT MODAL */
 

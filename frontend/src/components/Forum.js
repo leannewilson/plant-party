@@ -41,7 +41,8 @@ function Forum(props) {
     width: "75%",
     padding: "10px",
     margin: "50px auto",
-    border: "2px solid black",
+    border: "2px solid #618B4A80",
+    borderRadius: '10px'
   };
 
   const ShowPosts = () =>
@@ -88,9 +89,10 @@ function Forum(props) {
         style={{
           display: "flex",
           justifyContent: "center",
+          
         }}
       >
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} style={{ display: 'flex', alignItems: 'center'}}>
           <textarea
             className="post-box"
             cols="40"
@@ -98,11 +100,11 @@ function Forum(props) {
             onChange={handleChange}
             name="text"
             placeholder="Ask a question here"
+            required
           />
-          <button className="view-all-comments-btn">Plant!</button>
+          <button style={{marginLeft: '10px'}} className="view-all-comments-btn">Plant!</button>
         </form>
       </div>
-
       <div>
         <ShowPosts />
       </div>

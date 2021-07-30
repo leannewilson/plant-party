@@ -89,7 +89,6 @@ function AllPlants(props) {
               src={heartOutline}
               style={{ width: "2em", overflowY: "hidden" }}
               alt="remove this plant from favorites"
-              onClick={() => history.push("/auth")}
             />
           </button>
 
