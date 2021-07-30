@@ -31,7 +31,7 @@ function Comments(props) {
           className="comment-box"
           onChange={onChange}
           required
-          placeholder="Answer a question here"
+          placeholder="Comment here"
         />
         <button className="view-all-comments-btn">contribute</button>
       </form>

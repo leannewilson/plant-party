@@ -14,8 +14,6 @@ function AllPlants(props) {
   let { user, setUser } = useContext(TheContext);
   let history = useHistory();
 
-  
-
   useEffect(() => {
     actions.getPlantsFromServer().then((res) => {
       // console.log(res.data);
@@ -71,7 +69,6 @@ function AllPlants(props) {
             className="plant-img-main"
             src={eachPlant.image}
             alt="green and growing"
-            onClick={openModal}
           />
           <div className="hover-div">
             <h2 className="plant-name">{eachPlant.commonName}</h2>
@@ -91,7 +88,6 @@ function AllPlants(props) {
               src={heartOutline}
               style={{ width: "2em" }}
               alt="remove this plant from favorites"
-              onClick={() => history.push("/auth")}
             />
           </button>
 
