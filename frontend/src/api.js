@@ -2,7 +2,7 @@
 
 import axios from "axios";
 
-console.log(process.env);
+//console.log(process.env);
 
 const serverUrl =
   process.env.NODE_ENV === "production"

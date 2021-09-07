@@ -4,9 +4,9 @@ import redHeart from "../assests/redHeart.png";
 import actions from "../api";
 import TheContext from "../TheContext";
 import { useHistory } from "react-router-dom";
-import Modal from "react-modal";
 import PlantModal from "./PlantModal";
-import openModal from "./PlantModal";
+
+import { LazyLoadComponent } from "react-lazy-load-image-component";
 
 function AllPlants(props) {
   let [allPlants, setAllPlants] = useState([]);
@@ -40,7 +40,7 @@ function AllPlants(props) {
     let likedIt = user.favPlants.some(
       (each) => each._id === props.eachPlant._id
     );
-    console.log(props.eachPlant.userIds, user._id, likedIt);
+    //console.log(props.eachPlant.userIds, user._id, likedIt);
     return (
       <div>
         <img
@@ -69,6 +69,7 @@ function AllPlants(props) {
             className="plant-img-main"
             src={eachPlant.image}
             alt="green and growing"
+
             // onClick={() => PlantModal()}
           />
 
@@ -115,7 +116,9 @@ function AllPlants(props) {
   return (
     <div>
       <main>
+      <LazyLoadComponent>
         {user?.name ? <ShowAllPlants /> : <ShowAllPlantsNotLoggedIn />}
+        </LazyLoadComponent>
       </main>
     </div>
   );
