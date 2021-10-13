@@ -20,7 +20,7 @@ const actions = {
     try {
       return await axios.get(`${serverUrl}/get-the-user`, createHeaders());
     } catch (err) {
-      console.log(err);
+      console.log(err, "user log in");
     }
   },
 

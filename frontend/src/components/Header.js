@@ -7,10 +7,15 @@ function Header(props) {
   let { user, setUser } = useContext(TheContext);
   const ref = useRef();
 
+  // TO DO
   const getTheUser = async () => {
     try {
-      let res = await actions.getUser();
-      setUser(res.data);
+      console.log("actions.getUser()", await actions.getUser());
+      if (actions.getUser() === undefined) {
+        //TO DO - log in the user? ask the user to log in?
+        let res = await actions.getUser();
+        setUser(res.data);
+      }
     } catch (err) {
       console.log(err);
     }

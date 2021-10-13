@@ -18,10 +18,13 @@ import PlantSuggestion from "./components/PlantSuggestion";
 function App() {
   let [user, setUser] = useState({});
 
+  // TO DO
   const getTheUser = async () => {
     try {
-      let res = await actions.getUser();
-      setUser(res.data);
+      if (actions.getUser() === undefined) {
+        let res = await actions.getUser();
+        setUser(res.data);
+      }
     } catch (err) {
       console.log(err);
     }

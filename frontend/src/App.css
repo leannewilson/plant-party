@@ -1,5 +1,6 @@
 /***** nav-bar *****/
-body {
+body,
+html {
   overflow-x: hidden;
 }
 .nav-bar {
