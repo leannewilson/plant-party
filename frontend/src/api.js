@@ -2,6 +2,8 @@
 
 import axios from "axios";
 
+//console.log(process.env);
+
 const serverUrl =
   process.env.NODE_ENV === "production"
     ? "https://plant-party.herokuapp.com/api"
