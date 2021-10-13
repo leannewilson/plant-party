@@ -2,13 +2,11 @@
 
 import axios from "axios";
 
-console.log(process.env);
-
 const serverUrl =
   process.env.NODE_ENV === "production"
     ? "https://plant-party.herokuapp.com/api"
     : `http://localhost:5000/api`;
-console.log(serverUrl);
+//console.log(serverUrl);
 const createHeaders = () => {
   return {
     headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
@@ -17,7 +15,11 @@ const createHeaders = () => {
 
 const actions = {
   getUser: async () => {
-    return await axios.get(`${serverUrl}/get-the-user`, createHeaders());
+    try {
+      return await axios.get(`${serverUrl}/get-the-user`, createHeaders());
+    } catch (err) {
+      console.log(err);
+    }
   },
 
   savePlant: async (data) => {
@@ -61,7 +63,7 @@ const actions = {
   },
 
   removeSuggestion: async (suggestionID) => {
-    console.log(suggestionID);
+    //console.log(suggestionID);
     return await axios.delete(
       `${serverUrl}/suggestions?id=${suggestionID}`,
       createHeaders()
@@ -69,7 +71,11 @@ const actions = {
   },
 
   addComment: async (comment) => {
-    return await axios.post(`${serverUrl}/add-comment`, comment, createHeaders());
+    return await axios.post(
+      `${serverUrl}/add-comment`,
+      comment,
+      createHeaders()
+    );
   },
 
   getComments: async () => {
@@ -77,13 +83,13 @@ const actions = {
   },
 
   authenticate: async (profileObj) => {
-    console.log(profileObj, "profileObj");
+    //console.log(profileObj, "profileObj");
     let res = await axios.post(
       `${serverUrl}/authenticate`,
       profileObj,
       createHeaders()
     );
-    console.log(res);
+    //console.log(res);
     localStorage.setItem("token", res.data.token);
 
     return res;

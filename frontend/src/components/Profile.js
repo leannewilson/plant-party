@@ -9,10 +9,6 @@ function Profile(props) {
   let { user, setUser } = useContext(TheContext);
   let history = useHistory();
 
-  // useEffect(() => {
-  //   console.log(user);
-  // }, []);
-
   const logOut = () => {
     localStorage.removeItem("token");
     setUser(null);
@@ -21,7 +17,7 @@ function Profile(props) {
 
   const removePlant = (favPlant) => {
     actions.removePlant(favPlant).then((res) => {
-      console.log("removed", res.data, user);
+      //console.log("removed", res.data, user);
       // let newUser = { ...user };
       setUser(res.data.user);
     });

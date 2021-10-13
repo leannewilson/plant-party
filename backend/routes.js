@@ -51,7 +51,7 @@ router.post("/savedplants", authorize, (req, res) => {
 });
 
 router.post("/removeplants", authorize, (req, res) => {
-  console.log(req.body, res.locals.user);
+  //console.log(req.body, res.locals.user);
   User.findByIdAndUpdate(
     res.locals.user._id,
     {
@@ -89,13 +89,14 @@ router.get("/suggestions", (req, res) => {
 });
 
 router.delete("/suggestions", authorize, (req, res) => {
-  console.log(req.body);
+  //console.log(req.body);
   Suggestion.findByIdAndDelete(req.query.id).then((res) => {
     res.json(res);
   });
 });
 
 router.get("/get-the-user", authorize, async (req, res) => {
+  console.log(req, "this is the issue");
   let user = await User.findById(res.locals.user._id).populate("favPlants");
   res.json(user);
 });
@@ -131,7 +132,7 @@ router.get("/all-the-posts", (req, res) => {
 router.post("/add-comment", authorize, async (req, res) => {
   let newComment = req.body;
   newComment.userId = res.locals.user._id;
-  console.log(newComment, req.body.postId, req.body._id);
+  //console.log(newComment, req.body.postId, req.body._id);
   Comment.create(newComment).then((comment) => {
     Post.findByIdAndUpdate(
       req.body.postId,
@@ -174,7 +175,7 @@ function authorize(req, res, next) {
         next();
       } else {
         res.status(403).json({ message: err });
-        //throw new Error({ message: "ahhh" })
+        throw new Error({ message: "ahhh" });
       }
     });
   } else {

@@ -1,55 +1,10 @@
 import React from "react";
 import Maintenance from "./Maintenance";
-import blog1 from "../assests/blog1.jpg";
-import blog2 from "../assests/blog2.jpg";
-import blog3 from "../assests/blog3.jpg";
-import blog4 from "../assests/blog4.jpg";
-import blog5 from "../assests/blog5.jpg";
-import blog6 from "../assests/blog6.jpg";
 
 function Resources(props) {
-  let postHeight = {
-    height: "315px",
-  };
-
-  let BlogPosts = () => {
-    return (
-      <div className="blog-imgs blog-links">
-        <h2>BLOGS</h2>
-        <span>
-          <img className="blog-imgs" src={blog1} alt="" />
-          <a href="https://www.greenobsessions.com/">Green Obsessions</a>
-        </span>
-        <span>
-          <img className="blog-imgs" src={blog2} alt="" />
-          <a href="https://www.houseplantjournal.com/">House Plant Journal</a>
-        </span>
-        <span>
-          <img className="blog-imgs" src={blog3} alt="" />
-          <a href="https://www.urbanjunglebloggers.com/">
-            Urban Jungle Bloggers
-          </a>
-        </span>
-        <span>
-          <img className="blog-imgs" src={blog4} alt="" />
-          <a href="https://www.thesill.com/">The Sill</a>
-        </span>
-        <span>
-          <img className="blog-imgs" src={blog5} alt="" />
-          <a href="https://cleverbloom.com/">Cleverbloom</a>
-        </span>
-        <span>
-          <img className="blog-imgs" src={blog6} alt="" />
-          <a href="https://thankyourgarden.com/">Thank You Garden</a>
-        </span>
-      </div>
-    );
-  };
-
   return (
     <div className="Resources">
       <Maintenance />
-      <section className="blogs">{/* <BlogPosts /> */}</section>
 
       <section className="videos">
         <h2>VIDEOS</h2>
@@ -61,9 +16,9 @@ function Resources(props) {
               height="315"
               src="https://www.youtube.com/embed/Zoim8TXhzRE"
               title="YouTube video player"
-              frameborder="0"
+              frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
+              allowFullScreen
             ></iframe>
           </div>
 
@@ -74,9 +29,9 @@ function Resources(props) {
               height="315"
               src="https://www.youtube.com/embed/wicsZPtk4Bw"
               title="YouTube video player"
-              frameborder="0"
+              frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
+              allowFullScreen
             ></iframe>
           </div>
           <div>
@@ -86,9 +41,9 @@ function Resources(props) {
               height="315"
               src="https://www.youtube.com/embed/FaAU_Hxg6tU"
               title="YouTube video player"
-              frameborder="0"
+              frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
+              allowFullScreen
             ></iframe>
           </div>
           <div>
@@ -98,9 +53,9 @@ function Resources(props) {
               height="315"
               src="https://www.youtube.com/embed/Y-Tksy0g9gc"
               title="YouTube video player"
-              frameborder="0"
+              frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
+              allowFullScreen
             ></iframe>
           </div>
           <div>
@@ -110,9 +65,9 @@ function Resources(props) {
               height="315"
               src="https://www.youtube.com/embed/IiQPjZP26Gs"
               title="YouTube video player"
-              frameborder="0"
+              frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
+              allowFullScreen
             ></iframe>
           </div>
           <div>
@@ -122,9 +77,9 @@ function Resources(props) {
               height="315"
               src="https://www.youtube.com/embed/8jCULuAd_5w"
               title="YouTube video player"
-              frameborder="0"
+              frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
+              allowFullScreen
             ></iframe>
           </div>
           <div>
@@ -134,9 +89,9 @@ function Resources(props) {
               height="315"
               src="https://www.youtube.com/embed/k7Cmhrzl5jg"
               title="YouTube video player"
-              frameborder="0"
+              frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
+              allowFullScreen
             ></iframe>
           </div>
           <div>
@@ -146,9 +101,9 @@ function Resources(props) {
               height="315"
               src="https://www.youtube.com/embed/PRoHErzVPyU"
               title="YouTube video player"
-              frameborder="0"
+              frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
+              allowFullScreen
             ></iframe>
           </div>
           <div>
@@ -158,9 +113,9 @@ function Resources(props) {
               height="315"
               src="https://www.youtube.com/embed/oOo9p9lO2TA"
               title="YouTube video player"
-              frameborder="0"
+              frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
+              allowFullScreen
             ></iframe>
           </div>
         </div>

@@ -4,9 +4,7 @@ import redHeart from "../assests/redHeart.png";
 import actions from "../api";
 import TheContext from "../TheContext";
 import { useHistory } from "react-router-dom";
-import Modal from "react-modal";
 import PlantModal from "./PlantModal";
-import openModal from "./PlantModal";
 
 function AllPlants(props) {
   let [allPlants, setAllPlants] = useState([]);
@@ -22,15 +20,14 @@ function AllPlants(props) {
 
   const savePlant = (favPlant) => {
     actions.savePlant(favPlant).then((res) => {
-      console.log("added", res.data);
+      //console.log("added", res.data);
       setUser(res.data.user);
     });
   };
 
   const removePlant = (favPlant) => {
     actions.removePlant(favPlant).then((res) => {
-      console.log("removed", res.data, user, setUser);
-      // let newUser = { ...user };
+      //console.log("removed", res.data, user, setUser);
       setUser(res.data.user);
     });
   };
@@ -40,7 +37,7 @@ function AllPlants(props) {
     let likedIt = user.favPlants.some(
       (each) => each._id === props.eachPlant._id
     );
-    console.log(props.eachPlant.userIds, user._id, likedIt);
+    //console.log(props.eachPlant.userIds, user._id, likedIt);
     return (
       <div>
         <img
@@ -72,8 +69,7 @@ function AllPlants(props) {
             // onClick={() => PlantModal()}
           />
 
-          <div onPress="{" className="hover-div">
-            {/* <h2 className="plant-name">{eachPlant.commonName}</h2> */}
+          <div className="hover-div">
             <PlantModal {...eachPlant} />
           </div>
         </div>
@@ -100,7 +96,6 @@ function AllPlants(props) {
             className="plant-img-main"
             src={eachPlant.image}
             alt="green and growing"
-            // onClick={openModal}
           />
 
           <div className="hover-div">

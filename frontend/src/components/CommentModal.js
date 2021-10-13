@@ -2,36 +2,55 @@ import React, { useState, useEffect } from "react";
 import actions from "../api";
 import Modal from "react-modal";
 import Comments from "./Comments";
-import Forum from "./Forum";
 
 function CommentModal(props) {
   let subtitle;
   const [modalIsOpen, setIsOpen] = React.useState(false);
   const [allComments, setAllComments] = useState([]);
 
-  useEffect(() => {
-    actions.getComments().then((res) => {
+  // which useEffect is better????
+
+  // useEffect(() => {
+  //   actions.getComments().then((res) => {
+  //     setAllComments(res.data);
+  //   });
+  // }, [props, allComments]);
+
+  const getTheComments = async () => {
+    try {
+      let res = await actions.getComments();
       setAllComments(res.data);
-    });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  useEffect(() => {
+    getTheComments();
   }, []);
 
   const ShowAllComments = () => {
+    //console.log(allComments);
     return allComments.reverse().map((eachComment) => {
       if (eachComment.postId === props.eachPost._id) {
         return (
           <div
+            key={eachComment._id}
             style={{
-              border: '1px dashed black',
+              border: "1px dashed black",
               margin: "1em",
               padding: "1em",
             }}
           >
-            <span>{eachComment.comment}</span>
+            <ul>
+              <li className="forum-modal-comments">{eachComment.comment}</li>
+            </ul>
+
             <h4 style={{ textAlign: "right" }}>-{eachComment.userId?.name}</h4>
-            {/* <h4 style={{ textAlign: "right" }}>on {eachComment.created}</h4> */}
           </div>
         );
       }
+      return null;
     });
   };
 
@@ -42,6 +61,7 @@ function CommentModal(props) {
   function afterOpenModal() {
     // references are now sync'd and can be accessed.
     subtitle.style.color = "#618B4A";
+    setIsOpen(true);
   }
 
   function closeModal() {
@@ -58,6 +78,7 @@ function CommentModal(props) {
         onAfterOpen={afterOpenModal}
         onRequestClose={closeModal}
         contentLabel="Example Modal"
+        ariaHideApp={false}
         style={{
           overlay: {
             position: "fixed",
@@ -80,7 +101,6 @@ function CommentModal(props) {
             borderRadius: "4px",
             outline: "none",
             padding: "20px",
-            margin: "5em",
             maxWidth: "500px",
             margin: "auto",
           },
@@ -93,9 +113,9 @@ function CommentModal(props) {
         <div>
           <ShowAllComments />
         </div>
-        <form>
+        <div>
           <Comments />
-        </form>
+        </div>
       </Modal>
     </div>
   );

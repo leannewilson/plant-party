@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import actions from "../api";
 import PlantSuggestion from "./PlantSuggestion";
 import { useHistory } from "react-router-dom";
@@ -15,7 +15,7 @@ function AddPlant(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("added", newPlant);
+    //console.log("added", newPlant);
     actions.addPlant(newPlant).then((res) => {
       console.log(res);
     });

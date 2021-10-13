@@ -5,43 +5,41 @@ import Comments from "./Comments";
 import CommentModal from "./CommentModal";
 
 function Forum(props) {
-  // STATES
   let [post, setPost] = useState("");
   let history = useHistory();
   let [allPosts, setAllPosts] = useState([]);
-  let [allComments, setAllComments] = useState([]);
+
   // SEND A POST
   const handleChange = (e) => {
     setPost(e.target.value);
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
-    let res = await actions.addPost({ post });
+    actions.addPost({ post });
     history.push("/forum");
-    console.log("plant!");
+    //console.log("plant!", res);
+  };
+
+  const getThePost = async () => {
+    try {
+      let res = await actions.getAllPosts();
+      setAllPosts(res.data);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   // SHOW POSTS
-
   useEffect(() => {
-    actions.getAllPosts().then((res) => {
-      setAllPosts(res.data);
-    });
-
-    actions.getComments().then((res) => {
-      setAllComments(res.data);
-    });
-
-    console.log(allComments);
+    getThePost();
   }, []);
 
   let someStyling = {
     width: "75%",
     padding: "10px",
     margin: "50px auto",
-    // border: "2px solid #618B4A80",
     backgroundColor: "#618B4A80",
     borderRadius: "10px",
   };
@@ -51,36 +49,37 @@ function Forum(props) {
   const ShowPosts = () =>
     allPosts.map((eachPost) => (
       <div style={someStyling} key={eachPost._id}>
-        <p className="eachPost">
+        <div className="eachPost">
           <h2>{eachPost.post}</h2>
           <span style={{ marginLeft: ".5rem" }}>
             Posted by {eachPost.userId?.name}
           </span>
-        </p>
+        </div>
 
         <div>
           <Comments eachPost={eachPost} />
-          <h4
-            style={{
-              // backgroundColor: "#618B4A80"
-              border: "1px dashed black",
-              margin: "1em auto",
-              padding: "1em",
-              width: "75%",
-            }}
-          >
-            {eachPost.comments?.comment}
-            <br />
-            <div style={{ textAlign: "right" }}>
-              {/* GET THE COMMENTERS NAME TO SHOW UP */}-{eachPost.userId?.name}
-            </div>
-          </h4>
+        </div>
+        <div
+          style={{
+            border: "1px dashed black",
+            margin: "1em auto",
+            padding: "1em",
+            width: "75%",
+          }}
+        >
+          {eachPost.comments?.comment}
+        </div>
+        <br />
+        <div style={{ textAlign: "right" }}>
+          {/* GET THE COMMENTERS NAME TO SHOW UP */}-{eachPost.userId?.name}
+        </div>
+        <div>
           <CommentModal eachPost={eachPost} />
         </div>
       </div>
     ));
 
-  console.log(allPosts);
+  //console.log(allPosts);
 
   // MAIN RETURN
 
@@ -120,7 +119,6 @@ function Forum(props) {
       <hr
         style={{ width: "75%", border: "0.5px solid black", marginTop: "50px" }}
       />
-
       <div>
         <ShowPosts />
       </div>

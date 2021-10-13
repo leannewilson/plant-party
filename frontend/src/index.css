@@ -285,7 +285,7 @@ footer a:hover {
 .comment-box {
   width: 50%;
   height: 80px;
-  margin: auto;
+  margin: 20px auto;
   font-size: 15px;
   display: flex;
   justify-content: center;
@@ -327,6 +327,10 @@ footer a:hover {
   font-weight: 700;
 }
 /* FORUM COMMENT MODAL */
+
+.forum-modal-comments {
+  list-style-type: none;
+}
 
 .ReactModal__Content--after-open {
   z-index: 100 !important;

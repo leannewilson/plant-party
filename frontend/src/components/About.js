@@ -19,7 +19,7 @@ function About(props) {
       </h4>
       <div className="plantMoms">
         <div className="mom">
-          <img src={leanne} style={styleImg} />
+          <img src={leanne} style={styleImg} alt="Leanne on a boat" />
           <h2 style={nameColor}>Leanne</h2>
           <h5>San Diego, California</h5>
           <p>
@@ -30,7 +30,7 @@ function About(props) {
           </p>
         </div>
         <div className="mom">
-          <img src={myllie} style={styleImg} />
+          <img src={myllie} style={styleImg} alt="Myllie and plants" />
           <h2 style={nameColor}>Myllie</h2>
           <h5>Fort Lauderdale, Florida</h5>
           <p>

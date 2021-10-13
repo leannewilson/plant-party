@@ -7,7 +7,7 @@ function Maintenance(props) {
       <div className="plant-care">
         <span className="plant-care-boxes plantcare-box ">
           <h3>WATER</h3>
-          <p>
+          <div>
             <span>
               Dipping your finger regularly in the top layer of soil is the best
               way to monitor the watering needs of your plant. Note that
@@ -25,11 +25,11 @@ function Maintenance(props) {
             <hr></hr>
             MISTING Spritz your plants using a spray bottle filled with water
             once a week or so, to increase humidity levels.
-          </p>
+          </div>
         </span>
         <span className="plant-care-care plantcare-box ">
           <h3>CARE</h3>
-          <p>
+          <div>
             <span>
               General plant maintenance means regularly checking in on your
               foliage friends to ensure good health.
@@ -49,11 +49,11 @@ function Maintenance(props) {
             cactus) and keep in mind that plants bought fresh from us or the
             nursery are full of nutrients and won't require fertilising for 6-12
             months.
-          </p>
+          </div>
         </span>
         <span className="plant-care-boxes plantcare-box ">
           <h3>LIGHT</h3>
-          <p>
+          <div>
             <span>
               Be aware that light conditions will vary from season to season.
               Repositioning plants accordingly to ensure that their light needs
@@ -68,7 +68,7 @@ function Maintenance(props) {
             <hr></hr>
             BRIGHT, DIRECT Enjoys bright light and will tolerate and appreciate
             direct morning sun.
-          </p>
+          </div>
         </span>
       </div>
     </div>

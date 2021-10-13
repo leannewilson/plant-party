@@ -19,8 +19,12 @@ function App() {
   let [user, setUser] = useState({});
 
   const getTheUser = async () => {
-    let res = await actions.getUser();
-    setUser(res.data);
+    try {
+      let res = await actions.getUser();
+      setUser(res.data);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   useEffect(() => {

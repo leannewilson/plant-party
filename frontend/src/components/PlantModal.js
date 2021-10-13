@@ -1,18 +1,5 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import Modal from "react-modal";
-import actions from "../api";
-
-// const customStyles = {
-//   content: {
-//     top: '50%',
-//     left: '50%',
-//     right: 'auto',
-//     bottom: 'auto',
-//     marginRight: '-50%',
-//     transform: 'translate(-50%, -50%)',
-//   },
-// };
 
 function PlantModal(props) {
   let subtitle;
@@ -24,7 +11,7 @@ function PlantModal(props) {
 
   function afterOpenModal() {
     // references are now sync'd and can be accessed.
-    subtitle.style.color = "#f00";
+    subtitle.style.color = "#00000";
   }
 
   function closeModal() {
@@ -64,7 +51,6 @@ function PlantModal(props) {
       borderRadius: "4px",
       outline: "none",
       padding: "20px",
-      margin: "5em",
       maxWidth: "400px",
       maxHeight: "350px",
       margin: "auto",
@@ -84,7 +70,6 @@ function PlantModal(props) {
             fontSize: "20px",
             width: "100%",
             height: "auto",
-            // padding: "2em 0",
             margin: "-2em, 0",
             cursor: "pointer",
             overflowY: "hidden",
@@ -100,6 +85,7 @@ function PlantModal(props) {
         onRequestClose={closeModal}
         style={styles}
         contentLabel="Example Modal"
+        ariaHideApp={false}
       >
         <button
           style={{
@@ -112,7 +98,6 @@ function PlantModal(props) {
           X
         </button>
 
-        <h2 ref={(_subtitle) => (subtitle = _subtitle)}></h2>
         <div style={{ display: "flex" }}>
           <img
             style={{
@@ -120,6 +105,7 @@ function PlantModal(props) {
               float: "right",
               overflowY: "hidden",
               paddingRight: "1em",
+              paddingTop: "1em",
             }}
             src={props?.image}
             alt="green and growing"
@@ -128,7 +114,9 @@ function PlantModal(props) {
             className="img-description"
             style={{ float: "left", textAlign: "left", overflowY: "hidden" }}
           >
-            <h3>{props?.commonName}</h3>
+            <h3 ref={(_subtitle) => (subtitle = _subtitle)}>
+              {props?.commonName}
+            </h3>
             Care Level: {props?.careLevel}
             <br />
             Light: {props?.light}

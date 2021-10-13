@@ -6,15 +6,20 @@ import actions from "../api";
 function Header(props) {
   let { user, setUser } = useContext(TheContext);
   const ref = useRef();
-  // const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const getTheUser = async () => {
-    let res = await actions.getUser();
-    setUser(res.data);
+    try {
+      let res = await actions.getUser();
+      setUser(res.data);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   useEffect(() => {
     getTheUser();
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -36,7 +41,7 @@ function Header(props) {
               </Link>
               {user?.name ? (
                 <>
-                  <Link className="nav-link" to="/Profile" className="link">
+                  <Link className="nav-link link" to="/Profile">
                     <li>Plantry</li>
                   </Link>
                 </>

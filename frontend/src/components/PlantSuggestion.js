@@ -4,7 +4,7 @@ import suggestionBG from "../assests/suggestionBG.jpeg";
 import TheContext from "../TheContext";
 
 function PlantSuggestion(props) {
-  let { user, setUser } = useContext(TheContext);
+  let { user } = useContext(TheContext);
   const [suggestion, setSuggestion] = useState("");
   const [allSuggestions, setAllSuggestions] = useState([]);
 
@@ -14,7 +14,7 @@ function PlantSuggestion(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(suggestion);
+    //console.log(suggestion);
     actions.saveSuggestion({ suggestion }).then((res) => {
       console.log(res);
 
@@ -34,7 +34,7 @@ function PlantSuggestion(props) {
     });
   };
 
-  console.log(allSuggestions);
+  //console.log(allSuggestions);
 
   const ShowSuggestions = () => {
     return allSuggestions.map((each) => {
@@ -83,7 +83,7 @@ function PlantSuggestion(props) {
 
           <textarea
             placeholder="Plant your ideas here"
-            tabindex="5"
+            tabIndex="5"
             name="suggestion_text"
             required
             onChange={handleChange}
